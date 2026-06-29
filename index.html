@@ -665,7 +665,13 @@ main{padding-bottom:96px}
 .reel-baked .reel-info{top:66px;bottom:auto}
 .reel-baked .reel-top{height:230px}
 .reel-baked .reel-bot{display:none}
+/* per-clip: this baked reel keeps its name block at the very bottom, below the burned-in caption */
+.reel-info-bottom .reel-info{top:auto;bottom:20px}
+.reel-info-bottom .reel-bot{display:block}
 .reel-end .btn.block{width:100%;max-width:300px}
+.reel-end-nav{display:flex;gap:10px;width:100%;max-width:300px}
+.reel-back,.reel-next{flex:1;padding:12px 14px;border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.06);color:#fff;font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.reel-next{background:rgba(255,255,255,.16)}
 .reel-replay{margin-top:6px;background:none;border:none;color:rgba(255,255,255,.8);font:inherit;font-size:14px;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
 @media (prefers-reduced-motion:reduce){
   .wphoto{animation:none}
@@ -869,6 +875,23 @@ main{padding-bottom:96px}
 .cdir-row:active{color:var(--green)}
 .cdir-arr{flex:none;color:var(--faint);display:inline-flex}
 .cdir-arr svg{width:17px;height:17px}
+.cdir-parents{display:flex;flex-direction:column;gap:9px}
+.cdir-prow{display:flex;align-items:flex-start;gap:11px;padding:13px 14px 14px;border:1px solid var(--line);border-left:3px solid var(--line);border-radius:var(--r);background:#fff;-webkit-tap-highlight-color:transparent;transition:transform .15s var(--ease),box-shadow .2s var(--ease)}
+.cdir-prow:active{transform:scale(.985)}
+@media(hover:hover){.cdir-prow:hover{box-shadow:0 16px 32px -24px rgba(20,32,80,.5)}}
+.cdir-prow.g{border-left-color:var(--green)}.cdir-prow.b{border-left-color:var(--blue)}.cdir-prow.o{border-left-color:var(--orange)}.cdir-prow.p{border-left-color:#7b54c4}.cdir-prow.n{border-left-color:#2f9c8a}
+.cdir-prow-tx{flex:1;min-width:0}
+.cdir-prow-nm{display:block;font-family:var(--fd);font-weight:500;font-size:var(--fs-h4);line-height:1.16;letter-spacing:-.01em;color:var(--ink)}
+.cdir-inc{display:grid;grid-template-columns:1fr 1fr;gap:7px 16px;margin-top:12px}
+.cdir-inc span{position:relative;padding-left:14px;font-size:11.5px;line-height:1.34;color:var(--ink2)}
+.cdir-inc span:before{content:'';position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:var(--faint)}
+.cdir-prow.g .cdir-inc span:before{background:var(--green)}
+.cdir-prow.b .cdir-inc span:before{background:var(--blue)}
+.cdir-prow.o .cdir-inc span:before{background:var(--orange)}
+.cdir-prow.p .cdir-inc span:before{background:#7b54c4}
+.cdir-prow.n .cdir-inc span:before{background:#2f9c8a}
+.cdir-prow .cdir-arr{margin-top:4px}
+.cdir-prow:active .cdir-prow-nm{color:var(--green)}
 /* smart search results */
 .cres-wrap{display:none;margin-top:16px}
 @keyframes cresup{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
@@ -1363,6 +1386,71 @@ main{padding-bottom:96px}
 .ph-li.green i{background:var(--green)} .ph-li.amber i{background:#f3bf2d}
 .ph-bar{height:13px;border-radius:4px;background:#fdf3d1;border:1px solid #efd684}
 
+/* ===== Kinetic Age app: capability showcase (Component B) + /app page ===== */
+.app-stage{position:relative;display:flex;align-items:center;justify-content:center;gap:18px;
+  margin:22px 0 8px;padding:30px 18px;border-radius:24px;overflow:hidden;
+  background:radial-gradient(120% 95% at 50% -6%,#edf3fd,#dfe9f8 58%,#d2e0f3);border:1px solid #d6e2f4}
+.app-stage:before{content:'';position:absolute;right:-32px;top:-46px;width:170px;height:170px;border-radius:50%;
+  background:radial-gradient(circle,rgba(33,63,153,.12),transparent 70%)}
+.app-stage.scroll-row{justify-content:flex-start;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory}
+.app-stage.scroll-row::-webkit-scrollbar{height:0}
+.app-stage.scroll-row .afone{scroll-snap-align:center}
+/* fan: a hero phone centred, two screens angled and tucked behind on each side */
+.app-stage.fan{gap:0;padding:40px 4px 30px}
+.app-stage.fan .afone:nth-child(1){transform:scale(.76) rotate(-9deg) translateX(40px);transform-origin:bottom right;z-index:1;margin-right:-70px;box-shadow:0 18px 38px -24px rgba(14,24,56,.5)}
+.app-stage.fan .afone:nth-child(2){transform:translateY(-8px) scale(1.03);z-index:3}
+.app-stage.fan .afone:nth-child(3){transform:scale(.76) rotate(9deg) translateX(-40px);transform-origin:bottom left;z-index:1;margin-left:-70px;box-shadow:0 18px 38px -24px rgba(14,24,56,.5)}
+.afone{position:relative;z-index:1;flex:none;width:178px;height:362px;border-radius:32px;background:#0e1838;padding:7px;
+  box-shadow:0 30px 60px -26px rgba(14,24,56,.72),0 0 0 1px rgba(255,255,255,.06)}
+.af-scr{position:relative;width:100%;height:100%;border-radius:26px;background:var(--bg);overflow:hidden;
+  display:flex;flex-direction:column;gap:8px;padding:14px 12px}
+.af-top{display:flex;align-items:baseline;justify-content:space-between}
+.af-top b{font-family:var(--fd);font-weight:560;font-size:16px;color:var(--ink)}
+.af-top span{font-size:10px;color:var(--faint);font-weight:600}
+.af-ring{position:relative;width:74px;height:74px;margin:2px auto 0}
+.af-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.af-ring b{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--fd);font-weight:600;font-size:17px;color:var(--ink)}
+.af-cap{text-align:center;font-size:9.5px;color:var(--muted);font-weight:600;margin-top:-2px}
+.af-row{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:600;color:var(--ink);
+  background:#fff;border:1px solid var(--line);border-radius:10px;padding:7px 9px}
+.af-row i{width:8px;height:8px;border-radius:50%;flex:none}
+.af-row em{margin-left:auto;font-style:normal;font-size:9.5px;color:var(--muted);font-weight:600}
+.af-row.g i{background:var(--green)} .af-row.a i{background:#f3bf2d} .af-row.b i{background:var(--blue)}
+.af-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 9px}
+.af-lbl{display:block;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:700;margin-bottom:6px}
+.af-streak{display:flex;gap:4px}
+.af-streak i{flex:1;height:15px;border-radius:4px;background:#e7eef4}
+.af-streak i.on{background:linear-gradient(180deg,var(--green),#34b187)}
+.af-spark{display:flex;align-items:flex-end;gap:3px;height:26px}
+.af-spark i{flex:1;border-radius:3px 3px 0 0;background:linear-gradient(180deg,var(--blue),#7d94de)}
+.af-plan{display:flex;flex-direction:column;gap:5px}
+.af-pday{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:600;color:var(--ink2)}
+.af-pday span{width:20px;color:var(--faint);font-size:8.5px}
+.af-pday b{flex:1;font-weight:600;height:13px;border-radius:4px}
+.af-pday .e{background:#dff0e9}.af-pday .n{background:#fdeccf}.af-pday .d{background:#e2e8fa}
+.appfeat{margin-top:18px;list-style:none;padding:0;display:flex;flex-direction:column;gap:14px}
+.appfeat .af{display:flex;flex-direction:row;align-items:center;gap:12px}
+.af-ic{flex:none;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:var(--blue);color:#fff}
+.af-ic svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.af-ic.g{background:var(--green)}.af-ic.o{background:var(--orange-ink)}.af-ic.p{background:#7b54c4}
+.appfeat .af p{font-size:var(--fs-sm);line-height:1.42;color:var(--muted);margin:0}
+.appfeat .af p b{font-weight:600;color:var(--ink)}
+.appshow-link{margin-top:18px}
+.appnote{display:flex;align-items:flex-start;gap:12px;margin-top:18px;padding:13px 15px;border-radius:16px;
+  background:linear-gradient(135deg,#eef4fd,#e3edfa);border:1px solid #d9e4f5}
+.appnote-ic{flex:none;width:38px;height:38px;border-radius:11px;background:var(--blue);color:#fff;display:grid;place-items:center}
+.appnote-ic svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.appnote-tx{flex:1;min-width:0}
+.appnote-tx p{font-size:var(--fs-sm);line-height:1.42;color:var(--ink2);margin:0}
+.appnote-tx .link{margin-top:9px}
+.fapp{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.foot .fapp a{display:inline-flex;align-items:center;gap:9px;padding:9px 14px;border-radius:12px;
+  background:#0e1838;color:#fff;border:1px solid rgba(255,255,255,.12)}
+.fapp svg{width:20px;height:20px;flex:none;fill:currentColor}
+.fapp a span{display:flex;flex-direction:column;line-height:1.12;color:#fff}
+.fapp a i{font-style:normal;font-size:8.5px;letter-spacing:.05em;text-transform:uppercase;opacity:.72}
+.fapp a b{font-size:13px;font-weight:600}
+
 /* step 04 — reporting & transparency: a dedicated WhatsApp group for you + family */
 .jw-wa{max-width:320px;margin:16px auto 0;border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--line);
   box-shadow:0 1px 2px rgba(20,32,107,.04),0 20px 40px -30px rgba(20,32,107,.5)}
@@ -1774,13 +1862,22 @@ main{padding-bottom:96px}
 .popc.g{--ln:#1f8c6a}.popc.b{--ln:#213f99}.popc.o{--ln:#cf5a34}.popc.p{--ln:#7b54c4}.popc.n{--ln:#13265a}
 /* Condition page — pillar links (quiet, not pills) */
 .pillar-links{display:flex;flex-direction:column;gap:12px;margin-top:18px}
+/* condition page: per-pillar 'how each part helps' rows */
+.treat-list{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.treat-row{display:block;position:relative;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 42px 14px 15px;text-decoration:none;transition:border-color .18s var(--ease),transform .18s var(--ease),box-shadow .18s var(--ease)}
+.treat-row .tn{display:block;font-family:var(--fd);font-weight:500;font-size:var(--fs-h4);letter-spacing:-.01em;color:var(--ink)}
+.treat-row .tl{display:block;margin-top:3px;font-size:var(--fs-sm);line-height:1.5;color:var(--ink2)}
+.treat-row .ta{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--faint);display:inline-flex}
+.treat-row .ta svg{width:18px;height:18px}
+.treat-row:active{transform:scale(.99)}
+@media(hover:hover){.treat-row:hover{border-color:var(--blue);box-shadow:0 16px 32px -24px rgba(20,32,80,.5)}.treat-row:hover .ta{color:var(--blue)}}
 /* Condition page — the "shift" note (compact, not a big heading) */
 .shift{margin:0;font-size:var(--fs-sm);line-height:1.5;color:var(--ink2);font-weight:500;padding:13px 15px;border-left:3px solid var(--green);background:rgba(31,140,106,.06);border-radius:0 12px 12px 0}
 /* Condition page — proof fallback (no video) */
 .proof-fallback{position:relative;margin-top:16px;padding:24px 20px;border-radius:var(--r);background:linear-gradient(150deg,#eaf5ef,#e0eef6);border:1px solid var(--line)}
 .proof-fallback .pf-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:rgba(31,140,106,.14);color:var(--green);margin-bottom:14px}
 .proof-fallback .pf-mark svg{width:20px;height:20px}
-/* About — Bangalore coverage map */
+/* About — coverage map */
 .bmap{position:relative;margin-top:16px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:linear-gradient(160deg,#eef5fb,#e2edf6);padding:12px}
 .bmap svg{width:100%;height:auto;display:block}
 .bm-halo{transform-box:fill-box;transform-origin:center;animation:bmPulse 3.2s var(--ease) infinite;animation-delay:calc(var(--i)*.16s)}
@@ -1891,7 +1988,7 @@ var wa=function(t){return WA+encodeURIComponent(t)};
 var lc=function(s){return s.charAt(0).toLowerCase()+s.slice(1)};
 
 var PILLARS=[
- {slug:'physiotherapy',name:'Physiotherapy',photo:'physio-scene.png',imgAlt:'A Kinetic Age physiotherapist treating a senior at home in Bangalore.',blurb:'We come to your home, ease your pain, and help you move with ease again.',who:'[PLACEHOLDER] For older adults with joint pain, stiffness, or recovery needs.',conditions:['knee-pain','post-stroke-recovery','balance-and-falls'],
+ {slug:'physiotherapy',name:'Physiotherapy',photo:'physio-scene.png',imgAlt:'A Kinetic Age physiotherapist treating a senior at home.',blurb:'We come to your home, ease your pain, and help you move with ease again.',who:'[PLACEHOLDER] For older adults with joint pain, stiffness, or recovery needs.',conditions:['knee-pain','post-stroke-recovery','balance-and-falls'],
   provide:{intro:'We bring physiotherapy to your home and shape it around you.',points:[
    'We come to your home to analyse your condition and give you a clear report',
    'We build a plan around your condition and your pace',
@@ -1911,13 +2008,13 @@ var PILLARS=[
     {lane:'p',label:'Mental wellness',text:'A calm, motivated mind helps you stay with your plan and keep going.',to:'/services/mental-wellness',link:'Emotional wellbeing'},
     {lane:'n',label:'Doctor oversight',text:'A doctor watches the full picture, so your therapy fits the rest of your health.',to:'/services/doctor-oversight',link:'Doctor oversight'}]},proof:'knee-pain',
   faqs:[
-   {q:'How does physiotherapy at home work?',a:'Your physiotherapist comes to you with everything needed for the session. They work with your body in your own space, using your bed, a chair, or the floor, so the treatment fits your home and your routine. You get the same care as a clinic, in the place you are most comfortable.'},
-   {q:'Is physiotherapy safe to do at home?',a:'Yes. Every session is run by a qualified physiotherapist who works to what your body can handle that day. Care at home is often safer, you are in a familiar space with no travel to tire you before or after.'},
-   {q:'Who delivers it, and are they qualified?',a:'A licensed physiotherapist, part of a trained team of 45 and growing. Every provider is qualified and verified, because letting someone into your home takes trust.'},
-   {q:'Do I need a doctor’s referral to start?',a:'No referral needed. You can start with a free trial, and our own doctor reviews your health to decide what would help, including what you do not need.'},
-   {q:'How many sessions will I need?',a:'It depends on your condition and how you respond. After the first visit, your physiotherapist gives you a realistic picture, and your plan is updated as you improve rather than fixed in advance.'}
+   {q:'Can physiotherapy at home work as well as a clinic?',a:'Yes. Our physiotherapist brings the same treatment to your home, with a plan built around your space and no travel to tire you. For most people, physiotherapy at home works as well as a clinic and is easier to keep up.'},
+   {q:'Can physiotherapy reduce knee and joint pain instead of surgery?',a:'For many people, yes. Guided physiotherapy, the right exercises, and support from the rest of your care can ease knee and joint pain and reduce the need for surgery.'},
+   {q:'Is physiotherapy at home safe for seniors?',a:'Yes. Every session runs at the pace your body can handle that day, guided by a qualified physiotherapist. Care at home keeps you in a familiar space and rested, which often makes it safer.'},
+   {q:'How many physiotherapy sessions will I need?',a:'It depends on your condition and how you respond. After the first visit, your physiotherapist gives you a realistic picture, and your plan adjusts as you improve.'},
+   {q:'How much does home physiotherapy cost?',a:'Care is priced by your plan, built after a free assessment. The first visit is free, so you can see what would help before you decide.'}
   ]},
- {slug:'strength-training',name:'Physical training',photo:'training-scene.png',imgAlt:'A Kinetic Age trainer guiding a senior through exercise at home in Bangalore.',blurb:'We build your strength at home with gentle work that keeps you steady, strong, and able to do more on your own.',who:'[PLACEHOLDER] For older adults who feel weak, tire quickly, or fear falling.',conditions:['balance-and-falls','knee-pain'],
+ {slug:'strength-training',name:'Physical training',photo:'training-scene.png',imgAlt:'A Kinetic Age trainer guiding a senior through exercise at home.',blurb:'We build your strength at home with gentle work that keeps you steady, strong, and able to do more on your own.',who:'[PLACEHOLDER] For older adults who feel weak, tire quickly, or fear falling.',conditions:['balance-and-falls','knee-pain'],
   provide:{intro:'We bring training to your home and match it to what your body can do.',points:[
    'We check your strength, balance, and movement first',
    'We build a plan that fits your body and your pace',
@@ -1937,12 +2034,13 @@ var PILLARS=[
     {lane:'b',label:'Doctor oversight',text:'A doctor clears you for the right level of training, so you build strength safely.',to:'/services/doctor-oversight',link:'Doctor oversight'}]},
   wa:{line:'See how we build your strength safely, what your plan would include, and how our care works together. We will send it on WhatsApp.',msg:'Hi, can you send me the full training plan?'},
   faqs:[
-   {q:'Is strength training safe at my age?',a:'Yes. Training is built around what your body can handle and runs at your pace, guided by a trained professional. For most older adults, regular strength work makes daily life easier and falls less likely.'},
-   {q:'Who guides my training, and are they qualified?',a:'A qualified trainer, part of a trained team of 45 and growing. Every provider is verified, because your safety is in their hands.'},
-   {q:'Do I need any equipment or a gym?',a:'Your trainer works with your body and your space at home, so everything you need is already there.'},
-   {q:'Do I need a doctor’s referral to start?',a:'You can start straight away with a free trial, and the doctor reviews your health to decide the right level of training.'}
+   {q:'Is strength training safe for seniors at home?',a:'Yes. Training is built around what your body can handle and runs at your pace, guided by a qualified trainer. For most older adults, regular strength work makes daily life easier and falls less likely.'},
+   {q:'Can exercise improve balance and help prevent falls?',a:'Yes. The right balance and strength exercises rebuild steadiness and confidence, and many people lower their fall risk with a guided plan at home.'},
+   {q:'Do I need a gym or equipment for home training?',a:'Your trainer works with your body and your space at home, so everything you need is already there.'},
+   {q:'Can training help me recover strength after an illness?',a:'Yes. A guided plan rebuilds the strength an illness or rest has taken, step by step, so you get back to doing more on your own.'},
+   {q:'Who guides my training, and are they qualified?',a:'A qualified trainer, part of a trained team of 45 and growing. Your care team is verified, because your safety is in their hands.'}
   ]},
- {slug:'nutrition',name:'Nutrition',photo:'nutrition-scene.png',svcImg:'svc-nutrition.png',imgAlt:'A Kinetic Age nutritionist planning meals with a senior in Bangalore.',blurb:'We build your food plan around your body and your conditions, and guide it as you go.',who:'[PLACEHOLDER] For older adults managing diabetes, weight, or low appetite.',conditions:['knee-pain','post-stroke-recovery'],
+ {slug:'nutrition',name:'Nutrition',photo:'nutrition-scene.png',svcImg:'svc-nutrition.png',imgAlt:'A Kinetic Age nutritionist planning meals with a senior at home.',blurb:'We build your food plan around your body and your conditions, and guide it as you go.',who:'[PLACEHOLDER] For older adults managing diabetes, weight, or low appetite.',conditions:['knee-pain','post-stroke-recovery'],
   provide:{intro:'We build your nutrition care around how you live.',points:[
    'We study your body, your conditions, and what you eat',
    'We build a food plan that fits your routine and your taste',
@@ -1962,11 +2060,12 @@ var PILLARS=[
     {lane:'n',label:'Doctor oversight',text:'A doctor reads your reports and adjusts your plan as your condition changes.',to:'/services/doctor-oversight',link:'Doctor oversight'}]},
   wa:{line:'See how we treat your condition with food, what your plan would include, and how our care works together. We will send it on WhatsApp.',msg:'Hi, can you send me the full nutrition plan?'},
   faqs:[
-   {q:'Can the right food really improve my condition?',a:'Yes. For conditions like diabetes, blood pressure, and cholesterol, food is one of the strongest tools you have, and many people see real change with the right plan. Results depend on your full health picture.'},
-   {q:'Who makes my plan, and are they qualified?',a:'A qualified nutritionist, part of a trained team of 45 and growing. Every provider is verified, because your health is in their hands.'},
-   {q:'Do I need a doctor’s referral to start?',a:'You can start straight away with a free trial, and our own doctor reviews your health to decide what would help.'},
-   {q:'Will I have to give up the foods I love?',a:'We build the plan around your taste and the food you already cook, so you keep eating what you know, adjusted to do your body good.'}]},
- {slug:'mental-wellness',name:'Emotional wellbeing',photo:'emotional-scene.png',svcImg:'svc-emotional.png',imgAlt:'A Kinetic Age counsellor talking with a senior in Bangalore.',blurb:'We give you someone to talk to and steady support, so your mind feels as cared for as your body.',who:'[PLACEHOLDER] For older adults feeling low, anxious, or withdrawn, and the families who notice it.',conditions:['post-stroke-recovery','balance-and-falls'],
+   {q:'Can a nutrition plan help manage diabetes?',a:'Yes. For diabetes, food is one of the strongest tools you have, and a plan built around your body and routine can help manage blood sugar. Many people see real change with the right plan.'},
+   {q:'Can the right diet lower blood pressure and cholesterol?',a:'For many people, yes. A nutrition plan matched to your reports can help bring blood pressure and cholesterol into a healthier range, alongside the rest of your care.'},
+   {q:'Who makes my nutrition plan, and are they qualified?',a:'A qualified nutritionist, part of a trained team of 45 and growing. Your care team is verified, because your health is in their hands.'},
+   {q:'Will I have to give up the foods I love?',a:'The plan is built around your taste and your kitchen, so you keep eating food you know, adjusted to do your body good.'},
+   {q:'How does a home nutrition plan work?',a:'A nutritionist studies your body, your conditions, and what you eat, then builds a plan that fits your routine. You follow it at home and track your meals in the app, with the plan adjusting as your reports change.'}]},
+ {slug:'mental-wellness',name:'Emotional wellbeing',photo:'emotional-scene.png',svcImg:'svc-emotional.png',imgAlt:'A Kinetic Age counsellor talking with a senior at home.',blurb:'We give you someone to talk to and steady support, so your mind feels as cared for as your body.',who:'[PLACEHOLDER] For older adults feeling low, anxious, or withdrawn, and the families who notice it.',conditions:['post-stroke-recovery','balance-and-falls'],
   provide:{intro:'We give you steady support and a safe space to open up.',points:[
    'We listen to how you feel, at your own pace',
    'We help you work through worry, low moods, and loneliness',
@@ -1987,12 +2086,13 @@ var PILLARS=[
     {lane:'p',label:'Doctor oversight',text:'A doctor sees how your mind and body affect each other, and cares for both together.',to:'/services/doctor-oversight',link:'Doctor oversight'}]},
   wa:{line:'See how we support your mind, what your plan would include, and how our care works together. We will send it on WhatsApp.',msg:'Hi, can you send me the full wellbeing plan?'},
   faqs:[
-   {q:'How can talking really help?',a:'Talking to a trained counsellor helps you make sense of what you feel, ease the weight of it, and find steadier ground. For many people, having someone to listen makes a real difference to daily life.'},
-   {q:'Who will I be talking to, and are they qualified?',a:'A qualified counsellor, part of a trained team of 45 and growing. Every provider is verified, because what you share stays in trusted hands.'},
+   {q:'Can counselling help with loneliness in older adults?',a:'Yes. Talking to a trained counsellor eases loneliness and gives you steady support, and for many older adults it makes daily life feel lighter.'},
+   {q:'How does emotional support at home work?',a:'A counsellor visits your home, where you feel safe to open up, and works with how you feel at your own pace. The support fits alongside the rest of your care.'},
+   {q:'Who will I be talking to, and are they qualified?',a:'A qualified counsellor, part of a trained team of 45 and growing. Your care team is verified, because what you share stays in trusted hands.'},
    {q:'Will what I share stay private?',a:'Yes. What you share with your counsellor is kept private, so you can speak freely and at your own pace.'},
-   {q:'Do I need a doctor’s referral to start?',a:'You can start straight away with a free trial, and the doctor reviews your health to decide what would help.'}
+   {q:'Can therapy help with stress from a long illness?',a:'Yes. Living with a long illness carries real stress, and steady support helps you carry it, alongside the care for your body.'}
   ]},
- {slug:'doctor-oversight',name:'Doctor oversight',photo:'doctor-scene.png',imgAlt:'A Kinetic Age doctor reviewing a senior’s care plan in Bangalore.',blurb:'We put a doctor across your whole health to guide your care, so every part of your plan fits together.',who:'[PLACEHOLDER] For anyone who wants one accountable medical view of their care.',conditions:['knee-pain','post-stroke-recovery','balance-and-falls'],
+ {slug:'doctor-oversight',name:'Doctor oversight',photo:'doctor-scene.png',imgAlt:'A Kinetic Age doctor reviewing a senior’s care plan at home.',blurb:'We put a doctor across your whole health to guide your care, so every part of your plan fits together.',who:'[PLACEHOLDER] For anyone who wants one accountable medical view of their care.',conditions:['knee-pain','post-stroke-recovery','balance-and-falls'],
   provide:{intro:'We put a doctor at the centre of your care, guiding every part of it.',points:[
    'We review your full health, your reports, and your daily plan',
    'We decide what genuinely helps you, so your plan stays focused on what works',
@@ -2013,10 +2113,11 @@ var PILLARS=[
     {lane:'p',label:'Emotional wellbeing',text:'The doctor sees the whole person, so the stress and worry behind your health is cared for too.',to:'/services/mental-wellness',link:'Emotional wellbeing'}]},
   wa:{line:'See how a doctor would guide your care, what your plan would include, and how our team works together. We will send it on WhatsApp.',msg:'Hi, can you send me the full care plan?'},
   faqs:[
-   {q:'What does the doctor actually do?',a:'The doctor reviews your health, sets the direction for your care, and decides what genuinely helps you, including what you can skip. They guide the team and adjust your plan as your health changes.'},
-   {q:'Is this a replacement for my regular doctor?',a:'Our doctor guides your care and works alongside your existing treatment, so you keep the doctor you already see.'},
-   {q:'Are your doctors qualified?',a:'Yes. Care is guided by qualified doctors, part of a trained team of 45 and growing. Every provider is verified, because your health is in their hands.'},
-   {q:'Do I need a referral to start?',a:'You can start straight away with a free trial, and the doctor reviews your health to decide what would help.'}]}
+   {q:'What does a doctor do in home care?',a:'The doctor reviews your full health, sets the direction for your care, and decides what genuinely helps you, including what you can skip. They guide the team and adjust your plan as your health changes.'},
+   {q:'Can a doctor manage more than one condition together?',a:'Yes. When you live with more than one condition, a doctor seeing the whole picture keeps your care connected, so each part of your plan fits the rest of your health.'},
+   {q:'Is this a replacement for my regular doctor?',a:'Our doctor guides the care we deliver at home and works alongside your existing treatment, so you keep the doctor you already see.'},
+   {q:'How does doctor-led home care work?',a:'A doctor reviews your reports and daily plan, then guides your physiotherapist, trainer, and nutritionist as one team. You can see your vitals, reports, and reminders in the app.'},
+   {q:'Are your doctors qualified?',a:'Yes. Care is guided by qualified doctors, part of a trained team of 45 and growing, and your care team is verified.'}]}
 ];
 var CONDITIONS=[
  {slug:'knee-pain',name:'Knee pain',symptom:'Knee pain that cuts the walk short',intro:'[PLACEHOLDER] When the knees hurt, the whole day shrinks. Here is what is usually going on, and what helps.',
@@ -2160,15 +2261,23 @@ var COND_DIR=[
  {c:'womens',n:'Pelvic floor dysfunction'},
  {c:'womens',n:'Pelvic organ prolapse'}
 ];
-var HOME_FAQS=[{q:'[PLACEHOLDER] How does the first visit work?',a:'[PLACEHOLDER]'},{q:'[PLACEHOLDER] Who are the providers?',a:'[PLACEHOLDER]'},{q:'[PLACEHOLDER] Do you come to our home?',a:'[PLACEHOLDER]'},{q:'[PLACEHOLDER] What does it cost?',a:'[PLACEHOLDER]'},{q:'[PLACEHOLDER] What if my parent is reluctant?',a:'[PLACEHOLDER]'}];
-var CONDITIONS_FAQS=[{q:'Which conditions do you treat?',a:'[PLACEHOLDER]'},{q:'Do you provide care at home?',a:'[PLACEHOLDER]'},{q:'Which areas in Bangalore do you serve?',a:'[PLACEHOLDER]'},{q:'How do I start, and what is the free trial?',a:'[PLACEHOLDER]'}];
+var CITIES_LINE='We serve homes across India&rsquo;s major cities, including Bengaluru, Mumbai, Delhi, Hyderabad, Pune, Chennai, Kolkata, Ahmedabad, Jaipur, and Surat, with every visit at home. Share your area when you book and we will confirm.';
 var HOME_FAQS=[
- {q:'How do I get started?',a:'You start with a free trial. A specialist visits your home, sees what you need, and tells you what would help. You decide where to go from there.'},
- {q:'What areas in Bangalore do you serve?',a:'We serve homes across all of Bangalore, with every visit at home. Share your area when you book and we will confirm.'},
- {q:'Are your providers qualified and verified?',a:'Yes. Every provider is qualified and verified, part of a trained team of 45 and growing, because letting someone into your home takes trust.'},
+ {q:'What does Kinetic Age do?',a:'Kinetic Age brings complete senior care to your home. Physiotherapy, training, nutrition, emotional wellbeing, and a doctor work together as one plan, so your whole health is looked after in one place.'},
+ {q:'Which conditions do you treat at home?',a:'We treat knee pain, arthritis, back pain, diabetes, blood pressure, balance and falls, stroke recovery, and more. We treat your condition and everything connected to it.'},
+ {q:'What areas do you serve?',a:CITIES_LINE},
  {q:'Do I have to take all five services?',a:'You take only what helps you. A doctor reviews your health and decides what genuinely fits, including what you can skip.'},
- {q:'Can my family stay updated on the care?',a:'Yes. You get progress updates on WhatsApp and the app, so the whole family can follow along, even from another city.'}];
-var HOW_FAQS=[{q:'[PLACEHOLDER] What happens in the assessment?',a:'[PLACEHOLDER]'},{q:'How quickly can I start?',a:'[PLACEHOLDER]'},{q:'[PLACEHOLDER] What is in the family report?',a:'[PLACEHOLDER]'},{q:'[PLACEHOLDER] How often will we hear from you?',a:'[PLACEHOLDER]'},{q:'[PLACEHOLDER] Can we change the plan later?',a:'[PLACEHOLDER]'},{q:'[PLACEHOLDER] Who do we contact between sessions?',a:'[PLACEHOLDER]'}];
+ {q:'Can my family track the care from another city?',a:'Yes. You get progress updates, reports, and reminders in the Kinetic Age app, so your family can follow along from anywhere.'}];
+var CONDITIONS_FAQS=[
+ {q:'Which conditions can be treated at home?',a:'Many conditions respond well to care at home, including knee pain, arthritis, back pain, diabetes, blood pressure, balance problems, and stroke recovery. We treat your condition and how it connects to the rest of your health.'},
+ {q:'Can these conditions improve with therapy and daily care?',a:'For many people, yes. The right mix of therapy, exercise, nutrition, and a doctor guiding the plan can ease symptoms and improve daily life. Results depend on your full health picture.'},
+ {q:'How do I know which condition I have?',a:'A 2-minute quiz can help you understand what is behind your symptoms, and a free home assessment gives you a clear answer from a specialist.'},
+ {q:'Can you treat more than one condition at once?',a:'Yes. Many people we care for live with more than one condition, and we treat them together as one connected plan rather than one problem at a time.'}];
+var HOW_FAQS=[
+ {q:'What happens in a home care assessment?',a:'A specialist visits your home and looks at your full health, how you move, your conditions, and your routine. You get a clear picture of what is going on and what would help. The first visit is free.'},
+ {q:'Who comes to my home, and how often?',a:'A qualified member of your care team, matched to your plan, the same familiar faces each time. How often depends on your plan, set with you after the assessment and adjusted as you progress.'},
+ {q:'Can my family stay involved in the care?',a:'Yes. Your family can follow your progress in the app, see your reports, and stay in touch with the team, even from another city.'},
+ {q:'What happens after the free trial?',a:'After the trial you decide. If you continue, the doctor and team build your full plan and begin regular visits, at the pace that suits you.'}];
 var TESTIMONIALS=[
 {slug:'strength-training',name:'Sandeep Lakhwara',age:70,her:'his',label:'Strength training',storyLen:'0:37',lane:'green',video:'ka-testimonial-2.mp4',bakedCC:true,poster:'sandeep-poster2.png',
  metric:{k:'Sit-to-stands',before:'5',after:'15',delta:'3&times;'},
@@ -2182,7 +2291,7 @@ var TESTIMONIALS=[
  pull:'I walk to the temple every morning now, twenty steps at a time.',
  lead:{name:'Khushi Kinkhabwala',role:'Physiotherapist &amp; Geriatric Exercise Specialist'},leadIdx:0,leadPhoto:'khushi.jpeg',
  team:['Physiotherapy','Strength','Nutrition','Emotional wellbeing','Doctor oversight']},
-{slug:'post-stroke-recovery',name:'Mani Gopal',age:79,her:'his',label:'Post-stroke',storyLen:'0:58',lane:'',video:'ka-testimonial-3.mp4',bakedCC:true,poster:'mani-poster.jpg',
+{slug:'post-stroke-recovery',name:'Mani Gopal',age:79,her:'his',label:'Post-stroke',storyLen:'0:58',lane:'',video:'ka-testimonial-3.mp4',bakedCC:true,infoBottom:true,poster:'mani-poster.jpg',
  metric:{k:'Walking distance',before:'25m',after:'300m',delta:'12&times;'},
  quote:'I am happy with how I am recovering. A few months ago I could barely stand on my own, and now I am walking again.',
  pull:'A few months ago I could barely stand, now I am walking again.',
@@ -2232,7 +2341,7 @@ var PROVIDERS=[
  {name:'Dr. K. Md. Ashfaqullah',role:'Senior physiotherapist / Rehab specialist',exp:'14 years',specList:['Orthopaedic Rehabilitation','Neurological Rehabilitation','Geriatric Fitness & Rehabilitation','Pre- & Post-Operative Rehabilitation'],lane:'g',photo:'ashfaqullah-dr.png?v=1'},
  {name:'Seema',role:'Emotional wellbeing',edu:'MSc Psychology',exp:'8 years',specList:['Geriatric Mental Health','Anxiety & Depression Support','Cognitive Wellness','Caregiver Counselling'],lane:'p',photo:'seema-dr.png?v=2'}
 ];
-var ONBOARDING=[{t:'[PLACEHOLDER] Tell us what is going on',d:'[PLACEHOLDER] A short call or quiz to understand your situation, for you or a parent.'},{t:'[PLACEHOLDER] Home assessment',d:'[PLACEHOLDER] A provider visits and assesses in person.'},{t:'[PLACEHOLDER] You get a plan',d:'[PLACEHOLDER] A doctor-reviewed plan and a report for you and your family.'},{t:'[PLACEHOLDER] Ongoing sessions',d:'[PLACEHOLDER] Regular visits with progress you can see.'}];
+var ONBOARDING=[{t:'[PLACEHOLDER] Tell us what is going on',d:'[PLACEHOLDER] A short call or quiz to understand your situation, for you or a parent.'},{t:'[PLACEHOLDER] Home assessment',d:'[PLACEHOLDER] A care team member visits and assesses in person.'},{t:'[PLACEHOLDER] You get a plan',d:'[PLACEHOLDER] A doctor-reviewed plan and a report for you and your family.'},{t:'[PLACEHOLDER] Ongoing sessions',d:'[PLACEHOLDER] Regular visits with progress you can see.'}];
 var JOURNEY=[
  {n:'01',node:'',short:'Assessment',mini:'An <em>at-home</em> assessment to understand the full picture',title:'A thorough assessment, and your report',
   lead:'We begin with a deep, in-person assessment, then send you a clear report of exactly where you stand.',
@@ -2260,7 +2369,7 @@ var CASE_STUDIES=[
   summary:'A woman in her early 60s from North Bangalore had lived with knee pain in both knees for two decades, alongside shoulder pain and a thyroid condition.',
   situation:['Pain in both knees, lived with for 20 years','Left shoulder pain','Thyroid condition, high blood pressure, and high cholesterol','Postural imbalance and weakness across the quads, glutes, core, and shoulder'],
   did:['Mobility and flexibility training to free up the knees and shoulder','Strength and balance training to support the joints','Pain management and rehab for the knees and shoulder','A personalised nutrition plan for thyroid, blood pressure, and cholesterol, followed throughout'],
-  outcome:'After seven months she feels a steady difference and is continuing the programme. Her physiotherapy and service ratings were full marks.',
+  outcome:'Seven months in, the knee pain she carried for two decades is <strong>easing</strong>, her knees and shoulder <strong>move more freely</strong>, and she feels a <strong>steady improvement</strong> she wants to keep building on.',
   scores:'Physio 5/5 &middot; Customer service 5/5 &middot; Overall 5/5',
   quote:'I&rsquo;ve been with Kinetic Age for seven months now and I&rsquo;m happy with the service. My physio is excellent and sessions are always on time. My knee pain is still there, but I can feel some improvement and I&rsquo;m sticking with it.',attr:'Client, summarised from CSAT call',
   tags:['Knee pain','Shoulder rehab','Thyroid','Hypertension','Home physiotherapy']},
@@ -2270,7 +2379,7 @@ var CASE_STUDIES=[
   summary:'A man in his late 80s came to Kinetic Age after a hip replacement, with multi-joint pain and a cardiac history that needed careful, low-impact rehab.',
   situation:['Recovery needed after a hip replacement','Multi-joint pain across knees, shoulders, and lower back','A cardiac history that required gentle pacing every session','High risk of losing strength given his age and surgery'],
   did:['Mobility and flexibility training to restore range','Gentle strength and balance work to rebuild stability','Pain management and rehab matched to surgical recovery','A nutrition plan supporting healing and heart health','The whole programme delivered safely at home'],
-  outcome:'He regained confidence and function, with sessions running their full duration and the team in regular touch.',
+  outcome:'After a hip replacement at 85, he is <strong>walking again at home</strong>, has <strong>rebuilt strength and stability</strong> across the joints that hurt, and moves with the <strong>confidence</strong> he had lost.',
   scores:'Physio 5/5 &middot; Nutrition 4/5 &middot; Overall 4/5',
   quote:'Sessions ran the full duration and the team stayed in regular touch. Overall the care has been very good.',attr:'Client, summarised from CSAT review',
   tags:['Post-hip replacement','Multi-joint pain','Cardiac-safe rehab','Seniors 85+','Home physiotherapy']},
@@ -2280,7 +2389,7 @@ var CASE_STUDIES=[
   summary:'A 74-year-old woman living with cerebellar ataxia came to Kinetic Age with severely affected balance, an unsteady walk, and limited coordination.',
   situation:['Cerebellar ataxia affecting balance and coordination','Walking felt unsafe due to instability','A short, quick step pattern with long time spent steadying','Single-leg balance not possible at the start','No prior physiotherapy for the condition'],
   did:['Specialised neuro-rehabilitation','Mobility and flexibility training','Strength and balance work focused on gait and fall prevention','Pain management matched to neurological recovery'],
-  outcome:'Over eight months she made meaningful progress and is happy with both the care and her improvement.',
+  outcome:'Over eight months, the balance cerebellar ataxia had taken began coming back, her <strong>walk steadied</strong>, her <strong>coordination improved</strong>, and moving around started to feel <strong>safer</strong> again.',
   scores:'Physio 5/5 &middot; Customer service 5/5 &middot; Overall 5/5',
   quote:'Everything is going good. I am happy with the physiotherapy and the progression.',attr:'Client, summarised from CSAT review',
   tags:['Cerebellar ataxia','Neuro rehab','Gait training','Balance','Fall prevention']},
@@ -2290,7 +2399,7 @@ var CASE_STUDIES=[
   summary:'A woman in her late 50s came to Kinetic Age with knee pain, upper back pain, and a largely sedentary life driven by type 2 diabetes.',
   situation:['Type 2 diabetes','Upper back pain','Quadriceps weakness','A largely sedentary routine','Muscle imbalance across key groups'],
   did:['Strength training for the back and lower body','Mobility work for the back and lower body','A personalised nutrition plan to support diabetes management'],
-  outcome:'Her knee pain reduced noticeably, sessions ran on time, and she has already recommended Kinetic Age to others.',
+  outcome:'Her <strong>knee pain reduced noticeably</strong>, her legs and back grew <strong>stronger</strong>, and a once-sedentary routine gave way to <strong>moving comfortably again</strong>, with her diabetes better supported throughout.',
   scores:'Physio 5/5 &middot; Overall 4/5',
   quote:'Since starting with Kinetic Age, my knee pain has reduced significantly, I can feel the difference. The sessions are always on time, and the physio and trainer have been excellent. I have already recommended Kinetic Age to people I know.',attr:'Client, summarised from CSAT review',
   tags:['Type 2 diabetes','Back pain','Knee pain','Sedentary to active','Physio + nutrition']},
@@ -2300,7 +2409,7 @@ var CASE_STUDIES=[
   summary:'A 61-year-old woman came to Kinetic Age with grade 3 knee osteoarthritis, back pain from spinal stenosis, and shoulder pain that limited daily life.',
   situation:['Grade 3 knee osteoarthritis','Spinal stenosis causing ongoing back pain','Shoulder pain','High blood pressure and diabetes'],
   did:['Mobility and flexibility training','Strength and balance training','Pain management for knee, back, and shoulder','A nutrition plan aligned to her diabetes and blood pressure','A four-pillar approach delivered entirely at home'],
-  outcome:'She made enough progress to renew her plan and is continuing the care.',
+  outcome:'Knee, back, and shoulder pain that used to limit her day <strong>eased together</strong>, she <strong>moves more freely</strong>, and the progress was clear enough that she renewed to keep going.',
   scores:'Physio 5/5 &middot; Overall 5/5',
   quote:'I&rsquo;m satisfied with everything and very happy with the overall service. I&rsquo;ve renewed and will be continuing because the care has worked for me.',attr:'Client, summarised from CSAT review',
   tags:['OA knee grade 3','Spinal stenosis','Shoulder pain','Diabetes','Renewed']},
@@ -2310,7 +2419,7 @@ var CASE_STUDIES=[
   summary:'An 84-year-old woman managing diabetes and high blood pressure came to Kinetic Age unable to balance on either leg, with a limping walk and lower limb weakness.',
   situation:['Pain in both knees','No single-leg balance at the start','A limping walk and stooped posture','Lower limb weakness, alongside diabetes and high blood pressure'],
   did:['Progressive balance and fall prevention training','Lower limb strengthening','Gait retraining','Mobility work, calibrated to her age and conditions'],
-  outcome:'She feels herself improving little by little and plans to continue.',
+  outcome:'At 84, she has gone from no balance on either leg to <strong>standing steady again</strong>, with <strong>stronger legs</strong>, a <strong>settled walk</strong>, and a sense of <strong>getting better</strong> week by week.',
   scores:'Physio 5/5 &middot; Customer service 5/5 &middot; Overall 5/5',
   quote:'I&rsquo;m happy with my sessions and I&rsquo;m planning to continue. The physiotherapist has been very good and I can feel myself getting better little by little.',attr:'Client, summarised from CSAT call',
   tags:['Knee pain','Balance training','Fall prevention','Diabetes','Seniors 80+']},
@@ -2320,7 +2429,7 @@ var CASE_STUDIES=[
   summary:'An 81-year-old woman managing knee OA in both knees, varicose veins, high blood pressure, and a cardiac condition enrolled for online physiotherapy.',
   situation:['Severe left knee pain, worse in the evenings and at night','Moderate right knee pain','Varicose veins','A recent cardiac issue and high blood pressure, on blood thinners','Reduced knee bend and lower limb muscle imbalance'],
   did:['Targeted lower limb strengthening','Balance training for fall prevention','Pain management','Delivered online, with her cardiac profile accounted for throughout'],
-  outcome:'She rated every category full marks and referred a neighbour to Kinetic Age.',
+  outcome:'Even delivered entirely online, her <strong>knee pain eased</strong>, her <strong>knees bent more freely</strong>, and her <strong>balance and lower-limb strength improved</strong>, real progress at 81.',
   scores:'On time 5/5 &middot; Session duration 5/5 &middot; Physio knowledge 5/5 &middot; Customer service 5/5',
   quote:'I am really happy with the progress and with my physio. She explains each exercise clearly and her behaviour has been excellent throughout.',attr:'Client, summarised from CSAT review',
   tags:['Bilateral knee OA','Varicose veins','Hypertension','Online physiotherapy','Seniors 80+']},
@@ -2330,7 +2439,7 @@ var CASE_STUDIES=[
   summary:'A 61-year-old man with chronic knee pain, mild scoliosis, and left-side weakness worked through a physiotherapy and nutrition programme and is already seeing the difference.',
   situation:['Chronic knee pain','A clear left-right imbalance (8 seconds versus 13 seconds single-leg balance at the start)','Mild scoliosis','Left-side weakness limiting daily movement'],
   did:['Strength and balance training to correct the imbalance','Pain management for knee and back','Progressive fitness work for endurance and function','Nutrition support alongside'],
-  outcome:'He has seen steady improvement since starting and is renewing.',
+  outcome:'His <strong>knee pain settled</strong>, the side-to-side imbalance began to <strong>even out</strong>, and the <strong>steady improvement</strong> he felt was enough to renew and keep going.',
   scores:'Physio 5/5 &middot; Overall 5/5',
   quote:'My experience with Kinetic Age has been nice. I&rsquo;ve seen improvement since starting the sessions and everything is going properly.',attr:'Client, summarised from CSAT call',
   tags:['Knee pain','Scoliosis','Left-side weakness','Balance training','Renewing']},
@@ -2340,7 +2449,7 @@ var CASE_STUDIES=[
   summary:'A 66-year-old man left unable to move his right hand and leg after a stroke came to Kinetic Age for neuro-rehabilitation and strength training.',
   situation:['Right-sided weakness after a stroke','Unable to use the right hand or leg for daily activities','Needed specialist neuro-rehabilitation, delivered safely at home','Managing alongside standard stroke medication'],
   did:['Neuro-rehabilitation for motor function recovery','Strength training adapted for one-sided weakness','Balance and gait retraining','Progressive functional mobility work','The plan realigned around his response and pace after the first phase'],
-  outcome:'After the plan was realigned to his needs, he saw real progress, completing 49 sessions with measurable motor gains, all delivered on time.',
+  outcome:'Once the plan was realigned to how he responded, the <strong>movement he had lost on his right side started returning</strong>, with <strong>measurable motor gains</strong> and <strong>real progress</strong> using his hand and leg again over 49 sessions.',
   scores:'Physio 5/5 &middot; Customer service 5/5 &middot; Overall 5/5',
   quote:'Initially the plan didn&rsquo;t really improve the pain much, but the team realigned it based on my needs. After that I started seeing real progress.',attr:'Client, summarised from CSAT review',
   tags:['Post-stroke rehab','Neuro rehab','Gait retraining','Adaptive care','Home physiotherapy']},
@@ -2350,7 +2459,7 @@ var CASE_STUDIES=[
   summary:'A 56-year-old woman came to Kinetic Age with severe knee pain in both knees, back pain, balance loss, ankle swelling, and breathlessness that limited daily life.',
   situation:['Knee pain in both knees, worse on the right','Lower back pain','Balance that came and went','Swelling in both ankles','Breathlessness for two months, limiting walking and stairs'],
   did:['Pain management and rehab for the knees and back','Balance and strength work to restore safe walking','A full personalised nutrition plan for her overall health'],
-  outcome:'Within ten sessions she reported a significant improvement and received a full nutrition plan.',
+  outcome:'Within just ten sessions, the woman who could barely walk or climb stairs felt a <strong>significant improvement</strong>, her <strong>pain eased</strong>, and <strong>walking and stairs became manageable again</strong>.',
   scores:'Physio 5/5 &middot; Overall 5/5',
   quote:'My physio is very perfect in her job, she comes on time, is very polite and supportive. I&rsquo;m really happy with the overall service and the care she has shown.',attr:'Client, summarised from CSAT call',
   tags:['Bilateral knee pain','Back pain','Balance loss','Breathlessness','Physio + nutrition']},
@@ -2360,7 +2469,7 @@ var CASE_STUDIES=[
   summary:'A 49-year-old woman managing chronic knee and foot pain, postural issues, and an old wrist fracture enrolled for home physiotherapy and strength training.',
   situation:['Knee pain','Ankle and foot pain','IBS','A history of wrist fracture','Flat feet and a waddling walk','Forward head and rounded shoulders'],
   did:['Lower limb and upper body strength training','Balance and core work to address the walk and reduce fall risk','Pain management for knee, ankle, and foot','Nutrition alongside her existing specialist-guided diet'],
-  outcome:'After 49 sessions she reported real pain improvement, rated the service full marks, and is recommending Kinetic Age to family and friends.',
+  outcome:'After 49 sessions, a long history of knee, ankle, and foot pain gave way to <strong>real, lasting pain relief</strong>, and she now moves through her day with <strong>noticeably less pain</strong> than when she started.',
   scores:'Physio 5/5 &middot; Customer service 5/5 &middot; Overall 5/5',
   quote:'Very happy with the services and very happy with the physio. Happy with everything overall.',attr:'Client, summarised from CSAT review',
   tags:['Knee pain','Ankle and foot pain','Strength training','Balance and gait','Home physiotherapy']},
@@ -2370,7 +2479,7 @@ var CASE_STUDIES=[
   summary:'My father is 65, managing diabetes, blood pressure, and a heart condition, on top of an old surgery. He had started struggling with stairs and losing his balance, but he brushed it off. Twenty-six sessions in, the way he moves has changed, and the whole family has noticed.',
   situation:['Trouble climbing stairs and occasional unsteadiness','Diabetes, high blood pressure, and a heart condition, alongside chronic pancreatitis','A sedentary routine that had crept in, with left-side weakness','An old foot injury limiting ankle movement','A slow, unsteady walk the family had quietly started adjusting to'],
   did:['Balance and gait training, focused on the weaker left side','Lower limb strengthening to rebuild what years of sitting had worn down'],
-  outcome:'Twenty-six sessions in, his walk has visibly evened out, and the whole family has noticed the difference in how he moves.',
+  outcome:'Twenty-six sessions in, his <strong>walk has visibly evened out</strong>, his <strong>balance and strength have come back</strong>, and the whole family has noticed the <strong>difference in how he moves</strong>.',
   scores:'On time 5/5 &middot; Physio behaviour 5/5 &middot; Overall 4/5',
   quote:'He&rsquo;s happy with how things are going and he likes how the physio talks to him and explains things, that matters more to him than we expected. He&rsquo;s noticed real improvement, and so have we.',attr:'Daughter, summarised from CSAT feedback',
   tags:['Balance and gait training','Diabetes','Hypertension','Family-observed recovery','Home physiotherapy']}
@@ -2380,7 +2489,51 @@ var condBy=function(s){for(var i=0;i<CONDITIONS.length;i++)if(CONDITIONS[i].slug
 var condSlugify=function(s){return s.toLowerCase().replace(/[’'()]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')};
 var condSlugOf=function(d){return d.slug||condSlugify(d.n)};
 // clinical-name directory entries fold into one canonical condition page (link target only; data and search keep their own slug)
-var CANON_SLUG={'osteoarthritis-knee':'knee-pain','total-knee-replacement-rehabilitation':'knee-pain','post-operative-knee-rehabilitation':'knee-pain','knee-replacement-rehabilitation':'knee-pain','stroke-cva':'post-stroke-recovery','frozen-shoulder-adhesive-capsulitis':'shoulder-pain','rotator-cuff-tendinopathy-tear':'shoulder-pain','shoulder-impingement-syndrome':'shoulder-pain','balance-impairments':'balance-and-falls','falls-prevention-geriatric':'balance-and-falls','balance-disorders':'balance-and-falls','falls-prevention':'balance-and-falls','diabetes-related-mobility-issues':'diabetes','diabetes-related-functional-limitations':'diabetes','diabetic-foot-rehabilitation':'diabetic-neuropathy'};
+var CANON_SLUG={
+ // knee + joint replacement
+ 'osteoarthritis-knee':'knee-pain',
+ 'total-knee-replacement-rehabilitation':'joint-replacement-recovery','post-operative-knee-rehabilitation':'joint-replacement-recovery','knee-replacement-rehabilitation':'joint-replacement-recovery','hip-replacement-rehabilitation':'joint-replacement-recovery','joint-replacement-rehabilitation':'joint-replacement-recovery',
+ // stroke (TIA folded in)
+ 'stroke-cva':'post-stroke-recovery','transient-ischemic-attack-tia-rehabilitation':'post-stroke-recovery',
+ // shoulder
+ 'frozen-shoulder-adhesive-capsulitis':'shoulder-pain','rotator-cuff-tendinopathy-tear':'shoulder-pain','shoulder-impingement-syndrome':'shoulder-pain',
+ // balance and falls
+ 'balance-impairments':'balance-and-falls','falls-prevention-geriatric':'balance-and-falls','balance-disorders':'balance-and-falls','falls-prevention':'balance-and-falls',
+ // diabetes
+ 'diabetes-related-mobility-issues':'diabetes','diabetes-related-functional-limitations':'diabetes','diabetic-foot-rehabilitation':'diabetic-neuropathy',
+ // neck pain (parent) — cervical spondylosis page merges in here
+ 'cervical-spondylosis':'neck-pain','cervical-radiculopathy':'neck-pain','cervical-strain-sprain':'neck-pain','mechanical-neck-pain':'neck-pain',
+ // back pain (parent) — low-back-pain page merges in here; sciatica folded as a heading
+ 'low-back-pain':'back-pain','thoracic-pain':'back-pain','lumbar-spondylosis':'back-pain','lumbar-radiculopathy-sciatica':'back-pain','intervertebral-disc-prolapse-ivdp':'back-pain','spinal-stenosis':'back-pain','sacroiliac-joint-dysfunction':'back-pain','spondylolisthesis':'back-pain','postural-dysfunction':'back-pain',
+ // hip
+ 'osteoarthritis-of-hip':'hip-pain',
+ // foot and heel
+ 'plantar-fasciitis':'foot-and-heel-pain','flat-feet':'foot-and-heel-pain','heel-pain':'foot-and-heel-pain',
+ // fracture recovery
+ 'post-fracture-rehabilitation-wrist':'fracture-recovery','femoral-neck-fracture-rehabilitation':'fracture-recovery','fracture-rehabilitation':'fracture-recovery',
+ // joint and ligament injuries
+ 'ac-joint-injuries':'joint-and-ligament-injuries','wrist-sprains':'joint-and-ligament-injuries','ligament-injuries-acl-pcl-mcl-lcl':'joint-and-ligament-injuries','meniscal-injuries':'joint-and-ligament-injuries','tendon-repair-rehabilitation':'joint-and-ligament-injuries',
+ // surgery recovery — post-operative-care page merges in here
+ 'post-operative-care-and-rehabilitation':'surgery-recovery','spinal-surgery-rehabilitation':'surgery-recovery','general-post-operative-deconditioning':'surgery-recovery',
+ // nerve conditions (MS, GBS, myelopathy folded as headings)
+ 'myelopathy':'nerve-conditions','multiple-sclerosis':'nerve-conditions','bells-palsy':'nerve-conditions','guillain-barr-syndrome-gbs':'nerve-conditions','nerve-injuries':'nerve-conditions','peripheral-neuropathy':'nerve-conditions',
+ // dizziness and vertigo
+ 'vertigo':'dizziness-and-vertigo','vestibular-dysfunction':'dizziness-and-vertigo','cerebellar-ataxia':'dizziness-and-vertigo',
+ // cardiac rehabilitation
+ 'post-cabg-coronary-artery-bypass-grafting':'cardiac-rehabilitation','post-angioplasty-rehabilitation':'cardiac-rehabilitation','myocardial-infarction-heart-attack':'cardiac-rehabilitation','heart-failure':'cardiac-rehabilitation','coronary-artery-disease':'cardiac-rehabilitation','valvular-heart-disease-rehabilitation':'cardiac-rehabilitation','cardiac-surgery-rehabilitation':'cardiac-rehabilitation','cardiac-rehab-for-seniors':'cardiac-rehabilitation','cardiovascular-deconditioning':'cardiac-rehabilitation',
+ // breathing and lung
+ 'chronic-obstructive-pulmonary-disease-copd':'breathing-and-lung-conditions','asthma':'breathing-and-lung-conditions','tuberculosis-post-treatment-rehabilitation':'breathing-and-lung-conditions','interstitial-lung-disease':'breathing-and-lung-conditions',
+ // weight and joint pain
+ 'obesity-related-joint-pain':'weight-and-joint-pain','obesity-management':'weight-and-joint-pain',
+ // weakness and frailty (age-related-weakness + frailty stay standalone)
+ 'thyroid-related-fatigue-and-weakness':'weakness-and-frailty','geriatric-deconditioning':'weakness-and-frailty','chronic-fatigue-syndrome':'weakness-and-frailty',
+ // chronic pain
+ 'chronic-musculoskeletal-pain':'chronic-pain','multi-joint-pain-management':'chronic-pain','pain-related-to-aging-and-deconditioning':'chronic-pain',
+ // high blood pressure
+ 'hypertension-management-through-exercise':'high-blood-pressure',
+ // women's health (parent)
+ 'pregnancy-related-back-pain':'womens-health','antenatal-exercise-programs':'womens-health','postnatal-rehabilitation':'womens-health','diastasis-recti':'womens-health','pelvic-floor-dysfunction':'womens-health','pelvic-organ-prolapse':'womens-health'
+};
 function condTarget(d){var s=condSlugOf(d);return CANON_SLUG[s]||s;}
 var dirBy=function(s){for(var i=0;i<COND_DIR.length;i++)if(condSlugOf(COND_DIR[i])===s)return COND_DIR[i];return null};
 var pillarBy=function(s){for(var i=0;i<PILLARS.length;i++)if(PILLARS[i].slug===s)return PILLARS[i];return null};
@@ -2457,7 +2610,17 @@ function journey(){return '<div class="journey">'+JOURNEY.map(function(p){
  if(p.wa) b+='<div class="jwa">'+WA_ICON+'<p>'+p.wa+'</p></div>';
  return '<div class="jphase"><span class="jnode '+p.node+'">'+p.n+'</span>'+b+'</div>';
 }).join('')+'</div>'}
-function faqList(items){return '<div class="faq">'+items.map(function(f,i){return '<details'+(i===0?' open':'')+'><summary>'+f.q+'<span class="pm"></span></summary><div class="ans">'+f.a+'</div></details>'}).join('')+'</div>'}
+var FAQ_LD=[];
+function faqList(items){FAQ_LD=FAQ_LD.concat(items);return '<div class="faq">'+items.map(function(f,i){return '<details'+(i===0?' open':'')+'><summary>'+f.q+'<span class="pm"></span></summary><div class="ans">'+f.a+'</div></details>'}).join('')+'</div>'}
+// FAQPage structured data, refreshed per route so each page can win rich results
+function plainText(s){var d=document.createElement('textarea');d.innerHTML=s.replace(/<[^>]+>/g,'');return d.value;}
+function syncFaqLd(){
+ var el=document.getElementById('faqld');
+ if(!FAQ_LD.length){if(el)el.remove();return;}
+ if(!el){el=document.createElement('script');el.type='application/ld+json';el.id='faqld';document.head.appendChild(el);}
+ el.textContent=JSON.stringify({'@context':'https://schema.org','@type':'FAQPage',mainEntity:FAQ_LD.map(function(f){
+   return {'@type':'Question',name:plainText(f.q),acceptedAnswer:{'@type':'Answer',text:plainText(f.a)}};})});
+}
 function pillars(){return '<div class="pillars">'+PILLARS.map(function(p){return '<a class="pillar" data-go="/services/'+p.slug+'"><span class="node">'+p.name[0]+'</span><span><h4>'+p.name+'</h4><p>'+p.blurb+'</p></span><span class="arr">'+ARR()+'</span></a>'}).join('')+'</div>'}
 var PS_ICONS=['<path d="M9.5 4h5v5h5v5h-5v5h-5v-5h-5V9h5z"></path>','<path d="M6.5 7v10M17.5 7v10M4 9.5v5M20 9.5v5M6.5 12h11"></path>','<path d="M5 19c-1-7 4-13 14-14 1 9-5 14-11 14"></path><path d="M6 18 13 11"></path>','<path d="M12 20c-4-2.4-7-5.4-7-9a3.6 3.6 0 0 1 7-1.4A3.6 3.6 0 0 1 19 11c0 3.6-3 6.6-7 9z"></path>','<path d="M6 3v4a4 4 0 0 0 8 0V3"></path><path d="M10 15a5 5 0 0 0 9 0v-3"></path><circle cx="19" cy="9" r="2"></circle>'];
 function pillarsStack(){return '<div class="pstack">'+PILLARS.map(function(p,i){return '<div class="pscard" data-go="/services/'+p.slug+'"><div class="ps-head"><span class="ps-ico c'+(i+1)+'"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+PS_ICONS[i]+'</svg></span><div class="ps-body"><div class="ps-name">'+p.name+'</div><p class="ps-desc">'+p.blurb+'</p></div><button class="ps-chevbtn" data-ps="'+i+'" aria-label="Reopen '+p.name+'"><span class="ps-chev"></span></button></div><div class="ps-visual">'+(p.photo?'<img src="'+p.photo+'" alt="'+p.name+'" loading="lazy">':'<span>Visual</span>')+'</div></div>'}).join('')+'</div>'}
@@ -2494,7 +2657,7 @@ function statStrip(){
  return '<div class="statstrip">'+stats.map(function(s,i){return '<div class="stat '+s[3]+'" style="--i:'+i+'">'+
   '<div class="stat-n">'+s[0]+'<span class="stat-u'+(s[1]==='+'?' plus':'')+'">'+s[1]+'</span></div><div class="stat-l">'+s[2]+'</div></div>'}).join('')+'</div>';
 }
-// stylized Bangalore coverage map; dots are served-client locations across the city, cycling the brand lanes
+// stylized coverage map (FLAG: still a Bangalore silhouette — needs a new asset for the national city set); dots are served-client locations, cycling the brand lanes
 function bangaloreMap(){
  var CO={g:'#1f8c6a',b:'#213f99',o:'#f5824f',p:'#7b54c4'};
  var dots=[[110,72,'g'],[168,52,'b'],[214,92,'o'],[88,118,'b'],[150,104,'g'],[238,142,'p'],[122,166,'o'],
@@ -2505,7 +2668,7 @@ function bangaloreMap(){
  var pts=dots.map(function(d,i){var c=CO[d[2]];return '<g class="bm-dot" style="--c:'+c+';--i:'+i+'">'+
    '<circle class="bm-halo" cx="'+d[0]+'" cy="'+d[1]+'" r="10" fill="'+c+'"/>'+
    '<circle cx="'+d[0]+'" cy="'+d[1]+'" r="4.3" fill="'+c+'" stroke="#fff" stroke-width="1.6"/></g>'}).join('');
- return '<div class="bmap"><svg viewBox="0 0 320 286" role="img" aria-label="Map of clients served across Bangalore">'+
+ return '<div class="bmap"><svg viewBox="0 0 320 286" role="img" aria-label="Map of clients served across the cities we cover">'+
    '<defs><linearGradient id="bmFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8f1f8"/><stop offset="1" stop-color="#d6e6f1"/></linearGradient>'+
    '<clipPath id="bmClip"><path d="'+shape+'"/></clipPath></defs>'+
    '<path d="'+shape+'" fill="url(#bmFill)" stroke="#b9cfe0" stroke-width="1.5"/>'+
@@ -2514,7 +2677,7 @@ function bangaloreMap(){
      '<path d="M20 120 H300 M40 196 H300 M150 10 V276 M70 30 L260 250 M250 40 L80 250"/>'+
    '</g>'+
    pts+
- '</svg><span class="bmap-cap">'+CHECK()+'Families served across Bangalore</span></div>'}
+ '</svg><span class="bmap-cap">'+CHECK()+'Families served across the cities we cover</span></div>'}
 function reframe(eb,ttl,intro,reasons){return '<div class="reframe">'+(eb?'<span class="kick orange">'+eb+'</span>':'')+'<h2 class="h2">'+ttl+'</h2>'+(intro?'<p class="p">'+intro+'</p>':'')+(reasons?'<div class="r-list">'+reasons.map(function(r,i){return '<div class="r-row"><span class="n">0'+(i+1)+'</span><span>'+r+'</span></div>'}).join('')+'</div>':'')+'</div>'}
 function heroTall(){
  return '<section class="hero tall top photo">'+
@@ -2551,6 +2714,53 @@ function condDirRow(d){
 }
 function condDirPill(d){
  return '<a class="cdir-pill" data-name="'+d.n.toLowerCase()+'" data-cat="'+d.c+'" data-go="/conditions/'+condTarget(d)+'"><span class="cdp-nm">'+d.n+'</span><span class="cdir-arr">'+ARR()+'</span></a>';
+}
+// Directory grouped by clubbed PARENT page; clinical names fold under each parent.
+// Derived from COND_DIR + CANON_SLUG, so search (which reads COND_DIR) still finds every clinical name.
+var PARENT_CAT={'weakness-and-frailty':'geriatric','diabetic-neuropathy':'metabolic'};
+function condParentName(slug){
+ if(COND_CONTENT[slug]&&COND_CONTENT[slug].name) return COND_CONTENT[slug].name;
+ for(var i=0;i<COND_DIR.length;i++) if(condSlugOf(COND_DIR[i])===slug) return COND_DIR[i].n;
+ return slug.replace(/-/g,' ').replace(/(^|\s)\S/g,function(m){return m.toUpperCase();});
+}
+function condDirGroups(){
+ var pop={}; COND_POPULAR.forEach(function(p){pop[CANON_SLUG[p.slug]||p.slug]=1;});
+ var meta={}, order=[];
+ COND_DIR.forEach(function(d){var t=condTarget(d); if(pop[t]) return;
+   if(!meta[t]){meta[t]={slug:t,cat:PARENT_CAT[t]||d.c,inc:[]}; order.push(t);}
+   meta[t].inc.push(d.n);});
+ order.forEach(function(t){var nm=condParentName(t); meta[t].name=nm;
+   meta[t].inc=meta[t].inc.filter(function(n){return n!==nm;});});
+ return CONDITION_CATS.map(function(g){
+   return {label:g.label,img:g.img,parents:order.filter(function(t){return meta[t].cat===g.k;}).map(function(t){return meta[t];})};
+ }).filter(function(g){return g.parents.length;});
+}
+// Sub-conditions folded onto a parent page. Names derive from COND_DIR+CANON_SLUG (same source as the hub
+// "Includes" line, so the two stay consistent). Descriptions come from the content doc as it lands.
+var COMMON_TYPES={
+ 'back-pain':{
+  'Low back pain':'The most common, from the muscles, posture, and daily strain.',
+  'Lumbar radiculopathy (sciatica)':'A pinched nerve that sends pain down the leg.',
+  'Intervertebral Disc Prolapse (IVDP)':'A disc pressing on nearby nerves.',
+  'Lumbar spondylosis':'Age-related changes in the lower spine.',
+  'Spinal stenosis':'Less space around the nerves, causing pain and heaviness in the legs.',
+  'Spondylolisthesis':'One vertebra shifting over another.',
+  'Sacroiliac joint dysfunction':'Pain from the joint where the spine meets the pelvis.',
+  'Thoracic pain':'Pain higher up, in the upper and mid back.',
+  'Postural dysfunction':'Pain that builds from how you sit and stand.'
+ },
+ 'neck-pain':{
+  'Cervical spondylosis':'Age-related wear in the bones and discs of the neck.',
+  'Cervical radiculopathy':'A pinched nerve that sends pain into the shoulder or arm.',
+  'Cervical strain/sprain':'Strained muscles or ligaments after a sudden movement.',
+  'Mechanical neck pain':'Everyday neck pain from posture, screens, and sleep position.'
+ }
+};
+function condSubtypes(slug){
+ var parent=condParentName(slug), seen={}, out=[];
+ COND_DIR.forEach(function(d){if(condTarget(d)!==slug)return; var nm=d.n; if(nm===parent||seen[nm])return; seen[nm]=1;
+   out.push({n:nm,d:(COMMON_TYPES[slug]||{})[nm]||''});});
+ return out;
 }
 function condTile(c,i){var L=['g','b','o','n'][i%4];return '<a class="ctile '+L+'" data-go="/conditions/'+c.slug+'"><span class="ctile-name">'+c.name+'</span><span class="ctile-arr">'+ARR()+'</span></a>'}
 function breakdownCard(c){var b=BREAKDOWN[c.slug];return '<div class="card bcard">'+
@@ -2615,6 +2825,7 @@ function footer(hideBook){
  return '<footer class="foot"><span class="brand"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20M4.5 4.5l15 15M19.5 4.5l-15 15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg> Kinetic Age</span>'+
   '<p>Complete care for you and your family, brought home, looking after how you move, eat, and live, as one.</p>'+
   (hideBook?'':'<button class="btn light" data-lead>Book a free trial</button>')+
+  '<h5>Get the app</h5>'+appStoreBadges()+
   '<h5>Explore</h5><a data-go="/conditions">Conditions</a><a data-go="/how-we-work">How We Work</a><a data-go="/stories">Stories</a><a data-go="/about">About</a><a data-go="/case-studies">Case studies</a>'+
   '<h5>Services</h5>'+PILLARS.map(function(p){return '<a data-go="/services/'+p.slug+'">'+p.name+'</a>'}).join('')+
   '<h5>Contact Us</h5><div class="fcontact">'+
@@ -2631,6 +2842,87 @@ function backedBy(){
    return '<div class="marquee"><div class="mtrack'+(rev?' rev':'')+'">'+items+items+'</div></div>'};
  return '<section class="sec"><div class="backed">'+
   '<div class="bgroup"><span class="kick">Backed by</span>'+row(6,false)+'</div></div></section>';
+}
+
+/* ---- Kinetic Age app components (used across the whole site) ---- */
+var APP_FEATURES=[
+ {ic:'<rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3z"/>',t:'Video library',d:'Watch <b>short clips and exercise videos</b> at home.',lane:'b'},
+ {ic:'<path d="M12 3c3 3 4.5 5.5 4.5 8.5a4.5 4.5 0 0 1-9 0c0-1.3.4-2.3 1-3.2.4 1.2 1.2 1.7 2 1.7C13 9 13 6.5 12 3z"/>',t:'Daily meal streak',d:'Track <b>every meal</b> and keep your <b>streak</b> going.',lane:'g'},
+ {ic:'<path d="M4 11h16a8 8 0 0 1-16 0z"/><path d="M11 3c-.5 1 .5 1.5 0 2.5M14 3c-.5 1 .5 1.5 0 2.5"/>',t:'Personalised meal plan',d:'Follow a <b>meal plan</b> built around <b>your condition</b>.',lane:'g'},
+ {ic:'<path d="M5 9v6M19 9v6"/><path d="M3 12h4l2 6 4-14 2 8h6"/>',t:'Vitals tracking',d:'See your <b>vitals</b> and how they <b>trend over time</b>.',lane:'o'},
+ {ic:'<path d="M10.5 3.5 3.5 10.5a4.95 4.95 0 0 0 7 7l7-7a4.95 4.95 0 0 0-7-7z"/><path d="m7 7 7 7"/>',t:'Medicine reminders',d:'Get <b>medicine reminders</b> at the right time.',lane:'o'},
+ {ic:'<path d="M6 7v10M9 9v6M15 9v6M18 7v10M9 12h6"/>',t:'Exercise plans',d:'Follow <b>exercise plans</b> with the <b>timing</b> for each session.',lane:'b'},
+ {ic:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/><circle cx="9" cy="15" r="1.3"/><path d="M13 16h4"/>',t:'Your care team and schedule',d:'See <b>who is visiting and when</b>.',lane:'p',wide:true},
+ {ic:'<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 17v-3M12 17v-5M15 17v-2"/>',t:'Progress reports',d:'Share <b>progress reports</b> with your <b>family</b> here.',lane:'p'}
+];
+function appIcon(p,lane){return '<span class="af-ic'+(lane?' '+lane:'')+'"><svg viewBox="0 0 24 24">'+p+'</svg></span>'}
+function appFeatures(list){return '<ul class="appfeat">'+(list||APP_FEATURES).map(function(f){return '<li class="af">'+appIcon(f.ic,f.lane)+'<p>'+f.d+'</p></li>'}).join('')+'</ul>'}
+// About-page tech block: same feature icons, plain action sentences
+var ABOUT_FEATURES=APP_FEATURES.map(function(f,i){return {ic:f.ic,lane:f.lane,d:['Watch short clips and exercise videos at home','Track every meal and keep your streak going','Follow a meal plan built around your condition','See your vitals and how they trend over time','Get medicine reminders at the right time','Follow exercise plans with the timing for each session','See your care team profile with their scheduled sessions','Download and share your progress report with your family'][i]};});
+// the phone mock screen: today (default), week plan, or vitals
+function appPhone(kind){
+ var scr;
+ if(kind==='plan'){
+   var rows=[['Mon','e','n'],['Tue','e','d'],['Wed','e','n'],['Thu','e','n'],['Fri','e','d'],['Sat','n','']];
+   scr='<div class="af-top"><b>This week</b><span>Plan</span></div>'+
+     '<div class="af-plan">'+rows.map(function(r){return '<div class="af-pday"><span>'+r[0]+'</span>'+(r[1]?'<b class="'+r[1]+'"></b>':'')+(r[2]?'<b class="'+r[2]+'"></b>':'')+'</div>'}).join('')+'</div>'+
+     '<div class="af-card"><span class="af-lbl">Today: exercise</span><div class="af-row g" style="border:none;padding:2px 0;background:none"><i></i>Knee strength, 12 min<em>2 pm</em></div></div>';
+ } else if(kind==='vitals'){
+   var h=[40,52,46,60,54,66,72,64];
+   scr='<div class="af-top"><b>Vitals</b><span>This month</span></div>'+
+     '<div class="af-card"><span class="af-lbl">Blood pressure</span><div class="af-spark">'+h.map(function(x){return '<i style="height:'+x+'%"></i>'}).join('')+'</div></div>'+
+     '<div class="af-row b"><i></i>Medicine taken<em>4 of 4</em></div>'+
+     '<div class="af-card"><span class="af-lbl">Meal streak</span><div class="af-streak">'+[1,1,1,1,1,0,0].map(function(o){return '<i'+(o?' class="on"':'')+'></i>'}).join('')+'</div></div>';
+ } else {
+   scr='<div class="af-top"><b>Today</b><span>Mon 12</span></div>'+
+     '<div class="af-ring"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" fill="none" stroke="#e3ebf2" stroke-width="3.4"/><circle cx="18" cy="18" r="15" fill="none" stroke="#1f8c6a" stroke-width="3.4" stroke-linecap="round" pathLength="100" stroke-dasharray="82 100"/></svg><b>4/5</b></div>'+
+     '<p class="af-cap">Plan for today</p>'+
+     '<div class="af-row g"><i></i>Exercise<em>3 of 3</em></div>'+
+     '<div class="af-row a"><i></i>Nutrition<em>on streak</em></div>'+
+     '<div class="af-card"><span class="af-lbl">Meal streak</span><div class="af-streak">'+[1,1,1,1,1,1,0].map(function(o){return '<i'+(o?' class="on"':'')+'></i>'}).join('')+'</div></div>';
+ }
+ return '<div class="afone"><div class="af-scr">'+scr+'</div></div>';
+}
+// Component B — capability showcase, no filled button, quiet link to /app
+function appShowcase(opts){
+ opts=opts||{};
+ var phones=opts.phones||['today'];
+ return '<section class="sec appshow">'+
+   '<span class="kick">'+(opts.eyebrow||'Kinetic Age app')+'</span>'+
+   '<h2 class="h2">'+(opts.title||'The technology that runs your care, <span class="it">in one app.</span>')+'</h2>'+
+   (opts.intro?'<p class="p muted">'+opts.intro+'</p>':'')+
+   '<div class="app-stage'+(opts.fan?' fan':phones.length>1?' scroll-row':'')+'">'+phones.map(appPhone).join('')+'</div>'+
+   appFeatures(opts.features)+
+ '</section>';
+}
+// Component A — download banner (filled button + peek screens)
+function appBanner(opts){
+ opts=opts||{};
+ return '<div class="appdl">'+
+   '<div class="appdl-body">'+
+     '<div class="appdl-eyebrow">'+(opts.eyebrow||'Kinetic Age app')+'</div>'+
+     '<div class="appdl-ttl">'+(opts.title||'Download the app to follow your plan and see every report.')+'</div>'+
+     '<button class="appdl-btn"><svg viewBox="0 0 24 24"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>'+(opts.btn||'Tap to download')+'</button>'+
+   '</div>'+
+   '<div class="appdl-shots">'+
+     '<div class="ph ph-b"><div class="ph-scr"><div class="ph-hd dim">This week</div><span class="ph-bar"></span><span class="ph-bar"></span><span class="ph-bar"></span></div></div>'+
+     '<div class="ph ph-f"><div class="ph-scr"><div class="ph-hd">Today</div>'+
+       '<div class="ph-ring"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" fill="none" stroke="#e7eef4" stroke-width="3"/><circle cx="18" cy="18" r="15" fill="none" stroke="#1f8c6a" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="82 100"/></svg><b>4/5</b></div>'+
+       '<div class="ph-li green"><i></i>Exercise</div><div class="ph-li amber"><i></i>Nutrition</div></div></div>'+
+   '</div>'+
+ '</div>';
+}
+// Component B light — quiet app mention for service/condition/case pages
+function appNote(text,linkLabel){
+ return '<div class="appnote"><span class="appnote-ic"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></span>'+
+   '<div class="appnote-tx"><p>'+text+'</p></div></div>';
+}
+// footer app-store badges (Component A, compact, sitewide)
+function appStoreBadges(){
+ return '<div class="fapp">'+
+   '<a href="#" rel="noreferrer" aria-label="Download on the App Store"><svg viewBox="0 0 24 24"><path d="M17.05 12.04c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.1-2.02-4.19-2.04-1.78-.18-3.48 1.05-4.39 1.05-.9 0-2.3-1.02-3.78-1-1.95.03-3.75 1.13-4.75 2.88-2.02 3.5-.52 8.69 1.45 11.53.96 1.39 2.11 2.95 3.62 2.9 1.45-.06 2-.94 3.76-.94 1.75 0 2.25.94 3.78.91 1.56-.03 2.55-1.42 3.51-2.81 1.1-1.61 1.56-3.17 1.58-3.25-.03-.02-3.03-1.17-3.06-4.62M14.2 4.38c.8-.97 1.34-2.32 1.19-3.66-1.15.05-2.54.77-3.36 1.73-.74.86-1.38 2.23-1.21 3.55 1.28.1 2.59-.65 3.38-1.62"/></svg><span><i>Download on the</i><b>App Store</b></span></a>'+
+   '<a href="#" rel="noreferrer" aria-label="Get it on Google Play"><svg viewBox="0 0 24 24"><path d="M3.6 2.3a1 1 0 0 0-.5.88v17.64a1 1 0 0 0 .5.88l.07.03L13 12.05v-.1L3.67 2.27zM16.4 15.2l-3-3 3-3 3.6 2.05c1 .58 1 1.86 0 2.43zM14.9 12.05 4.4 21.6c.33.18.74.16 1.13-.06l11.07-6.3zM5.53 2.46c-.39-.22-.8-.24-1.13-.06l10.5 9.55 2.7-2.7z"/></svg><span><i>Get it on</i><b>Google Play</b></span></a>'+
+ '</div>';
 }
 
 /* ===================== VIEWS ===================== */
@@ -2667,8 +2959,9 @@ function vHome(){
      (function(){var p=['IIT','IIM','BITS','AIIMS','Manipal Hospitals','Apollo'].map(function(n){return '<span class="bpill">'+n+'</span>'}).join('');return p+p})()+
    '</div></div></div>'+
  '</section>'+
+ appShowcase({title:'The same care, <span class="it">in your pocket.</span>',intro:'We built our own app so your whole plan lives in one place. Follow your exercises and meals, track your vitals and medicines, and see who is visiting and when, with every report shared with your family.',phones:['plan','today','vitals'],fan:true})+
  socialStrip()+
- '<section class="sec"><h2 class="h2">Questions families ask</h2><div style="margin-top:18px">'+faqList(HOME_FAQS)+'</div></section>'+
+ '<section class="sec"><h2 class="h2">People also ask</h2><div style="margin-top:18px">'+faqList(HOME_FAQS)+'</div></section>'+
  backedBy()+
  footer()}
 
@@ -2694,19 +2987,12 @@ function vConditions(){
    '<div class="cres-wrap" id="condResults"></div>'+
  '</section>'+
  '<div id="condBrowse">'+
- '<section class="sec" style="padding-top:6px"><button class="btn block xl" data-lead>Book a free trial</button></section>'+
  '<section class="sec" style="padding-top:8px"><h2 class="h2">Most people come to us for</h2><div class="popgrid">'+COND_POPULAR.map(function(c,i){var L=['g','b','o','p','n'][i%5];return '<a class="popc '+L+'" style="--i:'+i+'" data-go="/conditions/'+c.slug+'"><div class="popc-ph"><img src="'+c.photo+'?v=3" alt="'+c.name+'" loading="lazy"></div><div class="popc-body"><div class="popc-nm">'+c.name+'</div><span class="popc-arr">'+ARR()+'</span></div></a>'}).join('')+'</div></section>'+
- '<section class="sec cdir-sec"><h2 class="h2" style="margin-bottom:6px">Find your condition</h2><p class="p muted" style="margin-bottom:2px">Some of the other conditions we treat. Open a group, or search above.</p>'+
-   '<div class="cdir" id="cdir">'+CONDITION_CATS.map(function(g){
-     var rows=COND_DIR.filter(function(d){return d.c===g.k&&!COND_POPULAR.some(function(p){return p.slug===condSlugOf(d);});});
-     if(!rows.length) return '';
-     var subs=[];rows.forEach(function(d){var s=d.sub||'';if(subs.indexOf(s)<0)subs.push(s);});
-     var hasSubs=!(subs.length===1&&subs[0]==='');
-     var inner=hasSubs
-       ? '<div class="cdir-grid">'+subs.map(function(s){var sr=rows.filter(function(d){return (d.sub||'')===s;});var label=s||g.label;
-           return '<details class="cdir-group"><summary class="cdir-head"><span class="cdir-label">'+label+'</span><span class="cdir-count">'+sr.length+'</span><span class="cdir-chev"></span></summary><div class="cdir-rows">'+sr.map(condDirRow).join('')+'</div></details>';}).join('')+'</div>'
-       : '<div class="cdir-pills">'+rows.map(condDirPill).join('')+'</div>';
-     return '<details class="catcard"><summary class="catcard-head"><span class="cdir-cat-photo"><img src="'+g.img+'?v=1" alt="" loading="lazy"></span><span class="cdir-cat">'+g.label+'</span><span class="cdir-cat-n">'+rows.length+'</span><span class="catcard-chev"></span></summary><div class="catcard-body">'+inner+'</div></details>';
+ '<section class="sec cdir-sec"><h2 class="h2" style="margin-bottom:6px">Find your condition</h2><p class="p muted" style="margin-bottom:2px">Browse the areas we treat, or search above. Each area covers the related conditions named inside it.</p>'+
+   '<div class="cdir" id="cdir">'+condDirGroups().map(function(g){
+     return '<details class="catcard"><summary class="catcard-head"><span class="cdir-cat-photo"><img src="'+g.img+'?v=1" alt="" loading="lazy"></span><span class="cdir-cat">'+g.label+'</span><span class="cdir-cat-n">'+g.parents.length+'</span><span class="catcard-chev"></span></summary><div class="catcard-body"><div class="cdir-parents">'+
+       g.parents.map(function(pp,i){var L=['g','b','o','p','n'][i%5];return '<a class="cdir-prow '+L+'" data-go="/conditions/'+pp.slug+'"><span class="cdir-prow-tx"><span class="cdir-prow-nm">'+pp.name+'</span>'+(pp.inc.length?'<span class="cdir-inc">'+pp.inc.map(function(x){return '<span>'+x+'</span>';}).join('')+'</span>':'')+'</span><span class="cdir-arr">'+ARR()+'</span></a>';}).join('')+
+     '</div></div></details>';
    }).join('')+
    '</div>'+
  '</section>'+
@@ -2715,95 +3001,119 @@ function vConditions(){
  '<section class="sec"><h2 class="h2">People also ask</h2><div style="margin-top:18px">'+faqList(CONDITIONS_FAQS)+'</div></section>'+
  footer()}
 
+// SEO-led condition FAQ template; each question mirrors a real search and each answer carries a differentiator
 function condFaqs(name){var n=lc(name);return [
- {q:'Can '+n+' improve through therapy and daily care?',a:'[PLACEHOLDER]'},
- {q:'What causes '+n+' in older adults?',a:'[PLACEHOLDER]'},
- {q:'Can exercises alone fix it?',a:'[PLACEHOLDER]'},
- {q:'Is a doctor involved?',a:'[PLACEHOLDER]'}
+ {q:'Can '+n+' be treated at home?',a:'Yes. A qualified specialist brings the treatment to your home, with a plan built around your body and your space. For most people, care at home for '+n+' works well and is easier to keep up.'},
+ {q:'Can '+n+' improve with therapy instead of surgery?',a:'For many people, yes. Guided therapy, the right exercises, and support from the rest of your care can ease '+n+' and reduce the need for surgery. Your doctor reviews what fits your case.'},
+ {q:'What causes '+n+' in older adults?',a:n.charAt(0).toUpperCase()+n.slice(1)+' usually builds from a mix of causes, including natural age-related change, past strain, and weaker supporting muscles. Several of these often add up together.'},
+ {q:'What exercises help with '+n+'?',a:'A few guided exercises can help with '+n+', and they work best alongside strength, nutrition, and a plan that adjusts as you improve. Your specialist sets the right ones for you.'},
+ {q:'Is a doctor involved in the treatment?',a:'Yes. A doctor reviews your health and guides the plan, deciding what genuinely helps you, including what you can skip.'}
 ];}
 // per-condition page copy (from the conditions + how-we-treat source docs); calm, plain, no em dashes
 var COND_CONTENT={
+ // Parent-page stubs from the clubbing map. Name resolves the page; About / types / treat / FAQ copy is written per page in batches (clinical sign-off required) and replaces these stubs.
+ 'hip-pain':{name:'Hip pain'},
+ 'high-blood-pressure':{name:'High blood pressure'},
+ 'foot-and-heel-pain':{name:'Foot and heel pain'},
+ 'fracture-recovery':{name:'Fracture recovery'},
+ 'joint-replacement-recovery':{name:'Joint replacement recovery'},
+ 'joint-and-ligament-injuries':{name:'Joint and ligament injuries'},
+ 'cardiac-rehabilitation':{name:'Cardiac rehabilitation'},
+ 'breathing-and-lung-conditions':{name:'Breathing and lung conditions'},
+ 'dizziness-and-vertigo':{name:'Dizziness and vertigo'},
+ 'nerve-conditions':{name:'Nerve conditions'},
+ 'weakness-and-frailty':{name:'Weakness and frailty'},
+ 'chronic-pain':{name:'Chronic pain'},
+ 'weight-and-joint-pain':{name:'Weight and joint pain'},
+ 'womens-health':{name:'Women&rsquo;s health'},
  'arthritis':{name:'Arthritis',
   intro:'Arthritis is pain, stiffness, and swelling in the joints. The most common kind in older adults is osteoarthritis, where the cushioning inside a joint wears down over the years, so the joint moves with more friction. It can affect the knees, hips, hands, shoulders, and spine, and it tends to build slowly until daily movement starts to feel harder.',
   signs:['Joint pain that grows with use and eases with rest','Stiffness in the morning or after sitting','Swelling or warmth around a joint','A grinding feeling when you move it','A slow drop in how far or how comfortably you can move'],
   treat:'We treat the joints and everything that adds load to them. Physiotherapy eases the pain and keeps the joints moving, training builds the muscle around each joint so it carries less strain, and nutrition helps manage weight and inflammation that make arthritis worse. A doctor reviews the full picture and guides the plan as you improve. Treated together, your joints get relief that holds through daily life, rather than relief that fades after a session.',
   faqs:[
-   {q:'Can arthritis improve through therapy and daily care?',a:'Yes. Many people see real improvement in pain and movement with the right mix of therapy, strength work, and weight care. Results depend on your full health picture.'},
+   {q:'Can arthritis be treated at home?',a:'Yes. A qualified specialist brings physiotherapy, strength work, and nutrition guidance to your home, with a plan built around your joints and your space. Treated together, your joints get relief that holds through daily life.'},
+   {q:'Can arthritis improve with therapy instead of surgery?',a:'For many people, yes. Guided therapy, the right exercises, and weight care can ease arthritis and reduce the need for surgery. Your doctor reviews what fits your case.'},
    {q:'What causes arthritis in older adults?',a:'It builds over years from natural joint wear, past injuries, extra weight on the joints, and weak supporting muscles. Several of these usually add up together.'},
-   {q:'Can exercises alone fix it?',a:'Exercises help a great deal, and they work best alongside strength, weight care, and a guided plan, so the relief lasts.'},
-   {q:'Is a doctor involved?',a:'Yes. A doctor reviews your health and decides what would help, including what you do not need.'}]},
- 'low-back-pain':{name:'Low back pain',
-  intro:'Low back pain is discomfort in the lower spine that can come from the muscles, discs, joints, or nerves of the back. It ranges from a dull ache to a sharp catch, and in older adults it often links to posture, weak core muscles, and age-related changes in the spine.',
+   {q:'What exercises help with arthritis?',a:'Guided exercises help with arthritis a great deal, and they work well alongside strength, weight care, and a plan that adjusts as you improve, so the relief lasts.'},
+   {q:'Is a doctor involved in the treatment?',a:'Yes. A doctor reviews your health and decides what would help, including what you can skip.'}]},
+ 'back-pain':{name:'Back pain',
+  intro:'Back pain in older adults can come from the muscles, discs, joints, or nerves of the spine, anywhere from the upper back down to the lower back. It ranges from a dull ache to a sharp catch, and it often links to posture, weak core muscles, and age-related changes in the spine.',
   signs:['A steady ache or stiffness in the lower back','Pain that grows after sitting or standing for long','Trouble bending or lifting','At times pain that travels into the hip or leg'],
   treat:'We treat the back and the habits around it. Physiotherapy releases the tight, painful areas and restores movement, training strengthens the core and back muscles that hold your spine steady, and a calm posture routine keeps the strain low through your day. A doctor guides the plan and watches for any sign that needs closer care. The aim is a back that feels stronger in daily life, beyond the treatment day.',
   faqs:[
-   {q:'Can low back pain improve through therapy and daily care?',a:'Yes. Most low back pain eases well with therapy, the right exercises, and better daily habits. Results depend on the cause and your full health picture.'},
-   {q:'What causes low back pain in older adults?',a:'It often comes from weak core muscles, poor posture, age-related changes in the spine, and strain from daily movement. These usually combine.'},
-   {q:'Can exercises alone fix it?',a:'Exercises help a great deal, and they hold best when paired with posture care and a guided plan.'},
-   {q:'Is a doctor involved?',a:'Yes. A doctor reviews your health and decides what would help, including what you do not need.'}]},
- 'cervical-spondylosis':{name:'Cervical spondylosis',
-  intro:'Cervical spondylosis is age-related wear in the bones and discs of the neck. As the spine in the neck changes over the years, it can bring stiffness, pain, and at times pressure on nearby nerves, which sends discomfort into the shoulders or arms.',
+   {q:'Can back pain be treated at home?',a:'Yes. A qualified specialist brings physiotherapy, core training, and a calm posture routine to your home, with a plan built around your back and your daily habits. The aim is a back that feels stronger in daily life.'},
+   {q:'Can back pain improve with therapy instead of surgery?',a:'For many people, yes. Guided therapy, the right exercises, and better daily habits can ease back pain and reduce the need for surgery. Your doctor reviews what fits your case.'},
+   {q:'What causes back pain in older adults?',a:'It often comes from weak core muscles, poor posture, age-related changes in the spine, and strain from daily movement. These usually combine.'},
+   {q:'What exercises help with back pain?',a:'Guided exercises help with back pain a great deal, and they hold well when paired with posture care and a plan that adjusts as you improve.'},
+   {q:'Is a doctor involved in the treatment?',a:'Yes. A doctor reviews your health and decides what would help, including what you can skip.'}]},
+ 'neck-pain':{name:'Neck pain',
+  intro:'Neck pain in older adults can come from the muscles, joints, discs, or nerves of the neck. It ranges from stiffness to a sharp catch, and at times it sends discomfort into the shoulders or arms. It often links to posture, age-related wear, and past strain.',
   signs:['Neck stiffness and pain','A grinding feeling when you turn your head','Headaches that start at the base of the skull','At times tingling or weakness that travels into the arm or hand'],
   treat:'We ease the neck and the strain that feeds it. Physiotherapy releases tight muscles and restores movement, training strengthens the neck and upper back so the spine carries less load, and a posture routine lowers the daily strain from screens, reading, and sleep position. A doctor reviews the picture and watches for any nerve signs that need closer care. Together, the neck gets steadier relief that lasts through the day.',
   faqs:[
-   {q:'Can cervical spondylosis improve through therapy and daily care?',a:'Yes. Most people manage it well with therapy, strengthening, and better posture, and the pain and stiffness ease over time.'},
-   {q:'What causes cervical spondylosis in older adults?',a:'It comes from natural age-related wear in the neck, often added to by posture habits and past strain.'},
-   {q:'Can exercises alone fix it?',a:'Exercises help a great deal, and they hold best alongside posture care and a guided plan.'},
-   {q:'Is a doctor involved?',a:'Yes. A doctor reviews your health and decides what would help, including what you do not need.'}]},
+   {q:'Can neck pain be treated at home?',a:'Yes. A qualified specialist brings physiotherapy, strengthening, and a posture routine to your home, with a plan built around your neck and your daily setup. The neck gets steadier relief that lasts through the day.'},
+   {q:'Can neck pain improve with therapy instead of surgery?',a:'For many people, yes. Guided therapy, the right exercises, and better posture can ease neck pain and reduce the need for surgery. Your doctor reviews what fits your case.'},
+   {q:'What causes neck pain in older adults?',a:'It comes from natural age-related wear in the neck, posture habits, past strain, and at times a pinched nerve. These often add up together.'},
+   {q:'What exercises help with neck pain?',a:'Guided exercises help with neck pain a great deal, and they hold well alongside posture care and a plan that adjusts as you improve.'},
+   {q:'Is a doctor involved in the treatment?',a:'Yes. A doctor reviews your health and decides what would help, including what you can skip.'}]},
  'osteoporosis':{name:'Osteoporosis',
   intro:'Osteoporosis is the thinning and weakening of the bones, which makes them more likely to break. It develops quietly over years and is common in older adults, especially after menopause. With the right care, bones can be supported and the risk of a fracture lowered.',
   signs:['Few clear signs until a bone breaks','A loss of height over time','A stooping posture','Back pain from the spine','Bones that break more easily than expected'],
   treat:'We protect the bones and the body around them. Training uses safe, weight-bearing exercise that helps keep bones strong, physiotherapy improves balance and posture so falls and fractures become less likely, and nutrition supports the calcium, protein, and vitamin needs that bone health depends on. A doctor reviews your reports and guides the plan. Strong bones are supported by movement, food, and steadiness working together.',
   faqs:[
+   {q:'Can osteoporosis be treated at home?',a:'Yes. A qualified specialist brings safe weight-bearing training, balance work, and nutrition guidance to your home, with a plan built around your bones and your space. Strong bones are supported by movement, food, and steadiness working together.'},
    {q:'Can osteoporosis improve through therapy and daily care?',a:'Bone strength can be supported and fracture risk lowered with safe exercise, good nutrition, and a guided plan. Your doctor sets the right approach for you.'},
    {q:'What causes osteoporosis in older adults?',a:'It comes from natural bone loss with age, hormonal changes after menopause, low calcium or vitamin D, and lower activity over the years.'},
-   {q:'Can exercises alone help?',a:'Safe weight-bearing exercise helps a great deal, and it works best alongside good nutrition and a doctor&rsquo;s guidance.'},
-   {q:'Is a doctor involved?',a:'Yes. A doctor reviews your reports and decides what would help, including what you do not need.'}]},
+   {q:'What exercises help with osteoporosis?',a:'Safe weight-bearing exercises help with osteoporosis a great deal, and they work well alongside good nutrition and a doctor&rsquo;s guidance.'},
+   {q:'Is a doctor involved in the treatment?',a:'Yes. A doctor reviews your reports and decides what would help, including what you can skip.'}]},
  'diabetic-neuropathy':{name:'Diabetic neuropathy',
   intro:'Diabetic neuropathy is nerve damage caused by long periods of high blood sugar, most often felt in the feet and legs. It can bring numbness, tingling, or pain, and it affects balance and the ability to feel injuries to the feet. Good management slows it and eases the symptoms.',
   signs:['Tingling or burning in the feet','Numbness that dulls sensation','Sharp or aching pain at night','Unsteadiness when walking','Slow healing of small foot wounds'],
   treat:'We care for the nerves and the cause behind them. Nutrition and a doctor work to steady blood sugar, which is the root of the problem, physiotherapy improves balance and safe movement when sensation is reduced, and training keeps the legs strong and the circulation active. A doctor reviews your reports and foot health closely. Managing the sugar and supporting the body together gives the best chance of relief.',
   faqs:[
+   {q:'Can diabetic neuropathy be treated at home?',a:'Yes. A qualified specialist brings balance work, leg strengthening, and nutrition guidance to your home, with a plan built around your nerves and your daily routine. Managing the sugar and supporting the body together gives a strong chance of relief.'},
    {q:'Can diabetic neuropathy improve through therapy and daily care?',a:'Symptoms often ease and progress slows when blood sugar is well managed and the body is kept active and supported. Your doctor guides the plan.'},
    {q:'What causes diabetic neuropathy in older adults?',a:'It comes from long periods of high blood sugar damaging the nerves, most often in the feet and legs.'},
-   {q:'Can exercises alone help?',a:'Exercise helps balance, strength, and circulation, and it works best alongside steady blood sugar care and a doctor&rsquo;s review.'},
-   {q:'Is a doctor involved?',a:'Yes. A doctor reviews your reports and decides what would help, including what you do not need.'}]},
+   {q:'What exercises help with diabetic neuropathy?',a:'Guided exercise helps balance, strength, and circulation with diabetic neuropathy, and it works well alongside steady blood sugar care and a doctor&rsquo;s review.'},
+   {q:'Is a doctor involved in the treatment?',a:'Yes. A doctor reviews your reports and decides what would help, including what you can skip.'}]},
  'knee-pain':{name:'Knee pain',
   intro:'Knee pain in older adults most often comes from osteoarthritis, the gradual wearing of the cushioning cartilage inside the knee joint. As that cushion thins, the bones move with more friction, which brings pain, stiffness, and swelling. It is one of the most common reasons walking and stairs start to feel harder over time.',
   signs:['Pain that grows worse with movement and eases with rest','Stiffness in the morning or after sitting','Swelling around the joint','A grinding feeling when you bend the knee','A slow loss of confidence on stairs or uneven ground'],
   treat:'We work on the knee and on everything that affects it. Physiotherapy eases the pain and restores movement, training builds the muscle around the knee so the joint carries less load, and nutrition helps manage weight and inflammation that add strain to the joint. A doctor reviews the full picture and guides the plan as you improve. Treated together, the knee gets relief that holds, rather than relief that fades.',
   faqs:[
-   {q:'Can knee pain improve through therapy and daily care?',a:'Yes. Many people see real improvement in pain and movement with the right mix of therapy, strength work, and weight care. Results depend on your full health picture.'},
+   {q:'Can knee pain be treated at home?',a:'Yes. A qualified specialist brings physiotherapy, strength work, and nutrition guidance to your home, with a plan built around your knee and your space. Treated together, the knee gets relief that holds.'},
+   {q:'Can knee pain improve with therapy instead of surgery?',a:'For many people, yes. Guided therapy, the right exercises, and weight care can ease knee pain and reduce the need for surgery. Your doctor reviews what fits your case.'},
    {q:'What causes knee pain in older adults?',a:'It builds over years from natural wear, past injuries, extra weight on the joint, and weak muscles around the knee. Several of these usually add up together.'},
-   {q:'Can exercises alone fix it?',a:'Exercises help a great deal, and they work best alongside strength, weight care, and a guided plan, so the relief lasts.'},
-   {q:'Is a doctor involved?',a:'Yes. A doctor reviews your health and decides what would help, including what you do not need.'}]},
+   {q:'What exercises help with knee pain?',a:'Guided exercises help with knee pain a great deal, and they work well alongside strength, weight care, and a plan that adjusts as you improve, so the relief lasts.'},
+   {q:'Is a doctor involved in the treatment?',a:'Yes. A doctor reviews your health and decides what would help, including what you can skip.'}]},
  'balance-and-falls':{name:'Balance and falls',
   intro:'Balance problems make standing and walking feel unsteady, which raises the chance of a fall. In older adults this often comes from weaker muscles, slower reflexes, inner-ear changes, and lower confidence, all of which build quietly over time.',
   signs:['Unsteadiness when you stand or turn','A fear of walking on uneven ground','Holding on to walls or furniture','Dizziness at times','A slow pull toward staying indoors'],
   treat:'We build steadiness from the ground up. Training strengthens the legs and core that hold you upright, physiotherapy improves balance and the reflexes that catch a stumble, and emotional wellbeing rebuilds the confidence to move freely again. A doctor reviews the causes, including any link to medication or inner-ear changes, and guides the plan. Steady balance comes from strength, practice, and confidence working together.',
   faqs:[
+   {q:'Can balance problems be treated at home?',a:'Yes. A qualified specialist brings leg and core strengthening, balance training, and confidence work to your home, with a plan built around your steadiness and your space. Steady balance comes from strength, practice, and confidence working together.'},
    {q:'Can balance and falls improve through therapy and daily care?',a:'Yes. Balance and steadiness improve well with the right strength and balance training, and many people lower their fall risk meaningfully.'},
    {q:'What causes balance problems in older adults?',a:'They build from weaker muscles, slower reflexes, inner-ear changes, certain medicines, and lower confidence. These often add up together.'},
-   {q:'Can exercises alone fix it?',a:'Strength and balance exercises are central, and they work best alongside confidence-building and a doctor reviewing the causes.'},
-   {q:'Is a doctor involved?',a:'Yes. A doctor reviews your health and decides what would help, including what you do not need.'}]},
+   {q:'What exercises help with balance problems?',a:'Strength and balance exercises are central with balance problems, and they work well alongside confidence-building and a doctor reviewing the causes.'},
+   {q:'Is a doctor involved in the treatment?',a:'Yes. A doctor reviews your health and decides what would help, including what you can skip.'}]},
  'post-stroke-recovery':{name:'Post-stroke recovery',
   intro:'A stroke happens when blood flow to part of the brain is interrupted, which can affect movement, strength, balance, and speech. Recovery is the work of rebuilding these abilities through steady, guided rehabilitation, and the brain keeps the capacity to relearn with the right support.',
   signs:['Weakness on one side of the body','Trouble with balance and walking','Stiffness in an arm or leg','Difficulty with speech or daily tasks','Tiredness that builds quickly'],
   treat:'We rebuild ability step by step, at home where you feel safe to try. Physiotherapy retrains movement, balance, and strength on the affected side, training builds the stamina to keep daily tasks going, and emotional wellbeing supports the patience and mood that recovery asks for. A doctor guides the whole plan and adjusts it as you regain ground. Stroke recovery rewards a steady, connected plan more than any single therapy.',
   faqs:[
-   {q:'Can recovery after a stroke continue through therapy and daily care?',a:'Yes. With steady rehabilitation, many people regain meaningful movement and independence over time. Progress depends on the stroke and your full health picture.'},
-   {q:'What shapes recovery after a stroke?',a:'Recovery depends on which part of the brain was affected and how soon rehabilitation begins. Starting early gives the brain the best chance to rebuild those functions, which is why a prompt, structured programme matters.'},
-   {q:'Can exercises alone help?',a:'Guided exercises are at the heart of recovery, and they work best with strength, emotional support, and a doctor guiding the pace.'},
-   {q:'Is a doctor involved?',a:'Yes. A doctor guides the recovery plan and decides what would help, including what you do not need.'}]},
- 'post-operative-care-and-rehabilitation':{
+   {q:'Can recovery after a stroke continue at home?',a:'Yes. A qualified specialist brings rehabilitation to your home, where you feel safe to try, with a plan built around your body and your space. With steady rehabilitation, many people regain meaningful movement and independence over time.'},
+   {q:'What shapes recovery after a stroke?',a:'Recovery depends on which part of the brain was affected and how soon rehabilitation begins. Starting early gives the brain the strongest chance to rebuild those functions, which is why a prompt, structured programme matters.'},
+   {q:'What exercises help after a stroke?',a:'Guided exercises are at the heart of stroke recovery, and they work well with strength, emotional support, and a doctor guiding the pace.'},
+   {q:'Is a doctor involved in the treatment?',a:'Yes. A doctor guides the recovery plan and decides what would help, including what you can skip.'}]},
+ 'surgery-recovery':{name:'Surgery recovery',
   intro:'After major surgery, such as a joint replacement, cardiac procedure, or spinal surgery, the body can lose some strength, mobility, and function. Rehabilitation rebuilds it.',
   signs:['Stiffness or reduced strength in the operated area that limits standing, walking, or daily movement','Lower stamina after the rest of a hospital stay','Swelling or discomfort that limits the range of motion needed for recovery'],
   treat:'We guide recovery through phased rehabilitation, rebuilding strength, supporting tissue repair through nutrition, and working within your surgeon&rsquo;s guidelines throughout.',
   faqs:[
-   {q:'Can recovery after surgery improve through therapy and daily care?',a:'Yes. Physiotherapy is the primary driver of recovery after surgery. Consistent rehabilitation restores strength, keeps tissue supple, and rebuilds the function that comes back through guided care. Starting early gives the smoothest recovery, and most people progress well.'},
+   {q:'Can recovery after surgery happen at home?',a:'Yes. A qualified specialist brings phased rehabilitation to your home, with a plan built around the operated area and your space, working within your surgeon&rsquo;s guidelines throughout. Starting early gives the smoothest recovery, and most people progress well.'},
    {q:'What shapes recovery after surgery?',a:'Recovery is smoothest when rehabilitation starts soon, ideally within 24 to 48 hours. Muscle naturally softens during hospital rest and tissue heals more gradually with age, so an early, well-paced programme makes a real difference.'},
-   {q:'Can exercises alone fix it?',a:'Exercise is central to recovery, and after surgery it is carefully phased: comfort first, then gentle mobilisation, then progressive strengthening, always within the surgeon&rsquo;s precautions. A physiotherapist guides this sequence, which is safer than exercising on your own after surgery.'},
-   {q:'Is a doctor involved?',a:'Yes. Every post-operative programme begins with a review of the surgical report and the surgeon&rsquo;s instructions. The physiotherapist works directly within those guidelines and stays in touch with the surgical team throughout recovery.'}]},
+   {q:'What exercises help recovery after surgery?',a:'Exercise is central to recovery, and after surgery it is carefully phased: comfort first, then gentle mobilisation, then progressive strengthening, kept within the surgeon&rsquo;s precautions. A physiotherapist guides this sequence, which is safer than exercising on your own after surgery.'},
+   {q:'Is a doctor involved in the treatment?',a:'Yes. Each post-operative programme begins with a review of the surgical report and the surgeon&rsquo;s instructions. The physiotherapist works directly within those guidelines and stays in touch with the surgical team throughout recovery.'}]},
  'shoulder-pain':{name:'Shoulder pain',
   intro:'Shoulder pain makes everyday movements like dressing, reaching, and lifting harder. It can come from several causes, and in older adults the most common are a stiffening of the joint, wear in the tendons that move the arm, or pinching of those tendons during movement. The right care depends on which one is behind your pain.',
   causes:[
@@ -2813,29 +3123,122 @@ var COND_CONTENT={
   signs:['A deep ache in the shoulder','Stiffness that grows over weeks','Pain when raising or reaching the arm','Weakness when lifting','Discomfort that disturbs sleep on that side'],
   treat:'We find the cause first, then treat the shoulder and the muscles around it. Physiotherapy uses guided movement and hands-on therapy to ease the stiffness and bring the range back, training keeps the surrounding muscles strong so the shoulder stays supported, and a doctor watches the pace so recovery stays safe and comfortable. Shoulder problems recover gradually, so a steady, guided plan matters more than a quick push.',
   faqs:[
-   {q:'Can shoulder pain improve through therapy and daily care?',a:'Yes. Most shoulder pain improves well with guided therapy and patience, and many people regain comfortable movement over time. Results depend on the cause and your full health picture.'},
+   {q:'Can shoulder pain be treated at home?',a:'Yes. A qualified specialist finds the cause first, then brings guided movement, hands-on therapy, and strengthening to your home, with a plan built around your shoulder and your space. A steady, guided plan matters more than a quick push.'},
+   {q:'Can shoulder pain improve with therapy instead of surgery?',a:'For many people, yes. Guided therapy, the right exercises, and patience can ease shoulder pain and reduce the need for surgery. Your doctor reviews what fits your case.'},
    {q:'What causes shoulder pain in older adults?',a:'It often comes from a stiffening joint, worn tendons, or pinching during movement, sometimes after an injury, surgery, or a period of reduced shoulder use.'},
-   {q:'Can exercises alone fix it?',a:'Exercises are central to recovery, and they work best with hands-on therapy and a guided pace so the shoulder opens up safely.'},
-   {q:'Is a doctor involved?',a:'Yes. A doctor reviews your health and decides what would help, including what you do not need.'}]},
+   {q:'What exercises help with shoulder pain?',a:'Guided exercises are central to shoulder recovery, and they work well with hands-on therapy and a steady pace so the shoulder opens up safely.'},
+   {q:'Is a doctor involved in the treatment?',a:'Yes. A doctor reviews your health and decides what would help, including what you can skip.'}]},
  'diabetes':{
   intro:'Over time, diabetes can affect the muscles and joints, reducing circulation, affecting the nerves in the feet, and lowering strength. Movement and nutrition help manage these effects.',
   signs:['Numbness, tingling, or a burning feeling in the feet and lower legs that affects steady walking','General tiredness and lower strength that limits daily activity','Stiffness or discomfort in several joints, often the shoulders, hands, and feet'],
   treat:'We manage the physical effects of diabetes through structured exercise, personalised nutrition, strength maintenance, and a programme supervised in line with your physician&rsquo;s guidance.',
   faqs:[
-   {q:'Can diabetes be managed through therapy and daily care?',a:'Yes. The physical effects of diabetes, such as nerve changes in the feet, lower strength, and steadiness, respond well to structured physiotherapy and nutrition. Blood sugar medication remains a medical decision, while exercise and nutrition directly improve insulin sensitivity and support steady function over time.'},
+   {q:'Can diabetes be managed at home?',a:'Yes. A qualified specialist brings structured exercise, personalised nutrition, and strength work to your home, with a plan built around your body and your routine, supervised in line with your physician&rsquo;s guidance. Movement and nutrition directly support steady, active days.'},
    {q:'What affects physical wellbeing with diabetes?',a:'Long-term high blood sugar can affect the nerves in the limbs, reduce circulation, and lower muscle strength. Staying active turns this around: regular movement supports muscle, which supports blood sugar control, which supports steady, active days.'},
-   {q:'Can exercises alone fix it?',a:'Exercise is one of the most powerful steps for the physical side of diabetes, and it works best alongside nutrition support. Kinetic Age combines physiotherapy and dietitian-led nutrition planning to support both the physical and metabolic sides together.'},
-   {q:'Is a doctor involved?',a:'Yes. Exercise intensity and nutrition for seniors with diabetes are always coordinated with the treating physician or diabetologist. The physiotherapist checks vitals before every session and is trained to recognise and respond to signs of low blood sugar.'}]},
+   {q:'What exercises help with diabetes?',a:'Exercise is one of the most powerful steps for the physical side of diabetes, and it works well alongside nutrition support. Kinetic Age combines physiotherapy and dietitian-led nutrition planning to support both the physical and metabolic sides together.'},
+   {q:'Is a doctor involved in the treatment?',a:'Yes. Exercise intensity and nutrition for seniors with diabetes are coordinated with the treating physician or diabetologist. The physiotherapist checks vitals before each session and is trained to recognise and respond to signs of low blood sugar.'}]},
  'parkinsons-disease':{
   intro:'Parkinson&rsquo;s disease is a progressive neurological condition in which the brain gradually makes less dopamine, the chemical that supports smooth, coordinated movement.',
   signs:['A shuffling walk with shorter steps and less arm swing','Tremor at rest in the hands, arms, or jaw, with stiffness that makes movement slower','A tendency to stoop forward and to feel less steady when turning or changing direction'],
   treat:'We help you keep moving well through movement and gait retraining, strength work, nutritional support, and a programme coordinated with your neurologist and family.',
   faqs:[
-   {q:'Can Parkinson&rsquo;s be managed through therapy and daily care?',a:'Physiotherapy works alongside medication to support daily movement. Rigidity, a shuffling walk, steadiness, and freezing moments all respond to targeted rehabilitation, with strong clinical evidence behind it. The aim is to keep independence and quality of life for as long as possible.'},
+   {q:'Can Parkinson&rsquo;s disease be treated at home?',a:'Yes. A qualified specialist brings movement and gait retraining, strength work, and nutritional support to your home, with a plan built around your body and your space, coordinated with your neurologist and family. The aim is to keep independence and quality of life for as long as possible.'},
    {q:'What affects Parkinson&rsquo;s symptoms over time?',a:'Parkinson&rsquo;s changes as the brain&rsquo;s dopamine-producing cells reduce over time. Staying active makes a real difference: regular movement keeps muscles strong and supple, and consistent physiotherapy directly supports this.'},
-   {q:'Can exercises alone fix it?',a:'Exercise is one of the most evidence-backed steps for Parkinson&rsquo;s, especially large-amplitude movement training, balance work, and gait retraining. Consistent, structured exercise supports daily function, and the earlier it starts, the greater the long-term benefit.'},
-   {q:'Is a doctor involved?',a:'Yes. The programme is coordinated with the neurologist managing the Parkinson&rsquo;s. Medication timing, particularly levodopa, affects when sessions work best, so scheduling is aligned with the medication schedule, and any notable change in symptoms is shared with the clinical team.'}]}
+   {q:'What exercises help with Parkinson&rsquo;s disease?',a:'Exercise is one of the most evidence-backed steps for Parkinson&rsquo;s, especially large-amplitude movement training, balance work, and gait retraining. Consistent, structured exercise supports daily function, and the earlier it starts, the greater the long-term benefit.'},
+   {q:'Is a doctor involved in the treatment?',a:'Yes. The programme is coordinated with the neurologist managing the Parkinson&rsquo;s. Medication timing, particularly levodopa, affects when sessions work well, so scheduling is aligned with the medication schedule, and any notable change in symptoms is shared with the clinical team.'}]}
 };
+var COND_PILLARS={
+ 'arthritis':[['physiotherapy','Eases the pain and keeps your joints moving.'],['strength-training','Builds the muscle around each joint so it carries less strain.'],['nutrition','Helps manage the weight and inflammation that add to arthritis.'],['doctor-oversight','Reviews the full picture and guides the plan as you improve.']],
+ 'back-pain':[['physiotherapy','Releases the tight, painful areas and restores movement.'],['strength-training','Strengthens the core and back muscles that hold your spine steady.'],['doctor-oversight','Guides the plan and watches for any sign that needs closer care.']],
+ 'neck-pain':[['physiotherapy','Releases tight muscles and restores movement in the neck.'],['strength-training','Strengthens the neck and upper back so the spine carries less load.'],['doctor-oversight','Reviews the picture and watches for any nerve signs that need care.']],
+ 'osteoporosis':[['physiotherapy','Improves balance and posture so falls and fractures grow less likely.'],['strength-training','Uses safe, weight-bearing exercise that helps keep your bones strong.'],['nutrition','Supports the calcium, protein, and vitamins your bones depend on.'],['doctor-oversight','Reviews your reports and guides the plan.']],
+ 'diabetic-neuropathy':[['physiotherapy','Improves balance and safe movement when sensation is reduced.'],['strength-training','Keeps your legs strong and your circulation active.'],['nutrition','Helps steady your blood sugar, the root of the problem.'],['doctor-oversight','Reviews your reports and foot health closely.']],
+ 'knee-pain':[['physiotherapy','Eases the pain and restores movement.'],['strength-training','Builds the muscle around the knee so the joint carries less load.'],['nutrition','Helps manage the weight and inflammation that strain the joint.'],['doctor-oversight','Reviews the full picture and guides the plan as you improve.']],
+ 'balance-and-falls':[['physiotherapy','Improves balance and the reflexes that catch a stumble.'],['strength-training','Strengthens the legs and core that hold you upright.'],['mental-wellness','Rebuilds the confidence to move freely again.'],['doctor-oversight','Reviews the causes, including any link to medication or inner-ear changes.']],
+ 'post-stroke-recovery':[['physiotherapy','Retrains movement, balance, and strength on the affected side.'],['strength-training','Builds the stamina to keep daily tasks going.'],['mental-wellness','Supports the patience and mood that recovery asks for.'],['doctor-oversight','Guides the whole plan and adjusts it as you regain ground.']],
+ 'surgery-recovery':[['physiotherapy','Guides phased rehabilitation that rebuilds movement after surgery.'],['strength-training','Rebuilds the strength that softens during recovery.'],['nutrition','Supports tissue repair as you heal.'],['doctor-oversight','Works within your surgeon&rsquo;s guidelines throughout.']],
+ 'shoulder-pain':[['physiotherapy','Uses guided movement and hands-on therapy to ease stiffness and bring the range back.'],['strength-training','Keeps the surrounding muscles strong so the shoulder stays supported.'],['doctor-oversight','Watches the pace so recovery stays safe and comfortable.']],
+ 'diabetes':[['physiotherapy','Leads structured exercise that supports circulation and steady movement.'],['strength-training','Maintains the strength that helps manage blood sugar.'],['nutrition','Builds personalised nutrition that supports blood sugar control.'],['doctor-oversight','Coordinates the plan in line with your physician&rsquo;s guidance.']],
+ 'parkinsons-disease':[['physiotherapy','Leads movement and gait retraining for steadier walking.'],['strength-training','Adds strength work that keeps your muscles strong and supple.'],['nutrition','Gives nutritional support that keeps your energy steady.'],['doctor-oversight','Coordinates the plan with your neurologist.']]
+};
+// ---- Standalone condition page content (new format: About + Signs + pillar cards + FAQ). Extends COND_CONTENT + COND_PILLARS. ----
+var STANDALONE={
+ 'knee-pain':{
+  intro:'Knee pain in older adults most often comes from osteoarthritis, the gradual wearing of the cushioning cartilage inside the knee. As that cushion thins, the bones move with more friction, which brings pain, stiffness, and swelling. It is one of the most common reasons walking and stairs start to feel harder.',
+  signs:['Pain that grows with movement and eases with rest','Stiffness in the morning or after sitting','Swelling around the joint','A grinding feeling when you bend the knee'],
+  pillars:[['physiotherapy','Eases the pain and restores movement in the knee.'],['strength-training','Builds the muscle around the knee so the joint carries less load.'],['nutrition','Helps manage weight and inflammation that add strain to the knee.'],['doctor-oversight','Reviews the full picture and guides the plan.']],
+  faqs:[{q:'Can knee pain be treated at home?',a:'Yes. A qualified physiotherapist brings treatment to your home and builds a plan around your knee and your space.'},{q:'Can knee pain improve with therapy instead of surgery?',a:'For many people, yes. Therapy, strength work, and weight care ease knee pain and can reduce the need for surgery. Your doctor reviews your case.'},{q:'What causes knee pain in older adults?',a:'Natural wear, past injuries, extra weight on the joint, and weak muscles around the knee, usually together.'},{q:'Is a doctor involved?',a:'Yes. A doctor reviews your health and guides the plan, deciding what genuinely helps you.'}]
+ },
+ 'arthritis':{
+  intro:'Arthritis is pain, stiffness, and swelling in the joints. The most common kind in older adults is osteoarthritis, where the cushioning inside a joint wears down over the years, so the joint moves with more friction. It can affect the knees, hips, hands, shoulders, and spine, and builds slowly until daily movement feels harder.',
+  signs:['Joint pain that grows with use and eases with rest','Stiffness in the morning or after sitting','Swelling or warmth around a joint','A grinding feeling when you move it'],
+  pillars:[['physiotherapy','Eases pain and keeps the joints moving.'],['strength-training','Builds the muscle around each joint so it carries less strain.'],['nutrition','Helps manage weight and inflammation that make arthritis worse.'],['doctor-oversight','Reviews the full picture and guides the plan.']],
+  faqs:[{q:'Can arthritis be treated at home?',a:'Yes. A specialist treats your joints at home and builds a plan around your daily movement.'},{q:'Can arthritis improve with therapy instead of surgery?',a:'For many people, yes. Therapy, strength work, and weight care ease arthritis and can reduce the need for surgery. Your doctor reviews your case.'},{q:'What causes arthritis in older adults?',a:'Natural joint wear, past injuries, extra weight, and weak supporting muscles, usually together.'},{q:'Is a doctor involved?',a:'Yes. A doctor reviews your health and guides the plan.'}]
+ },
+ 'hip-pain':{
+  intro:'Hip pain in older adults often comes from osteoarthritis, where the cushioning in the hip joint wears down over the years. This brings pain, stiffness, and trouble with walking, stairs, and getting up from a chair.',
+  signs:['Pain in the hip, groin, or thigh','Stiffness after sitting or resting','Trouble walking far or climbing stairs','Difficulty getting up from a chair or bed'],
+  pillars:[['physiotherapy','Eases the pain and restores movement in the hip.'],['strength-training','Builds the muscle around the hip so the joint carries less load.'],['nutrition','Helps manage weight that adds strain to the hip.'],['doctor-oversight','Reviews the full picture and guides the plan.']],
+  faqs:[{q:'Can hip pain be treated at home?',a:'Yes. A specialist treats your hip at home and builds a plan around your movement.'},{q:'Can hip pain improve with therapy instead of surgery?',a:'For many people, yes. Therapy, strength work, and weight care ease hip pain and can reduce the need for surgery. Your doctor reviews your case.'},{q:'What causes hip pain in older adults?',a:'Natural wear in the hip joint, extra weight, and weak supporting muscles, usually together.'},{q:'Is a doctor involved?',a:'Yes. A doctor reviews your health and guides the plan.'}]
+ },
+ 'diabetes':{
+  intro:'Diabetes is when blood sugar stays higher than it should, which over time affects energy, weight, nerves, and other parts of your health. With the right daily care, food, and support, many people manage it well and feel the difference.',
+  signs:['Feeling tired or low on energy','Feeling thirsty or needing to pass urine often','Slow healing of small wounds','Changes in weight'],
+  pillars:[['nutrition','Builds a food plan that helps manage your blood sugar.'],['strength-training','Uses safe activity to help your body use sugar better.'],['doctor-oversight','Reads your reports and guides the plan as your numbers change.']],
+  faqs:[{q:'Can diabetes be managed at home?',a:'Yes. A specialist builds a plan around your food, your routine, and your reports, all from home.'},{q:'Can the right food and activity manage diabetes?',a:'For many people, yes. Food and safe activity are among the strongest tools for managing blood sugar, alongside a doctor guiding the plan.'},{q:'What causes diabetes to get harder to manage with age?',a:'Lower activity, changes in weight, diet, and other health conditions, which often build together.'},{q:'Is a doctor involved?',a:'Yes. A doctor reads your reports and guides the plan.'}]
+ },
+ 'diabetic-neuropathy':{
+  intro:'Diabetic neuropathy is nerve damage caused by long periods of high blood sugar, most often felt in the feet and legs. It can bring numbness, tingling, or pain, and it affects balance. Good management slows it and eases the symptoms.',
+  signs:['Tingling or burning in the feet','Numbness that dulls sensation','Sharp or aching pain, often at night','Unsteadiness when walking'],
+  pillars:[['nutrition','Helps steady blood sugar, the root of the problem.'],['physiotherapy','Improves balance and safe movement when sensation is reduced.'],['strength-training','Keeps the legs strong and the circulation active.'],['doctor-oversight','Reviews your reports and foot health and guides the plan.']],
+  faqs:[{q:'Can diabetic neuropathy be managed at home?',a:'Yes. A specialist guides care at home, built around steadying your blood sugar and keeping you safe and active.'},{q:'Can therapy and daily care ease neuropathy?',a:'For many people, symptoms ease and progress slows when blood sugar is well managed and the body stays active and supported.'},{q:'What causes diabetic neuropathy?',a:'Long periods of high blood sugar damaging the nerves, most often in the feet and legs.'},{q:'Is a doctor involved?',a:'Yes. A doctor reviews your reports and guides the plan.'}]
+ },
+ 'osteoporosis':{
+  intro:'Osteoporosis is the thinning and weakening of the bones, which makes them more likely to break. It develops quietly over years and is common in older adults, especially after menopause. With the right care, bones can be supported and the risk of a fracture lowered.',
+  signs:['A loss of height over time','A stooping posture','Back pain from the spine','Bones that break more easily than expected'],
+  pillars:[['strength-training','Uses safe, weight-bearing exercise that helps keep bones strong.'],['physiotherapy','Improves balance and posture so falls and fractures become less likely.'],['nutrition','Supports the calcium, protein, and vitamins bone health depends on.'],['doctor-oversight','Reviews your reports and guides the plan.']],
+  faqs:[{q:'Can osteoporosis be managed at home?',a:'Yes. A specialist guides safe exercise and nutrition at home, built around your bone health.'},{q:'Can exercise and nutrition support bone strength?',a:'For many people, yes. Safe weight-bearing exercise and good nutrition support bone strength and lower fracture risk, with a doctor guiding the approach.'},{q:'What causes osteoporosis in older adults?',a:'Natural bone loss with age, hormonal changes after menopause, low calcium or vitamin D, and lower activity.'},{q:'Is a doctor involved?',a:'Yes. A doctor reviews your reports and guides the plan.'}]
+ },
+ 'post-stroke-recovery':{
+  intro:'A stroke affects part of the brain that controls movement, balance, or speech, so those abilities need retraining. Recovery is the work of rebuilding them through steady, guided rehabilitation, and the brain keeps the capacity to relearn with the right support. A mini-stroke (TIA) is a warning that also benefits from guided recovery and prevention.',
+  signs:['Weakness on one side of the body','Trouble with balance and walking','Stiffness in an arm or leg','Difficulty with speech or daily tasks'],
+  pillars:[['physiotherapy','Retrains movement, balance, and strength on the affected side.'],['strength-training','Builds the stamina to keep daily tasks going.'],['mental-wellness','Supports the patience and mood that recovery asks for.'],['doctor-oversight','Guides the whole plan and adjusts it as you regain ground.']],
+  faqs:[{q:'Can stroke recovery happen at home?',a:'Yes. A specialist guides rehabilitation at home, where you feel safe to try, at a pace matched to you.'},{q:'Can therapy rebuild movement after a stroke?',a:'For many people, steady rehabilitation rebuilds meaningful movement and independence over time. Progress depends on the stroke and your health.'},{q:'What causes the difficulties after a stroke?',a:'A stroke affects the part of the brain that controls movement, balance, or speech, so those abilities need retraining.'},{q:'Is a doctor involved?',a:'Yes. A doctor guides the recovery plan.'}]
+ },
+ 'parkinsons-disease':{
+  intro:'Parkinson&rsquo;s affects movement, bringing slowness, stiffness, tremor, and changes in balance. Guided, regular care helps you keep moving, stay steady, and manage daily life with more confidence.',
+  signs:['Tremor in a hand or limb','Slower, stiffer movement','Changes in balance and walking','Smaller handwriting or a softer voice'],
+  pillars:[['physiotherapy','Guides movement and balance work that keeps you steady.'],['strength-training','Builds strength and keeps your body active.'],['mental-wellness','Supports mood and motivation through ongoing care.'],['doctor-oversight','Reviews your health and guides the plan as needs change.']],
+  faqs:[{q:'Can Parkinson&rsquo;s be supported at home?',a:'Yes. A specialist guides movement and balance work at home, built around your needs and pace.'},{q:'Can therapy help with Parkinson&rsquo;s?',a:'For many people, regular guided movement and strength work help keep mobility, balance, and confidence. Your doctor guides the plan.'},{q:'What changes does Parkinson&rsquo;s bring?',a:'It affects movement, bringing slowness, stiffness, tremor, and changes in balance, which build gradually.'},{q:'Is a doctor involved?',a:'Yes. A doctor reviews your health and guides the plan.'}]
+ },
+ 'balance-and-falls':{
+  intro:'Balance problems make standing and walking feel unsteady, which raises the risk of a fall. In older adults this often comes from weaker muscles, slower reflexes, inner-ear changes, and lower confidence, which build quietly over time.',
+  signs:['Unsteadiness when you stand or turn','A worry about walking on uneven ground','Holding on to walls or furniture','Dizziness at times'],
+  pillars:[['strength-training','Strengthens the legs and core that hold you upright.'],['physiotherapy','Improves balance and the reflexes that catch a stumble.'],['mental-wellness','Rebuilds the confidence to move freely again.'],['doctor-oversight','Reviews the causes and guides the plan.']],
+  faqs:[{q:'Can balance problems be treated at home?',a:'Yes. A specialist guides balance and strength work at home, built around your steadiness.'},{q:'Can therapy improve balance and lower fall risk?',a:'For many people, yes. The right strength and balance work rebuild steadiness, and many lower their fall risk with a guided plan.'},{q:'What causes balance problems in older adults?',a:'Weaker muscles, slower reflexes, inner-ear changes, certain medicines, and lower confidence, often together.'},{q:'Is a doctor involved?',a:'Yes. A doctor reviews the causes and guides the plan.'}]
+ },
+ 'high-blood-pressure':{
+  intro:'High blood pressure means the force of blood against your artery walls stays higher than it should. Over time it strains the heart and other organs. With the right food, activity, and support, many people bring it into a healthier range.',
+  signs:['Often there are few signs, so regular checks matter','Headaches at times','Feeling tired or short of breath','Higher readings when measured'],
+  pillars:[['nutrition','Builds a food plan that helps bring blood pressure into a healthier range.'],['strength-training','Uses safe, guided activity that supports your heart.'],['doctor-oversight','Reads your readings and guides the plan as your numbers change.']],
+  faqs:[{q:'Can high blood pressure be managed at home?',a:'Yes. A specialist builds a plan around your food, activity, and readings, all from home.'},{q:'Can food and exercise lower blood pressure?',a:'For many people, yes. The right nutrition and safe activity help bring blood pressure into a healthier range, alongside a doctor guiding the plan.'},{q:'What causes high blood pressure in older adults?',a:'Diet, weight, low activity, stress, and other health conditions, which often build together.'},{q:'Is a doctor involved?',a:'Yes. A doctor reads your readings and guides the plan.'}]
+ },
+ 'age-related-weakness':{
+  intro:'As the years go on, muscles slowly lose size and strength, which makes everyday movements feel harder. It speeds up with less activity, lower protein in the diet, and long spells of rest. Strength can be rebuilt at any age with the right plan.',
+  signs:['Tiring quickly during everyday tasks','Trouble rising from a chair or climbing stairs','A weaker grip when holding or carrying','Feeling less steady on your feet'],
+  pillars:[['strength-training','Works your muscles safely and gradually to rebuild strength.'],['nutrition','Gives your body the protein it needs to rebuild.'],['physiotherapy','Keeps your joints moving freely as strength returns.'],['doctor-oversight','Reviews the full picture and guides the plan.']],
+  faqs:[{q:'Can age-related weakness be treated at home?',a:'Yes. A trainer and physiotherapist work with your body and your space, so you rebuild strength safely at home.'},{q:'Can strength come back at an older age?',a:'Yes. Muscles respond to safe, guided training at any age, and many older adults regain real strength over time.'},{q:'What causes weakness as you age?',a:'Natural muscle loss, less activity, low protein, and long rest, usually together.'},{q:'Is a doctor involved?',a:'Yes. A doctor reviews your health and guides the plan.'}]
+ },
+ 'frailty-syndrome':{
+  intro:'Frailty is when the body&rsquo;s reserves run low, so a small illness, fall, or stress takes a bigger toll and recovery takes longer. It often shows as weakness, slowness, and tiredness together. With the right care, frailty can be slowed and strength rebuilt.',
+  signs:['Tiring easily and feeling low on energy','Moving and walking more slowly','Losing weight or muscle without trying','Taking longer to recover from a small illness'],
+  pillars:[['strength-training','Rebuilds strength and stamina safely.'],['nutrition','Restores what the body needs to recover.'],['physiotherapy','Keeps you mobile and steady.'],['doctor-oversight','Watches the whole picture and adjusts the plan.']],
+  faqs:[{q:'Can frailty be treated at home?',a:'Yes. Care comes to your home and is built around what your body can handle.'},{q:'Can frailty be improved in older adults?',a:'For many people, frailty can be slowed and partly improved with the right strength work, nutrition, and a guided plan.'},{q:'What causes frailty?',a:'Low muscle, poor nutrition, less activity, and ongoing health conditions, often together.'},{q:'Is a doctor involved?',a:'Yes. A doctor reviews your health and guides the plan.'}]
+ }
+};
+Object.keys(STANDALONE).forEach(function(k){var d=STANDALONE[k],c=COND_CONTENT[k]||(COND_CONTENT[k]={});
+ if(d.intro)c.intro=d.intro; if(d.signs)c.signs=d.signs; if(d.faqs)c.faqs=d.faqs;
+ if(d.pillars)COND_PILLARS[k]=d.pillars;});
 var PLAY_ICO='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
 var SIGN_ICO='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="2.6"/></svg>';
 // shared condition-page template. Per-condition copy comes from COND_CONTENT when present, else a calm fallback.
@@ -2843,14 +3246,18 @@ function condPage(o){
  var n=lc(o.name), C=COND_CONTENT[o.slug]||{};
  var intro=C.intro||o.intro, signs=C.signs||o.signs||[], treat=C.treat, faqs=C.faqs||condFaqs(o.name), causes=C.causes||[];
  var waCard='<div class="band"><p class="p" style="margin:0">See how we treat your condition, what your plan would include, and how our care works together. We will send it to you on WhatsApp.</p><div style="margin-top:14px">'+waBtn('Can you send me the full plan for '+o.name+'?','Send me the full plan on WhatsApp','orange')+'</div></div>';
- return heroBand('g-field','<a data-go="/conditions" class="hero-back">&larr; All conditions</a>',o.name,o.symptom||'','<button class="btn light" data-lead>Book a free trial</button>')+
+ return heroBand('g-field','<a data-go="/conditions" class="hero-back">&larr; All conditions</a>',o.name,o.symptom||'','<button class="btn light" data-lead>Book a free physiotherapy trial</button>')+
  // About the condition
  '<section class="sec"><span class="kick green">About the condition</span><h2 class="h2">What <span class="it">happens</span> in '+n+'.</h2>'+(intro?'<p class="cond-lead">'+intro+'</p>':'<p class="p muted">[PLACEHOLDER] What '+n+' is, and the signs to watch for in older adults.</p>')+(causes.length?'<div class="cond-causes">'+causes.map(function(c){return '<div class="cond-cause"><div class="cc-h">'+c.h+'</div><p class="cc-p">'+c.p+'</p></div>'}).join('')+'</div>':'')+(signs.length?'<span class="signs-lbl">'+SIGN_ICO+'Signs you may notice</span><div class="signs">'+signs.map(function(r,i){return '<div class="sign" style="--i:'+i+'"><span class="sign-n">'+(i+1)+'</span><span class="sign-t">'+r+'</span></div>'}).join('')+'</div>':'')+'</section>'+
  (o.photo?'<section class="sec" style="padding-top:4px"><div class="svc-img"><img src="'+o.photo+'?v=3" alt="'+o.name+'" loading="lazy"></div></section>':'')+
- // Top 3 exercises (space reserved, GIFs to come) + the shift
- '<section class="sec"><h2 class="h2">Three exercises that usually help.</h2><p class="p muted" style="margin-top:6px">Short guided demos for '+n+', coming soon.</p><div class="swipe" style="margin-top:18px">'+[1,2,3].map(function(k){return '<div class="card exg"><div class="exg-slot"><span class="exg-ic">'+PLAY_ICO+'</span><span class="exg-cap">Exercise '+k+'</span></div></div>'}).join('')+'</div><p class="shift" style="margin-top:18px">These help, but lasting change needs more than exercises alone.</p></section>'+
+ // Common types — sub-conditions folded onto this parent (names from CANON_SLUG/COND_DIR; descriptions from COMMON_TYPES)
+ (function(){var st=causes.length?[]:condSubtypes(o.slug); return st.length>=2
+   ? '<section class="sec"><span class="kick green">Common types</span><h2 class="h2">What we treat under <span class="it">'+n+'</span></h2><div class="cond-causes">'+st.map(function(t){return '<div class="cond-cause"><div class="cc-h">'+t.n+'</div>'+(t.d?'<p class="cc-p">'+t.d+'</p>':'')+'</div>'}).join('')+'</div></section>'
+   : '';})()+
  // How we treat (merged: copy + pillar links + WhatsApp hook)
- '<section class="sec"><h2 class="h2">How we treat '+n+'.</h2>'+(treat?'<p class="p">'+treat+'</p>':'<p class="p muted">[PLACEHOLDER] How the five pillars work together for '+n+'.</p>')+'<div class="pillar-links" style="margin-top:16px">'+PILLARS.map(function(p){return link('/services/'+p.slug,p.name)}).join('')+'</div><div style="margin-top:18px">'+waCard+'</div></section>'+
+ '<section class="sec"><h2 class="h2">How we treat '+n+'.</h2>'+(COND_PILLARS[o.slug]?'<div class="treat-list">'+COND_PILLARS[o.slug].map(function(tp){return '<a class="treat-row" data-go="/services/'+tp[0]+'"><span class="tn">'+pillarBy(tp[0]).name+'</span><span class="tl">'+tp[1]+'</span><span class="ta">'+ARR()+'</span></a>'}).join('')+'</div>':(treat?'<p class="p">'+treat+'</p>':'')+'<div class="pillar-links" style="margin-top:16px">'+PILLARS.map(function(p){return link('/services/'+p.slug,p.name)}).join('')+'</div>')+'<div style="margin-top:18px">'+waCard+'</div></section>'+
+ // App mention (Component B light), now that the exercises section is gone
+ '<section class="sec" style="padding-top:6px">'+appNote('Track your plan, your exercises, and every report in the app, between visits.')+'</section>'+
  // Proof: every member story, swipeable
  '<section class="sec"><h2 class="h2">Stories from people we care for.</h2><p class="p muted">Tap any card to watch.</p><div class="swipe" style="margin-top:18px">'+TESTIMONIALS.map(testiCard2).join('')+'</div></section>'+
  // Book a free trial
@@ -2862,6 +3269,7 @@ function condPage(o){
  footer()}
 function vCondition(slug){
  var ph=(COND_POPULAR.filter(function(x){return x.slug===slug})[0]||{}).photo;
+ slug=CANON_SLUG[slug]||slug; // fold clinical-name and legacy slugs onto their canonical parent page
  var c=condBy(slug); if(c) return condPage({name:c.name,slug:c.slug,symptom:c.symptom,intro:c.intro,signs:c.reasons,exercises:true,photo:ph});
  var d=dirBy(slug); if(d){var cat=(CONDITION_CATS.filter(function(g){return g.k===d.c})[0]||{}).label||'Conditions'; return condPage({name:d.n,slug:slug,cat:cat,symptom:'Care for '+lc(d.n)+', delivered at home.',exercises:false,photo:ph});}
  var cc=COND_CONTENT[slug]; if(cc&&cc.name) return condPage({name:cc.name,slug:slug,symptom:'Care for '+cc.name.toLowerCase()+', delivered at home.',photo:ph});
@@ -2874,6 +3282,14 @@ function serviceFaqs(name){var n=lc(name);return [
  {q:'Do I need a doctor’s referral to start?',a:'[PLACEHOLDER]'},
  {q:'How many sessions will I need?',a:'[PLACEHOLDER]'}
 ];}
+// app mention matched to each pillar (Component B light, quiet link only)
+var SVC_APP={
+ 'physiotherapy':'Your exercise plans live in the app, so you can follow them between visits.',
+ 'strength-training':'Track your strength plan and your progress in the app.',
+ 'nutrition':'Track your meals and your daily streak in the app, with your full plan.',
+ 'doctor-oversight':'See your vitals, reports, medicine reminders, and your care schedule in the app.',
+ 'mental-wellness':'Keep your check-ins and your routine in the app.'
+};
 function vService(slug){
  var p=pillarBy(slug); if(!p) return '<section class="hero" style="min-height:60svh"><div class="bgwrap"><div class="bgslide g-blue"></div></div><div class="scrim"></div><h1>[PLACEHOLDER] Service not found</h1><div class="hcta">'+link('/conditions','Back to all conditions',true)+'</div></section>';
  var n=p.name.toLowerCase();
@@ -2893,19 +3309,16 @@ function vService(slug){
        '<div class="kahome"><span class="kahome-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.4 12 4l9 7.4"/><path d="M5 9.8V19a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.8"/><path d="M9.5 20v-5.2h5V20"/></svg></span><div class="kahome-bd"><span class="kahome-lbl">Care at home</span><p class="kahome-tx">'+p.about.home+'</p></div></div>'+
      '</section>'
    : '<section class="sec"><h2 class="h2">What '+n+' is.</h2><p class="p muted">[PLACEHOLDER] What '+n+' covers, who it helps, and what it looks like delivered at home. Specific, with clinical sign-off.</p></section>'+photo)+
- '<section class="sec"><h2 class="h2">'+(p.treatsHeading||('Conditions '+n+' helps.'))+'</h2><div class="pillar-links">'+(p.treats||p.conditions.map(function(s){var cc=condBy(s);return [cc?cc.name:s,s];})).map(function(x){return link('/conditions/'+x[1],x[0])}).join('')+'</div></section>'+
+ '<section class="sec"><h2 class="h2">'+(p.treatsHeading||('Conditions '+n+' helps.'))+'</h2><div class="pillar-links">'+(p.treats||p.conditions.map(function(s){var cc=condBy(s);return [cc?cc.name:s,s];})).map(function(x){return link('/conditions/'+x[1],x[0])}).join('')+'</div>'+(SVC_APP[p.slug]?appNote(SVC_APP[p.slug]):'')+'</section>'+
  '<section class="sec"><h2 class="h2">'+p.name+' goes further when your whole health is cared for.</h2>'+(p.synergy
    ? '<p class="p">'+p.synergy.intro+'</p><div class="syn">'+p.synergy.items.map(function(it){return '<div class="syn-item '+it.lane+'"><div class="syn-lbl">'+it.label+'</div><p class="syn-tx">'+it.text+'</p>'+link(it.to,it.link)+'</div>';}).join('')+'</div>'
    : '<p class="p muted">[PLACEHOLDER] How '+n+' combines with the other pillars for real results, in plain words, with clinical sign-off.</p><div class="pillar-links">'+PILLARS.filter(function(x){return x.slug!==p.slug}).map(function(x){return link('/services/'+x.slug,x.name)}).join('')+'</div>')+'</section>'+
  '<section class="sec"><div class="band"><p class="p" style="margin:0">'+((p.wa&&p.wa.line)||'See how we treat your condition, what your plan would include, and how our care works together. We will send it to you on WhatsApp.')+'</p><div style="margin-top:14px">'+waBtn((p.wa&&p.wa.msg)||('Can you send me the full '+p.name+' plan?'),'Send me the full plan on WhatsApp','orange')+'</div></div></section>'+
  (function(){
-   var ts=TESTIMONIALS.filter(function(x){return x.slug===(SVC_TESTI[p.slug]||p.proof);})[0];
    var ci=caseIdxBySlug(SVC_CASE[p.slug]||''); if(ci<0) ci=caseForPillar(p);
-   if(!ts&&ci<0) return '<section class="sec"><div class="proof-fallback"><span class="pf-mark">'+CHECK()+'</span><div class="cardttl" style="margin-top:0">We have helped many people this way. Your story could be next.</div><div style="margin-top:14px">'+link('/case-studies','See case studies')+'</div></div></section>';
-   return '<section class="sec"><h2 class="h2">See what our members say.</h2><p class="p muted">Tap to watch a member tell it, or read a full case study.</p>'+
-     (ts?'<div style="margin-top:18px">'+testiCard2(ts,TESTIMONIALS.indexOf(ts))+'</div>':'')+
-     (ci>=0?'<div style="margin-top:14px">'+csCard(CASE_STUDIES[ci],ci)+'</div>':'')+
-     '<div style="margin-top:16px">'+link('/case-studies','See all case studies')+'</div></section>';})()+
+   return '<section class="sec"><h2 class="h2">See what our members say.</h2><p class="p muted">Swipe to watch our members tell it'+(ci>=0?', or read a full case study':'')+'.</p>'+
+     '<div class="swipe" style="margin-top:18px">'+TESTIMONIALS.map(testiCard2).join('')+'</div>'+
+     (ci>=0?'<div style="margin-top:14px">'+csCard(CASE_STUDIES[ci],ci)+'</div>':'')+'</section>';})()+
  '<section class="sec cta-block"><h2 class="h2">Start with a free at-home assessment.</h2><p class="p muted" style="margin-bottom:18px">A specialist sees what you need in person, and the doctor decides what genuinely helps you, including what you can skip. The visit is free.</p><button class="btn" data-lead>Book a free trial</button></section>'+
  '<section class="sec"><h2 class="h2">People also ask</h2><div style="margin-top:18px">'+faqList(p.faqs||serviceFaqs(p.name))+'</div></section>'+
  footer()}
@@ -3013,7 +3426,7 @@ function jwReports(){
  var chart='<svg viewBox="0 0 24 24"><path d="M4 20V11M10 20V5M16 20v-6M22 20H2"/></svg>';
  var doc='<svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/></svg>';
  return '<div class="jw-wa">'+
-   '<div class="wa-top"><span class="wa-av">'+grp+'</span><div><div class="wa-name">Your Kinetic Age group</div><div class="wa-mem">You, your family, the doctor &amp; every provider</div></div></div>'+
+   '<div class="wa-top"><span class="wa-av">'+grp+'</span><div><div class="wa-name">Your Kinetic Age group</div><div class="wa-mem">You, your family, the doctor &amp; your care team</div></div></div>'+
    '<div class="wa-body">'+
      '<div class="wa-sys">Every report is shared here with you and your family</div>'+
      '<div class="wa-msg them wa-phys"><span class="wa-from">Physiotherapist</span><span class="wa-att"><span class="wa-att-ic">'+chart+'</span>Exercise &amp; progress report</span></div>'+
@@ -3070,9 +3483,9 @@ function vHow(){
    '<section class="sec jw-point">'+
      '<div class="jw-step"><span class="n">02</span><h3>Your plan, by your health consultant</h3></div>'+
      '<div class="jw-lead">'+
-       '<p>Your report goes to a <span class="b">dedicated health consultant</span>, who brings the right providers together and shapes a plan <span class="b">hyper-personalised</span> to your condition. A <span class="b">doctor consultation</span> screens for red flags from any other conditions that could affect it. Your health consultant ensures the outcome from here.</p>'+
+       '<p>Your report goes to a <span class="b">dedicated health consultant</span>, who brings the right care team together and shapes a plan <span class="b">hyper-personalised</span> to your condition. A <span class="b">doctor consultation</span> screens for red flags from any other conditions that could affect it. Your health consultant ensures the outcome from here.</p>'+
        '<div class="jw-split">'+
-         '<div class="jw-ringbox">'+jwRing()+'<p class="jw-cap">Your provider team stays connected with each other, working together on your personalised needs.</p></div>'+
+         '<div class="jw-ringbox">'+jwRing()+'<p class="jw-cap">Your care team stays connected with each other, working together on your personalised needs.</p></div>'+
          '<div class="jw-splitR">'+
            '<p style="margin-top:14px">Here is what each one does, <span class="b">tap any to learn more</span>:</p>'+
            jwProviders()+
@@ -3084,7 +3497,7 @@ function vHow(){
    '<section class="sec jw-point">'+
      '<div class="jw-step"><span class="n">03</span><h3>Execution</h3></div>'+
      '<div class="jw-lead">'+
-       '<p>Your providers run the plan <span class="b">every day</span>. Your health consultant checks in <span class="b">weekly</span>, and each <span class="b">month</span> brings a full audit, a reassessment, and the doctor&rsquo;s progress report.</p>'+
+       '<p>Your care team runs the plan <span class="b">every day</span>. Your health consultant checks in <span class="b">weekly</span>, and each <span class="b">month</span> brings a full audit, a reassessment, and the doctor&rsquo;s progress report.</p>'+
        '<div class="cal-panel">'+
          jwWeek()+
          '<ul class="cal-leg">'+
@@ -3102,30 +3515,22 @@ function vHow(){
      '<div class="jw-lead">'+
        '<div class="jw-split">'+
          '<div class="jw-splitR">'+
-           '<p>Your <span class="b">health consultant</span> creates your plan and opens a <span class="b">shared WhatsApp group</span> with your family and your providers, so everyone stays connected, with daily updates and full visibility.</p>'+
+           '<p>Your <span class="b">health consultant</span> creates your plan and opens a <span class="b">shared WhatsApp group</span> with your family and your care team, so everyone stays connected, with daily updates and full visibility.</p>'+
            '<p>The <span class="b">Kinetic Age app</span> holds every report anytime: meal plans, exercise plan and timing, trainer profile, weekly and monthly reports, and the doctor&rsquo;s progress report.</p>'+
          '</div>'+
          jwReports()+
        '</div>'+
-       '<div class="appdl">'+
-         '<div class="appdl-body">'+
-           '<div class="appdl-eyebrow">Kinetic Age app</div>'+
-           '<div class="appdl-ttl">Download the app to follow your plan and see every report.</div>'+
-           '<button class="appdl-btn"><svg viewBox="0 0 24 24"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/></svg>Tap to download</button>'+
-         '</div>'+
-         '<div class="appdl-shots">'+
-           '<div class="ph ph-b"><div class="ph-scr"><div class="ph-hd dim">This week</div><span class="ph-bar"></span><span class="ph-bar"></span><span class="ph-bar"></span></div></div>'+
-           '<div class="ph ph-f"><div class="ph-scr"><div class="ph-hd">Today</div>'+
-             '<div class="ph-ring"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" fill="none" stroke="#e7eef4" stroke-width="3"/><circle cx="18" cy="18" r="15" fill="none" stroke="#1f8c6a" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="82 100"/></svg><b>4/5</b></div>'+
-             '<div class="ph-li green"><i></i>Exercise</div><div class="ph-li amber"><i></i>Nutrition</div></div></div>'+
-         '</div>'+
-       '</div>'+
+       '<p style="margin-top:18px">Everything your care runs on lives in the app:</p>'+
+       appFeatures()+
+       appBanner()+
      '</div>'+
    '</section>'+
  '</div>'+
  '<section class="sec"><h2 class="h2">What our <span class="it">members</span> say</h2><p class="p muted">Tap the card to watch the full story.</p><div class="grid">'+testiCard2(TESTIMONIALS[0],0)+'</div><div class="secta"><a class="btn line" data-go="/stories">See more stories</a></div></section>'+
- '<section class="sec"><span class="kick">Good questions</span><h2 class="h2">How the process works.</h2><div style="margin-top:18px">'+faqList(HOW_FAQS)+'</div></section>'+
+ '<section class="sec"><h2 class="h2">People also ask</h2><div style="margin-top:18px">'+faqList(HOW_FAQS)+'</div></section>'+
  footer()}
+
+/* dedicated app page — the investor-facing deep dive every "Download the app" link points to */
 
 /* plans and pricing */
 function vPricing(){
@@ -3177,7 +3582,7 @@ function vStories(){
  '</section>'+
  '<section class="sec"><h2 class="h2">What members <span class="it">say.</span></h2><p class="p muted">Real reviews from the families we care for.</p>'+gRateChip()+'<div class="swipe rvw-swipe">'+REVIEWS.map(reviewCard).join('')+'</div></section>'+
  '<section class="sec cta-block"><h2 class="h2">Want a change like theirs? Start at home.</h2><p class="p muted" style="margin-bottom:18px">It begins with one home visit, where we understand your needs and show you what is possible.</p><button class="btn" data-lead>Book a free trial</button></section>'+
- '<section class="sec"><h2 class="h2">More moments, in under a <span class="it">minute.</span></h2><p class="p muted">Short stories from our families, on Instagram, YouTube, and more.</p><div class="reels">'+REELS.map(reelCard).join('')+'</div></section>'+
+ '<section class="sec"><h2 class="h2">More moments, in under a <span class="it">minute.</span></h2><p class="p muted">Short stories from our families, on Instagram, YouTube, and more.</p><div class="reels">'+REELS.map(reelCard).join('')+'</div>'+appBanner({title:'More clips like these, and your whole plan, in the app.'})+'</section>'+
  '<section class="sec"><div class="band"><div class="cardttl" style="margin-top:0">Want to talk it through first?</div><p class="p muted">Message us on WhatsApp and we will help you decide, or read the full journey below.</p><div style="margin-top:16px">'+waBtn('I would like the same kind of help for my parent','Message us on WhatsApp','orange')+'</div><div style="margin-top:14px">'+link('/case-studies','Read the full stories')+'</div></div></section>'+
  footer()}
 
@@ -3189,10 +3594,10 @@ var ABOUT_JOURNEY=[
  'So we became one team, not one treatment, because the body does not heal in parts.'
 ];
 var ABOUT_FAQS=[
- {q:'How do I get started?',a:'You book a free first visit. We come to you, assess your health, and explain the plan. There is no commitment to continue.'},
- {q:'Can my family see the reports?',a:'Yes. We share your reports in one WhatsApp group with your family, and in the app, so everyone stays informed.'},
- {q:'Are your providers qualified and background-checked?',a:'Yes. Every provider is qualified, trained, and verified before they enter your home.'},
- {q:'What does the free trial include?',a:'A full assessment at home, where we understand your health and what you need. It is free, with no commitment.'}
+ {q:'How do I get started with Kinetic Age?',a:'You start with a free trial. A specialist visits your home, sees what you need, and tells you what would help. You decide where to go from there.'},
+ {q:'What areas do you serve?',a:CITIES_LINE},
+ {q:'Is your care team qualified and verified?',a:'Yes. Our care team is qualified and background-verified, part of a trained team of 45 and growing, because letting someone into your home takes trust.'},
+ {q:'What does the free trial include?',a:'A specialist visits your home, assesses your health, and explains what would help. You see how the care works before you decide, and the first visit is free.'}
 ];
 function vAbout(){
  var KA='<svg class="creed-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v20M2 12h20M4.5 4.5l15 15M19.5 4.5l-15 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
@@ -3206,10 +3611,11 @@ function vAbout(){
      '<div class="creed-card g" style="--i:0">'+KAG+'<span class="creed-lbl">'+KA+'Our Mission</span><p class="creed-tx">To bring <span class="it">complete health care</span> into the comfort of your home, looking after every part of your wellbeing, and to stay close each day, so support is <span class="it">always within reach.</span></p></div>'+
      '<div class="creed-card b" style="--i:1">'+KAG+'<span class="creed-lbl">'+KA+'Our Vision</span><p class="creed-tx">Our vision is to make a future where <span class="it">growing older at home means living well,</span> with care that keeps you stronger, steadier, and supported for the long run.</p></div>'+
    '</div></section>'+
- '<section class="sec"><h2 class="h2">Our senior providers</h2><p class="p muted">Meet some of our senior providers, part of a trained team of 45 and growing. Every one is qualified and verified, because letting someone into your home takes trust.</p>'+teamScroll()+'</section>'+
+ appShowcase({eyebrow:'Our technology',title:'We built our own technology <span class="it">to deliver care.</span>',intro:'Kinetic Age is a tech driven health care company. We bring your whole health into one place, your plan, exercises, meals, vitals, medicines, care team, and reports, by building our own app that keeps them working together. We believe care works best when every part of it is connected.',features:ABOUT_FEATURES,phones:['today','vitals'],link:'See what the app does'})+
+ '<section class="sec"><h2 class="h2">Our senior care team</h2><p class="p muted">Meet some of our senior care team, part of a trained team of 45 and growing. Every one is qualified and verified, because letting someone into your home takes trust.</p>'+teamScroll()+'</section>'+
  '<section class="sec"><h2 class="h2">The record so far.</h2><div style="margin-top:14px">'+statStrip()+'</div><div style="margin-top:16px">'+link('/conditions','See the conditions we treat')+'</div></section>'+
- '<section class="sec"><h2 class="h2">At home, across all of <span class="it">Bangalore.</span></h2><p class="p muted">We serve the whole of Bangalore, with care delivered to your door.</p>'+bangaloreMap()+'</section>'+
- '<section class="sec"><h2 class="h2">Questions families ask.</h2><div style="margin-top:18px">'+faqList(ABOUT_FAQS)+'</div></section>'+
+ '<section class="sec"><h2 class="h2">At home, across India&rsquo;s <span class="it">top cities.</span></h2><p class="p muted">We bring care to your door across the top cities of India.</p>'+bangaloreMap()+'</section>'+
+ '<section class="sec"><h2 class="h2">People also ask</h2><div style="margin-top:18px">'+faqList(ABOUT_FAQS)+'</div></section>'+
  '<section class="sec cta-block"><h2 class="h2">If this sounds like the care you want, start with a free trial.</h2><p class="p muted" style="margin-bottom:18px">It starts with one free visit. We come to you and listen.</p><button class="btn" data-lead>Book a free trial</button><div class="cta-second">'+link('/how-we-work','See how we work')+'</div></section>'+
  footer()}
 
@@ -3274,18 +3680,18 @@ function vCase(slug){
    '<div class="cs-cardmeta" style="margin-top:14px">Age '+c.age+' &middot; '+c.service+'</div>'+
    '<div class="cs-comp"><span class="kick orange">The situation</span><ul class="cs-bul warm">'+c.situation.map(li).join('')+'</ul></div>'+
    '<div class="cs-comp"><span class="kick">What we did</span><ul class="cs-bul teal">'+c.did.map(li).join('')+'</ul><div class="chips" style="margin-top:12px">'+c.pillars.map(chip).join('')+'</div></div>'+
-   '<div class="cs-comp"><span class="kick green">The outcome</span><p class="p">'+c.outcome+'</p><div class="cs-scoreline">'+c.scores+'</div><figure class="cs-saying"><blockquote>'+c.quote+'</blockquote><figcaption>'+c.attr+'</figcaption></figure></div>'+
+   '<div class="cs-comp"><span class="kick green">The outcome</span><p class="p">'+c.outcome+'</p><div class="cs-scoreline">'+c.scores+'</div><p class="p muted" style="margin-top:12px">Through it all, the plan, the guided exercises, and every report stayed in the Kinetic Age app, so the family could follow along between visits.</p><figure class="cs-saying"><blockquote>'+c.quote+'</blockquote><figcaption>'+c.attr+'</figcaption></figure></div>'+
    (c.conds&&c.conds.length?'<div class="cs-comp"><span class="kick">Related conditions</span><div class="chips" style="margin-top:6px">'+c.conds.map(chip).join('')+'</div></div>':'')+
    '<div class="cta-block" style="margin-top:28px;padding:34px 0"><h2 class="h2">Could this be your story too?</h2><p class="p muted" style="margin-bottom:18px">It starts with an assessment at your home, and a specialist sees what would help.</p><button class="btn" data-lead>Book a Free Trial</button><div class="cta-second">'+link('/case-studies','See more case studies')+'</div></div>'+
    '<div class="cs-comp"><span class="kick">More stories</span><div class="pillar-links" style="margin-top:10px">'+others.map(function(o){return link('/case-studies/'+o.slug,o.headline)}).join('')+'</div></div>'+
-   '<div class="cs-comp"><span class="kick">Good questions</span><div style="margin-top:12px">'+faqList(CASE_FAQS)+'</div></div>'+
+   '<div class="cs-comp"><span class="kick">People also ask</span><div style="margin-top:12px">'+faqList(CASE_FAQS)+'</div></div>'+
   '</section>'+footer();
 }
 function vCases(){
- return heroBand('g-home','','Real recoveries, <span class="it">real families.</span>','Stories from the people we care for, at home, across Bangalore.')+
+ return heroBand('g-home','','Real recoveries, <span class="it">real families.</span>','Stories from the people we care for, at home, across India&rsquo;s top cities.')+
   '<section class="sec" style="padding-top:22px"><div class="csgrid">'+CASE_STUDIES.map(csCard).join('')+'</div></section>'+
   '<section class="sec cta-block"><h2 class="h2">Want a recovery like this for you and your family?</h2><p class="p muted" style="margin-bottom:18px">A specialist sees you at home and tells you what would help.</p><button class="btn" data-lead>Book a Free Trial</button></section>'+
-  '<section class="sec"><h2 class="h2">Good questions</h2><div style="margin-top:18px">'+faqList(CASE_FAQS)+'</div></section>'+
+  '<section class="sec"><h2 class="h2">People also ask</h2><div style="margin-top:18px">'+faqList(CASE_FAQS)+'</div></section>'+
  footer()}
 
 /* ---- quiz ---- */
@@ -3405,6 +3811,7 @@ var app=document.getElementById('app'), scroller=document.getElementById('scroll
 function path(){var h=location.hash.replace(/^#/,'');return h||'/';}
 function render(){
  var pth=path(), parts=pth.split('/').filter(Boolean), html, isQuiz=(parts[0]==='quiz'), isHow=(parts[0]||'').indexOf('how-we-work')===0;
+ FAQ_LD=[];
  if(parts[0]==='conditions'&&parts[1]) html=vCondition(parts[1]);
  else if(parts[0]==='conditions') html=vConditions();
  else if(parts[0]==='services'&&parts[1]) html=vService(parts[1]);
@@ -3418,6 +3825,7 @@ function render(){
  else html=vHome();
  app.innerHTML=html;
  app.setAttribute('data-page', parts[0]||'home');
+ syncFaqLd();
  // chrome visibility
  topbar.style.display=isQuiz?'none':'';
  var isHome=!parts.length;
@@ -3503,7 +3911,7 @@ function openReel(idx){
  var src=t.video||'reel-knee.mp4';
  // captions are a JS overlay only for clips without baked-in text; real reels carry their own
  var cues=t.cues||(t.video?null:REEL_CUES);
- var el=document.createElement('div'); el.className='reel'+(t.bakedCC?' reel-baked':''); reelEl=el;
+ var el=document.createElement('div'); el.className='reel'+(t.bakedCC?' reel-baked':'')+(t.infoBottom?' reel-info-bottom':''); reelEl=el;
  el.innerHTML=
   '<div class="reel-stage">'+
    '<div class="reel-prog"><i></i></div>'+
@@ -3519,6 +3927,7 @@ function openReel(idx){
    '<div class="reel-end"><span class="reel-end-k">'+t.metric.k+' '+t.metric.delta+'</span><h3>That is the kind of change we work toward.</h3>'+
      '<button class="btn light xl block" data-lead>Book a free trial</button>'+
      '<button class="btn ghost block" data-go="/how-we-work">See how we work</button>'+
+     '<div class="reel-end-nav"><button class="reel-back">&larr; Back</button><button class="reel-next">Next story &rarr;</button></div>'+
      '<button class="reel-replay">Replay story</button></div>'+
   '</div>';
  document.body.appendChild(el);
@@ -3537,6 +3946,8 @@ function openReel(idx){
  if(ccBtn)ccBtn.addEventListener('click',function(){ccBtn.classList.toggle('on');});
  el.querySelector('.reel-tap').addEventListener('click',function(){ if(end.classList.contains('show'))return; if(v.paused)v.play();else v.pause(); });
  el.querySelector('.reel-replay').addEventListener('click',function(){end.classList.remove('show'); v.currentTime=0; v.play();});
+ el.querySelector('.reel-back').addEventListener('click',closeReel);
+ el.querySelector('.reel-next').addEventListener('click',function(){openReel((idx+1)%TESTIMONIALS.length);}); // loops: last story wraps to the first
 }
 
 /* ── lead-capture modal ──────────────────────────────────────────────
@@ -3566,7 +3977,7 @@ function offlineReady(){return leadD.pincode.trim()&&leadD.address.trim()&&leadD
 function leadNext(){
  var mid=leadSkipped?'We call you to lock a time that works'
    :leadD.mode==='Online'?'Your video consult link arrives'
-   :'A provider arrives at your door';
+   :'A care team member arrives at your door';
  return '<ul class="lead-next">'+
    '<li><span class="n">1</span><span class="nt"><b>Our team reaches out</b> on WhatsApp to confirm</span></li>'+
    '<li><span class="n">2</span><span class="nt">'+mid+'</span></li>'+
@@ -3594,7 +4005,7 @@ function renderLead(){
      '<h3>Let us tailor your assessment.</h3>'+
      '<p class="lead-q" style="margin-top:14px">Where are you based?</p>'+
      '<div class="lead-opts row">'+
-       leadOpt('data-ldcity','Bangalore',leadD.city,false,'In Bangalore','Visit or online')+
+       leadOpt('data-ldcity','Bangalore',leadD.city,false,'In a service city','Visit or online')+
        leadOpt('data-ldcity','Outside',leadD.city,false,'Outside','Online only')+
      '</div>'+
      '<p class="lead-q">How would you like it?</p>'+
@@ -3602,7 +4013,7 @@ function renderLead(){
        leadOpt('data-ldmode','Online',leadD.mode,false,'Online','Video consult')+
        leadOpt('data-ldmode','Offline',leadD.mode,outside,'Offline','Home visit')+
      '</div>'+
-     (outside?'<p class="lead-fine" style="text-align:left;margin-top:10px">Home visits are Bangalore-only, so offline is unavailable for your area.</p>':'')+
+     (outside?'<p class="lead-fine" style="text-align:left;margin-top:10px">Home visits are available only in the cities we serve, so offline is unavailable for your area.</p>':'')+
      '<button class="btn block" id="ldContinue"'+((leadD.city&&leadD.mode)?'':' disabled')+'>Continue</button>'+
      '<button class="lead-skip" id="ldSkip">Skip, just call me to schedule</button>'+
     '</div>';
@@ -3631,7 +4042,7 @@ function renderLead(){
   var m;
   if(leadSkipped) m={h:'You are all set, '+leadEsc(firstName(leadD.name))+'.',p:'Nothing more to do right now. We have your number and we take it from here.'};
   else if(leadD.mode==='Online') m={h:'Your online consult is set.',p:'A '+lc(leadD.slot)+' video link ('+lc(leadD.day)+') goes to '+leadEsc(leadD.email)+(leadD.guests.filter(Boolean).length?' and your guests':'')+'.'};
-  else m={h:'Your home visit is booked.',p:'A provider arrives '+lc(leadD.day)+', '+lc(leadD.slot)+', at '+leadEsc(leadD.pincode)+'.'};
+  else m={h:'Your home visit is booked.',p:'A care team member arrives '+lc(leadD.day)+', '+lc(leadD.slot)+', at '+leadEsc(leadD.pincode)+'.'};
   var CLOCK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
   c='<button class="lead-x" aria-label="Close">&times;</button>'+
     '<div class="lead-confirm"><div class="lead-ic">'+CHECK()+'</div><h3>'+m.h+'</h3><p>'+m.p+'</p>'+
