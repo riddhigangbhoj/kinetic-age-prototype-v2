@@ -172,6 +172,10 @@ button{font:inherit;cursor:pointer}
   text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px;text-decoration-color:rgba(255,255,255,.45)}
 .hlink:active{text-decoration-color:#fff}
 .hero.tall.top .hcta{margin-top:auto}
+.hreassure{align-self:center;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:7px;margin-top:-3px;
+  font-size:var(--fs-cap);font-weight:500;color:rgba(255,255,255,.74);letter-spacing:.01em;text-shadow:0 1px 10px rgba(0,0,0,.35)}
+.hreassure b{font-weight:600;color:#f7a172}
+.hreassure i{font-style:normal;color:rgba(255,255,255,.36)}
 .hero.tall.top .scrollcue{margin-top:16px;justify-content:center;padding-top:0}
 /* home hero, brochure style: full-bleed photos crossfading under the dark scrim, white text on top */
 .hero.photo .herophoto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 26%}
@@ -931,6 +935,10 @@ main{padding-bottom:96px}
 .cta-block .h2{margin-bottom:20px}
 .cta-second{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:16px}
 .cta-second .link{justify-content:center}
+/* convert-moment booking frame: what-you-get line + button + value/risk anchor */
+.bf-above{font-size:var(--fs-body);line-height:1.5;color:var(--ink2);margin:0 auto 16px;max-width:32ch}
+.bf-below{margin-top:13px;font-size:var(--fs-sm);color:var(--muted);font-weight:500;line-height:1.45}
+.bf-below b{color:var(--ink);font-weight:700}
 
 /* ---- case studies ---- */
 .csban{background:linear-gradient(178deg,#e1ecf3 0%,#e9f1f7 40%,var(--bg) 100%);padding:96px 22px 30px;text-align:center}
@@ -1780,6 +1788,8 @@ main{padding-bottom:96px}
 .lead .btn{background:var(--green);color:#fff;margin-top:20px}
 .lead .btn[disabled]{opacity:.45}
 .lead-fine{text-align:center;font-size:var(--fs-cap);color:var(--faint);margin-top:12px}
+.lead-anchor{color:var(--muted);font-weight:500;margin-top:10px}
+.lead-anchor b{color:var(--ink);font-weight:700}
 .lead-pad{padding-top:54px}
 .lead-back{position:absolute;top:12px;left:12px;z-index:3;width:34px;height:34px;border-radius:50%;border:none;
   background:rgba(255,255,255,.92);color:var(--ink);font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.18)}
@@ -1822,6 +1832,21 @@ main{padding-bottom:96px}
 .lead-chips{display:flex;flex-wrap:wrap;gap:8px}
 .lead-chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 16px;font:inherit;font-size:var(--fs-sm);color:var(--ink2);transition:.15s}
 .lead-chip.on{background:var(--green);border-color:var(--green);color:#fff}
+.lead-days{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+.lead-days::-webkit-scrollbar{height:0}
+.lead-day{flex:none;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:54px;padding:9px 7px;border:1px solid var(--line);background:#fff;border-radius:14px;font:inherit;transition:.15s}
+.lead-day .ld-dow{font-size:var(--fs-micro);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.lead-day .ld-dom{font-family:var(--fd);font-size:18px;font-weight:600;color:var(--ink);line-height:1.05}
+.lead-day .ld-mon{font-size:9px;color:var(--faint);text-transform:uppercase;letter-spacing:.06em}
+.lead-day.on{background:var(--green);border-color:var(--green)}
+.lead-day.on .ld-dow,.lead-day.on .ld-dom,.lead-day.on .ld-mon{color:#fff}
+.lead-period b{font-weight:600}
+.lead-period span{color:var(--muted);font-size:var(--fs-ui);margin-left:3px}
+.lead-period.on span{color:rgba(255,255,255,.85)}
+.lead-chip.off{opacity:.4;text-decoration:line-through;cursor:default}
+.lead-maps{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:6px}
+.lead-maps svg{width:16px;height:16px;color:var(--green)}
+.lead-slot-note{font-size:var(--fs-cap);color:var(--muted);margin-top:8px}
 .lead-skip{display:block;width:100%;text-align:center;margin-top:14px;background:none;border:none;font:inherit;
   font-size:var(--fs-sm);color:var(--muted);text-decoration:underline;text-underline-offset:3px}
 .lead-confirm{padding:36px 26px 30px;text-align:center}
@@ -1942,7 +1967,7 @@ main{padding-bottom:96px}
       <a data-go="/about">About</a>
       <a data-go="/case-studies">Case studies</a>
     </nav>
-    <button class="btn dn-cta" data-lead>Book a free trial</button>
+    <button class="btn dn-cta" data-lead>Book a free session</button>
   </header>
 
   <div class="scroll" id="scroll">
@@ -1976,7 +2001,7 @@ main{padding-bottom:96px}
       <a class="svc" data-go="/services/nutrition">Nutrition</a>
       <a class="svc" data-go="/services/mental-wellness">Emotional wellbeing</a>
       <a class="svc" data-go="/services/doctor-oversight">Doctor oversight</a>
-      <div class="d-cta"><button class="btn block" data-lead>Book a free trial</button></div>
+      <div class="d-cta"><button class="btn block" data-lead>Book a free session</button></div>
     </div>
   </div>
 </div>
@@ -2277,7 +2302,7 @@ var HOW_FAQS=[
  {q:'What happens in a home care assessment?',a:'A specialist visits your home and looks at your full health, how you move, your conditions, and your routine. You get a clear picture of what is going on and what would help. The first visit is free.'},
  {q:'Who comes to my home, and how often?',a:'A qualified member of your care team, matched to your plan, the same familiar faces each time. How often depends on your plan, set with you after the assessment and adjusted as you progress.'},
  {q:'Can my family stay involved in the care?',a:'Yes. Your family can follow your progress in the app, see your reports, and stay in touch with the team, even from another city.'},
- {q:'What happens after the free trial?',a:'After the trial you decide. If you continue, the doctor and team build your full plan and begin regular visits, at the pace that suits you.'}];
+ {q:'What happens after the free session?',a:'After the session you decide. If you continue, the doctor and team build your full plan and begin regular visits, at the pace that suits you.'}];
 var TESTIMONIALS=[
 {slug:'strength-training',name:'Sandeep Lakhwara',age:70,her:'his',label:'Strength training',storyLen:'0:37',lane:'green',video:'ka-testimonial-2.mp4',bakedCC:true,poster:'sandeep-poster2.png',
  metric:{k:'Sit-to-stands',before:'5',after:'15',delta:'3&times;'},
@@ -2693,15 +2718,22 @@ function heroTall(){
   '<div class="herolabel labMove">How you move</div>'+
   '<div class="herolabel labEat">What you eat</div>'+
   '<h1>Care that comes to you<span class="it">and owns the outcome</span></h1>'+
-  '<p class="sub">One team for you and your loved ones, caring for their health and lifestyle at home, across every part of their day, <em>from</em></p>'+
+  '<p class="sub">One team for you and your loved ones, caring for their health and lifestyle at home, across every part of their day.</p>'+
   '<div class="hcta col">'+
-    '<button class="btn light xl block" data-lead>Book a free trial</button>'+
+    '<button class="btn light xl block" data-lead>Book a free session</button>'+
+    '<p class="hreassure"><span>Free, worth <b>&#8377;1,200</b></span><i>&middot;</i><span>No payment</span><i>&middot;</i><span>Online or at home</span></p>'+
     '<a class="hlink" data-go="/how-we-work">See how we work</a>'+
   '</div>'+
  '</section>'}
 // small page label that mirrors the nav, so the hero title can stay evocative
 // while you always know which destination you landed on
 function pageLabel(){return {conditions:'Conditions','how-we-work':'How we work',services:'Services',stories:'Stories',about:'About','case-studies':'Case studies',pricing:'Pricing'}[path().split('/').filter(Boolean)[0]]||''}
+// convert-moment booking frame: what-you-get line + the booking button + value/risk anchor.
+// Used only at decision moments (homepage hero, convert blocks, popup); header/footer buttons stay bare.
+var BOOK_ANCHOR='Free, worth <b>&#8377;1,200</b> &middot; No payment &middot; Online or at home';
+function bookFrame(physio,btnCls){return '<p class="bf-above">'+(physio?'A physiotherapist assesses you and treats you in the first session.':'A specialist assesses you and starts your care in the first session.')+'</p>'+
+  '<button class="'+(btnCls||'btn')+'" data-lead>Book a free session</button>'+
+  '<p class="bf-below">'+BOOK_ANCHOR+'</p>';}
 function heroBand(g,eyebrow,h1,sub,cta){
  var eb=eyebrow||pageLabel();
  return '<section class="hero" style="padding-bottom:38px">'+
@@ -2824,7 +2856,7 @@ function wellnessBand(){return '<div class="band"><span class="kick green">'+WEL
 function footer(hideBook){
  return '<footer class="foot"><span class="brand"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20M4.5 4.5l15 15M19.5 4.5l-15 15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg> Kinetic Age</span>'+
   '<p>Complete care for you and your family, brought home, looking after how you move, eat, and live, as one.</p>'+
-  (hideBook?'':'<button class="btn light" data-lead>Book a free trial</button>')+
+  (hideBook?'':'<button class="btn light" data-lead>Book a free session</button>')+
   '<h5>Get the app</h5>'+appStoreBadges()+
   '<h5>Explore</h5><a data-go="/conditions">Conditions</a><a data-go="/how-we-work">How We Work</a><a data-go="/stories">Stories</a><a data-go="/about">About</a><a data-go="/case-studies">Case studies</a>'+
   '<h5>Services</h5>'+PILLARS.map(function(p){return '<a data-go="/services/'+p.slug+'">'+p.name+'</a>'}).join('')+
@@ -2857,8 +2889,8 @@ var APP_FEATURES=[
 ];
 function appIcon(p,lane){return '<span class="af-ic'+(lane?' '+lane:'')+'"><svg viewBox="0 0 24 24">'+p+'</svg></span>'}
 function appFeatures(list){return '<ul class="appfeat">'+(list||APP_FEATURES).map(function(f){return '<li class="af">'+appIcon(f.ic,f.lane)+'<p>'+f.d+'</p></li>'}).join('')+'</ul>'}
-// About-page tech block: same feature icons, plain action sentences
-var ABOUT_FEATURES=APP_FEATURES.map(function(f,i){return {ic:f.ic,lane:f.lane,d:['Watch short clips and exercise videos at home','Track every meal and keep your streak going','Follow a meal plan built around your condition','See your vitals and how they trend over time','Get medicine reminders at the right time','Follow exercise plans with the timing for each session','See your care team profile with their scheduled sessions','Download and share your progress report with your family'][i]};});
+// App showcase bullets (homepage + About): feature icons + plain action sentences
+var APP_BULLETS=APP_FEATURES.map(function(f,i){return {ic:f.ic,lane:f.lane,d:['Watch short clips and exercise videos at home','Track every meal and keep your streak going','Follow a meal plan built around your condition','See your vitals and how they trend over time','Get medicine reminders at the right time','Follow exercise plans with the timing for each session','See your care team profile with their scheduled sessions','Download and share your progress report with your family'][i]};});
 // the phone mock screen: today (default), week plan, or vitals
 function appPhone(kind){
  var scr;
@@ -2959,7 +2991,7 @@ function vHome(){
      (function(){var p=['IIT','IIM','BITS','AIIMS','Manipal Hospitals','Apollo'].map(function(n){return '<span class="bpill">'+n+'</span>'}).join('');return p+p})()+
    '</div></div></div>'+
  '</section>'+
- appShowcase({title:'The same care, <span class="it">in your pocket.</span>',intro:'We built our own app so your whole plan lives in one place. Follow your exercises and meals, track your vitals and medicines, and see who is visiting and when, with every report shared with your family.',phones:['plan','today','vitals'],fan:true})+
+ appShowcase({title:'The same care, <span class="it">in your pocket.</span>',intro:'Kinetic Age is a tech driven care company. We bring your whole health into one place, your plan, exercises, meals, vitals, medicines, care team, and reports, by building our own app that keeps them working together. We believe care works best when every part of it is connected, and when your family can follow along, wherever they are.',features:APP_BULLETS,phones:['plan','today','vitals'],fan:true})+
  socialStrip()+
  '<section class="sec"><h2 class="h2">People also ask</h2><div style="margin-top:18px">'+faqList(HOME_FAQS)+'</div></section>'+
  backedBy()+
@@ -2979,6 +3011,7 @@ var COND_POPULAR=[
 ];
 function vConditions(){
  return heroBand('g-field','','Your condition is where we start.<span class="it">We treat the whole of it.</span>','We treat every symptom, and how they connect, so nothing about your health is handled on its own.')+
+ '<section class="sec cta-block" style="padding-top:20px">'+bookFrame(false)+'</section>'+
  '<section class="sec" style="padding-top:18px">'+
    '<p class="cond-orquiz" style="margin-top:0;margin-bottom:12px">Search your condition, or browse below.</p>'+
    '<div class="cond-search"><svg class="cs-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.4-3.4"/></svg>'+
@@ -3246,7 +3279,7 @@ function condPage(o){
  var n=lc(o.name), C=COND_CONTENT[o.slug]||{};
  var intro=C.intro||o.intro, signs=C.signs||o.signs||[], treat=C.treat, faqs=C.faqs||condFaqs(o.name), causes=C.causes||[];
  var waCard='<div class="band"><p class="p" style="margin:0">See how we treat your condition, what your plan would include, and how our care works together. We will send it to you on WhatsApp.</p><div style="margin-top:14px">'+waBtn('Can you send me the full plan for '+o.name+'?','Send me the full plan on WhatsApp','orange')+'</div></div>';
- return heroBand('g-field','<a data-go="/conditions" class="hero-back">&larr; All conditions</a>',o.name,o.symptom||'','<button class="btn light" data-lead>Book a free physiotherapy trial</button>')+
+ return heroBand('g-field','<a data-go="/conditions" class="hero-back">&larr; All conditions</a>',o.name,o.symptom||'','<button class="btn light" data-lead>Book a free session</button>')+
  // About the condition
  '<section class="sec"><span class="kick green">About the condition</span><h2 class="h2">What <span class="it">happens</span> in '+n+'.</h2>'+(intro?'<p class="cond-lead">'+intro+'</p>':'<p class="p muted">[PLACEHOLDER] What '+n+' is, and the signs to watch for in older adults.</p>')+(causes.length?'<div class="cond-causes">'+causes.map(function(c){return '<div class="cond-cause"><div class="cc-h">'+c.h+'</div><p class="cc-p">'+c.p+'</p></div>'}).join('')+'</div>':'')+(signs.length?'<span class="signs-lbl">'+SIGN_ICO+'Signs you may notice</span><div class="signs">'+signs.map(function(r,i){return '<div class="sign" style="--i:'+i+'"><span class="sign-n">'+(i+1)+'</span><span class="sign-t">'+r+'</span></div>'}).join('')+'</div>':'')+'</section>'+
  (o.photo?'<section class="sec" style="padding-top:4px"><div class="svc-img"><img src="'+o.photo+'?v=3" alt="'+o.name+'" loading="lazy"></div></section>':'')+
@@ -3260,8 +3293,8 @@ function condPage(o){
  '<section class="sec" style="padding-top:6px">'+appNote('Track your plan, your exercises, and every report in the app, between visits.')+'</section>'+
  // Proof: every member story, swipeable
  '<section class="sec"><h2 class="h2">Stories from people we care for.</h2><p class="p muted">Tap any card to watch.</p><div class="swipe" style="margin-top:18px">'+TESTIMONIALS.map(testiCard2).join('')+'</div></section>'+
- // Book a free trial
- '<section class="sec cta-block"><h2 class="h2">Start with a free at-home assessment.</h2><p class="p muted" style="margin-bottom:18px">A specialist sees you in person and explains what would help, with no payment needed.</p><button class="btn" data-lead>Book a free trial</button></section>'+
+ // Book a free session (convert frame, physio wording)
+ '<section class="sec cta-block"><h2 class="h2">Start with a free at-home assessment.</h2>'+bookFrame(true)+'</section>'+
  // FAQ
  '<section class="sec"><h2 class="h2">People also ask</h2><div style="margin-top:18px">'+faqList(faqs)+'</div></section>'+
  // Back to all conditions
@@ -3295,7 +3328,7 @@ function vService(slug){
  var n=p.name.toLowerCase();
  var photo='<section class="sec" style="padding-top:4px"><div class="svc-img"><img src="'+((p.svcImg||p.photo)+'?v=1')+'" alt="'+(p.imgAlt||p.name)+'" loading="lazy"></div></section>';
  var provLi=function(t){return '<li><span class="prov-ic">'+CHECK()+'</span><span class="pl-t">'+t+'</span></li>'};
- return heroBand('g-blue','',p.name,p.blurb,'<button class="btn light" data-lead>Book a free trial</button>')+
+ return heroBand('g-blue','',p.name,p.blurb,'<button class="btn light" data-lead>Book a free session</button>')+
  (p.provide
    ? photo+
      '<section class="sec"><div class="svc-card">'+
@@ -3319,7 +3352,7 @@ function vService(slug){
    return '<section class="sec"><h2 class="h2">See what our members say.</h2><p class="p muted">Swipe to watch our members tell it'+(ci>=0?', or read a full case study':'')+'.</p>'+
      '<div class="swipe" style="margin-top:18px">'+TESTIMONIALS.map(testiCard2).join('')+'</div>'+
      (ci>=0?'<div style="margin-top:14px">'+csCard(CASE_STUDIES[ci],ci)+'</div>':'')+'</section>';})()+
- '<section class="sec cta-block"><h2 class="h2">Start with a free at-home assessment.</h2><p class="p muted" style="margin-bottom:18px">A specialist sees what you need in person, and the doctor decides what genuinely helps you, including what you can skip. The visit is free.</p><button class="btn" data-lead>Book a free trial</button></section>'+
+ '<section class="sec cta-block"><h2 class="h2">Start with a free at-home assessment.</h2>'+bookFrame(p.slug==='physiotherapy')+'</section>'+
  '<section class="sec"><h2 class="h2">People also ask</h2><div style="margin-top:18px">'+faqList(p.faqs||serviceFaqs(p.name))+'</div></section>'+
  footer()}
 
@@ -3478,7 +3511,7 @@ function vHow(){
      '</div>'+
    '</section>'+
    '<section class="sec jw-appsec">'+
-     '<div class="jw-cta"><button class="btn block xl" data-lead>Book a free trial</button></div>'+
+     '<div class="jw-cta">'+bookFrame(false,'btn block xl')+'</div>'+
    '</section>'+
    '<section class="sec jw-point">'+
      '<div class="jw-step"><span class="n">02</span><h3>Your plan, by your health consultant</h3></div>'+
@@ -3550,7 +3583,7 @@ function vPricing(){
      '</div>'+
      '<p class="pc-foot">The doctor scopes the right intensity, so you only pay for the care you actually need.</p>'+
      '<div class="jw-cta jw-btns">'+
-       '<button class="btn block xl" data-lead>Book a free trial</button>'+
+       '<button class="btn block xl" data-lead>Book a free session</button>'+
        '<button class="btn block line" data-go="/quiz">Take the quiz to know your pricing</button>'+
        '<button class="btn block line" data-lead>Request a call back</button>'+
      '</div>'+
@@ -3581,7 +3614,7 @@ function vStories(){
    '<div class="grid">'+TESTIMONIALS.map(storyCard).join('')+'</div>'+
  '</section>'+
  '<section class="sec"><h2 class="h2">What members <span class="it">say.</span></h2><p class="p muted">Real reviews from the families we care for.</p>'+gRateChip()+'<div class="swipe rvw-swipe">'+REVIEWS.map(reviewCard).join('')+'</div></section>'+
- '<section class="sec cta-block"><h2 class="h2">Want a change like theirs? Start at home.</h2><p class="p muted" style="margin-bottom:18px">It begins with one home visit, where we understand your needs and show you what is possible.</p><button class="btn" data-lead>Book a free trial</button></section>'+
+ '<section class="sec cta-block"><h2 class="h2">Want a change like theirs? Start at home.</h2>'+bookFrame(false)+'</section>'+
  '<section class="sec"><h2 class="h2">More moments, in under a <span class="it">minute.</span></h2><p class="p muted">Short stories from our families, on Instagram, YouTube, and more.</p><div class="reels">'+REELS.map(reelCard).join('')+'</div>'+appBanner({title:'More clips like these, and your whole plan, in the app.'})+'</section>'+
  '<section class="sec"><div class="band"><div class="cardttl" style="margin-top:0">Want to talk it through first?</div><p class="p muted">Message us on WhatsApp and we will help you decide, or read the full journey below.</p><div style="margin-top:16px">'+waBtn('I would like the same kind of help for my parent','Message us on WhatsApp','orange')+'</div><div style="margin-top:14px">'+link('/case-studies','Read the full stories')+'</div></div></section>'+
  footer()}
@@ -3594,10 +3627,10 @@ var ABOUT_JOURNEY=[
  'So we became one team, not one treatment, because the body does not heal in parts.'
 ];
 var ABOUT_FAQS=[
- {q:'How do I get started with Kinetic Age?',a:'You start with a free trial. A specialist visits your home, sees what you need, and tells you what would help. You decide where to go from there.'},
+ {q:'How do I get started with Kinetic Age?',a:'You start with a free session. A specialist visits your home, sees what you need, and tells you what would help. You decide where to go from there.'},
  {q:'What areas do you serve?',a:CITIES_LINE},
  {q:'Is your care team qualified and verified?',a:'Yes. Our care team is qualified and background-verified, part of a trained team of 45 and growing, because letting someone into your home takes trust.'},
- {q:'What does the free trial include?',a:'A specialist visits your home, assesses your health, and explains what would help. You see how the care works before you decide, and the first visit is free.'}
+ {q:'What does the free session include?',a:'A specialist visits your home, assesses your health, and explains what would help. You see how the care works before you decide, and the first visit is free.'}
 ];
 function vAbout(){
  var KA='<svg class="creed-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v20M2 12h20M4.5 4.5l15 15M19.5 4.5l-15 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
@@ -3611,12 +3644,12 @@ function vAbout(){
      '<div class="creed-card g" style="--i:0">'+KAG+'<span class="creed-lbl">'+KA+'Our Mission</span><p class="creed-tx">To bring <span class="it">complete health care</span> into the comfort of your home, looking after every part of your wellbeing, and to stay close each day, so support is <span class="it">always within reach.</span></p></div>'+
      '<div class="creed-card b" style="--i:1">'+KAG+'<span class="creed-lbl">'+KA+'Our Vision</span><p class="creed-tx">Our vision is to make a future where <span class="it">growing older at home means living well,</span> with care that keeps you stronger, steadier, and supported for the long run.</p></div>'+
    '</div></section>'+
- appShowcase({eyebrow:'Our technology',title:'We built our own technology <span class="it">to deliver care.</span>',intro:'Kinetic Age is a tech driven health care company. We bring your whole health into one place, your plan, exercises, meals, vitals, medicines, care team, and reports, by building our own app that keeps them working together. We believe care works best when every part of it is connected.',features:ABOUT_FEATURES,phones:['today','vitals'],link:'See what the app does'})+
+ appShowcase({eyebrow:'Our technology',title:'We built our own technology <span class="it">to deliver care.</span>',intro:'Kinetic Age is a tech driven care company. We bring your whole health into one place, your plan, exercises, meals, vitals, medicines, care team, and reports, by building our own app that keeps them working together. We believe care works best when every part of it is connected, and when your family can follow along, wherever they are.',features:APP_BULLETS,phones:['today','vitals'],link:'See what the app does'})+
  '<section class="sec"><h2 class="h2">Our senior care team</h2><p class="p muted">Meet some of our senior care team, part of a trained team of 45 and growing. Every one is qualified and verified, because letting someone into your home takes trust.</p>'+teamScroll()+'</section>'+
  '<section class="sec"><h2 class="h2">The record so far.</h2><div style="margin-top:14px">'+statStrip()+'</div><div style="margin-top:16px">'+link('/conditions','See the conditions we treat')+'</div></section>'+
  '<section class="sec"><h2 class="h2">At home, across India&rsquo;s <span class="it">top cities.</span></h2><p class="p muted">We bring care to your door across the top cities of India.</p>'+bangaloreMap()+'</section>'+
  '<section class="sec"><h2 class="h2">People also ask</h2><div style="margin-top:18px">'+faqList(ABOUT_FAQS)+'</div></section>'+
- '<section class="sec cta-block"><h2 class="h2">If this sounds like the care you want, start with a free trial.</h2><p class="p muted" style="margin-bottom:18px">It starts with one free visit. We come to you and listen.</p><button class="btn" data-lead>Book a free trial</button><div class="cta-second">'+link('/how-we-work','See how we work')+'</div></section>'+
+ '<section class="sec cta-block"><h2 class="h2">If this sounds like the care you want, start with a free session.</h2>'+bookFrame(false)+'<div class="cta-second">'+link('/how-we-work','See how we work')+'</div></section>'+
  footer()}
 
 var csSvc='all';
@@ -3682,7 +3715,7 @@ function vCase(slug){
    '<div class="cs-comp"><span class="kick">What we did</span><ul class="cs-bul teal">'+c.did.map(li).join('')+'</ul><div class="chips" style="margin-top:12px">'+c.pillars.map(chip).join('')+'</div></div>'+
    '<div class="cs-comp"><span class="kick green">The outcome</span><p class="p">'+c.outcome+'</p><div class="cs-scoreline">'+c.scores+'</div><p class="p muted" style="margin-top:12px">Through it all, the plan, the guided exercises, and every report stayed in the Kinetic Age app, so the family could follow along between visits.</p><figure class="cs-saying"><blockquote>'+c.quote+'</blockquote><figcaption>'+c.attr+'</figcaption></figure></div>'+
    (c.conds&&c.conds.length?'<div class="cs-comp"><span class="kick">Related conditions</span><div class="chips" style="margin-top:6px">'+c.conds.map(chip).join('')+'</div></div>':'')+
-   '<div class="cta-block" style="margin-top:28px;padding:34px 0"><h2 class="h2">Could this be your story too?</h2><p class="p muted" style="margin-bottom:18px">It starts with an assessment at your home, and a specialist sees what would help.</p><button class="btn" data-lead>Book a Free Trial</button><div class="cta-second">'+link('/case-studies','See more case studies')+'</div></div>'+
+   '<div class="cta-block" style="margin-top:28px;padding:34px 0"><h2 class="h2">Could this be your story too?</h2>'+bookFrame(false)+'<div class="cta-second">'+link('/case-studies','See more case studies')+'</div></div>'+
    '<div class="cs-comp"><span class="kick">More stories</span><div class="pillar-links" style="margin-top:10px">'+others.map(function(o){return link('/case-studies/'+o.slug,o.headline)}).join('')+'</div></div>'+
    '<div class="cs-comp"><span class="kick">People also ask</span><div style="margin-top:12px">'+faqList(CASE_FAQS)+'</div></div>'+
   '</section>'+footer();
@@ -3690,7 +3723,7 @@ function vCase(slug){
 function vCases(){
  return heroBand('g-home','','Real recoveries, <span class="it">real families.</span>','Stories from the people we care for, at home, across India&rsquo;s top cities.')+
   '<section class="sec" style="padding-top:22px"><div class="csgrid">'+CASE_STUDIES.map(csCard).join('')+'</div></section>'+
-  '<section class="sec cta-block"><h2 class="h2">Want a recovery like this for you and your family?</h2><p class="p muted" style="margin-bottom:18px">A specialist sees you at home and tells you what would help.</p><button class="btn" data-lead>Book a Free Trial</button></section>'+
+  '<section class="sec cta-block"><h2 class="h2">Want a recovery like this for you and your family?</h2>'+bookFrame(false)+'</section>'+
   '<section class="sec"><h2 class="h2">People also ask</h2><div style="margin-top:18px">'+faqList(CASE_FAQS)+'</div></section>'+
  footer()}
 
@@ -3732,13 +3765,17 @@ var CONDITION_SIGNS={
  'Knee or joint pain':'the muscles around the joint quietly weaken and balance starts to slip, often before anyone notices, which is what turns a sore knee into a fall.',
  'Balance and falls':'a fall usually traces back to weakness and slowed reflexes that build for months beforehand, and the fear of the next fall shrinks activity even further.',
  'Recovery after surgery or stroke':'progress stalls when strength and balance are not rebuilt together, and low mood after a setback slows recovery more than most families expect.',
- 'Weakness and low energy':'low energy at this age is usually muscle loss and under-nutrition feeding each other, not simply getting older.',
+ 'Weakness and low energy':'low energy at this age is usually muscle loss and under-nutrition feeding each other, more than age alone.',
  'Memory or mood':'memory and mood changes often travel with poor sleep, low activity and missed nutrition, each one deepening the next.',
  'Parkinson’s or tremor':'stiffness and smaller steps lead to falls and lost confidence, and the right movement work can slow that drift.',
  'Diabetes or weight':'blood sugar, weight and joint load all pull on each other, so managing one without the others rarely holds.',
  'Something else':'most conditions at this age show up across movement, strength, nutrition and mood at once, rarely in just one place.'
 };
 function whoRef(w){return w==='Myself'?'you':w==='Mother'?'your mother':w==='Father'?'your father':'them';}
+// the report text sent on WhatsApp after step 4 (real send needs the WhatsApp Business API; stubbed to console for now)
+function quizWaMessage(){var who=whoRef(qAns[0]||''),concern=lc(qAns[1]||'this'),sx=qAns[2]||[],pills=[];
+ sx.forEach(function(k){var pl=symBy(k).pillar; if(FIVE.indexOf(pl)>-1&&pills.indexOf(pl)<0)pills.push(pl);});
+ return 'Hi '+qName+', here is your Kinetic Age quick read for '+who+'. From your answers, '+concern+' is showing up across '+pills.length+' of our five care areas: '+pills.join(', ')+'. The full picture needs an in-person check. Book a free session and a specialist completes your report, online or at home: '+location.origin+'/';}
 var CONCERN_PRESETS=['Knee or joint pain','Balance and falls','Recovery after surgery or stroke','Weakness and low energy','Memory or mood','Parkinson’s or tremor','Diabetes or weight'];
 var QUESTIONS=[
  {q:'Who is this for?',opts:['Mother','Father','Myself','Someone else']},
@@ -3748,10 +3785,10 @@ var QUESTIONS=[
 ];
 /* contextual filler so a sparse question screen does not feel empty */
 function quizAside(step){
- var a=[{t:'Doctor-supervised, start to finish',d:'Every plan is built and watched by a doctor, not just an app.'},
-   {t:'We care for 40+ conditions at home',d:'Type yours if it is not listed, there is likely a path for it.'},
-   {t:'A condition is rarely one thing',d:'Most show up across three or more areas of health at once.'},
-   {t:'Routine is the hidden driver',d:'Daily habits often decide whether a small issue grows.'}][step];
+ var a=[{t:'Doctor-supervised, start to finish',d:'Every plan is built and watched by a doctor.'},
+   {t:'We care for 40+ conditions at home',d:'Type yours if it is not listed.'},
+   {t:'A condition is rarely one thing',d:'Most show up across three or more areas at once.'},
+   {t:'Routine is the hidden driver',d:'Daily habits decide whether a small issue grows.'}][step];
  return a?'<div class="qaside"><span class="qaside-ic">'+CHECK()+'</span><div class="qaside-tx"><b>'+a.t+'</b><span>'+a.d+'</span></div></div>':'';
 }
 var qStep=0, qAns={}, qOther={}, qName='', qPhone='';
@@ -3764,7 +3801,7 @@ function vQuiz(){
   var WHO=[['Mother','For my mother'],['Father','For my father'],['Myself','For my own health'],['Someone else','A relative or friend']];
   body='<div class="qhero"><img src="couple.png" alt=""><span class="qhero-tag">2-minute read</span></div>'+
    '<div class="quiz-q">'+Q.q+'</div>'+
-   '<p class="quiz-intro">Tell us what is going on. We will show you what it likely means, and the care that would actually help.</p>'+
+   '<p class="quiz-intro">Tell us what is going on. We will show you what it likely means.</p>'+
    '<div class="opts grid2">'+WHO.map(function(w){return '<button class="opt card'+(sel===w[0]?' on':'')+'" data-qopt="'+w[0]+'"><b>'+w[0]+'</b><span>'+w[1]+'</span></button>';}).join('')+'</div>'+
    quizAside(0);
  } else if(qStep<4){var Q=QUESTIONS[qStep];var sel=qAns[qStep]||(Q.multi?[]:null);
@@ -3779,10 +3816,11 @@ function vQuiz(){
    (Q.multi?'<div style="margin-top:18px"><button class="btn block" data-qnext>Continue</button></div>':'')+
    quizAside(qStep);
  } else if(qStep===4){
-  body='<div class="quiz-hint">Last step</div><div class="quiz-q">Where should we send the full report?</div>'+
+  body='<div class="quiz-hint">Last step</div><div class="quiz-q">Where should we send your full report?</div>'+
    '<div class="qfield"><label for="qn">Your name</label><input id="qn" value="'+qName.replace(/"/g,'&quot;')+'" placeholder="e.g. Anita"></div>'+
    '<div class="qfield"><label for="qp">WhatsApp number</label><input id="qp" inputmode="tel" value="'+qPhone.replace(/"/g,'&quot;')+'" placeholder="10-digit number"></div>'+
-   '<div style="margin-top:22px"><button class="btn block" id="qsend"'+((qName&&qPhone)?'':' disabled style="opacity:.5"')+'>See my analysis</button></div>';
+   '<div style="margin-top:22px"><button class="btn block" id="qsend"'+((qName&&qPhone)?'':' disabled style="opacity:.5"')+'>Send my report on WhatsApp</button>'+
+   '<p class="lead-fine" style="margin-top:12px">We will send your full report on WhatsApp and show a preview now.</p></div>';
  } else {
   var who=qAns[0]||''; var whoR=whoRef(who);
   var concern=qAns[1]||'this'; var sx=qAns[2]||[]; var rt=qAns[3]||[];
@@ -3790,16 +3828,17 @@ function vQuiz(){
     if(FIVE.indexOf(p)>-1&&pills.indexOf(p)<0)pills.push(p);
     return '<div class="o qmap"><span class="qsym">'+k+'</span><span class="qarr">→</span><span class="qpill">'+p+'</span></div>';}).join('');
   var LOCK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
-  var obs='<div class="o">For '+whoR+', '+lc(concern)+' is rarely one thing. From your answers, here is what it is showing up as, and the care each part needs:</div>'+rows+
+  var obs='<div class="o">For '+whoR+', here is what your answers point to, and the care each part needs:</div>'+rows+
     (pills.length?'<div class="o hl">That already touches <b>'+pills.length+'</b> of our five care areas. Each needs its own kind of care, and left alone they feed each other.</div>':'')+
     '<div class="o">With '+lc(concern)+', '+(CONDITION_SIGNS[concern]||CONDITION_SIGNS['Something else'])+'</div>'+
     (rt.length?'<div class="o">And given the routine you described ('+rt.map(lc).join(', ')+'), these tend to deepen faster.</div>':'');
   body='<div class="quiz-hint">Your quick read</div><div class="quiz-q">'+lc(concern).charAt(0).toUpperCase()+lc(concern).slice(1)+' is rarely one thing.</div><div class="obs">'+obs+'</div>'+
     '<div class="qneed"><div class="qneed-h">'+LOCK+'Your analysis is not finished</div>'+
-     '<p class="qneed-p">A quiz can surface the signs. It cannot measure them. These need an in-person check before we can tell you what is driving the rest:</p>'+
-     '<ul><li>'+LOCK+'Real muscle strength and grip</li><li>'+LOCK+'Balance and walking pattern</li><li>'+LOCK+'Vitals and blood pressure</li><li>'+LOCK+'Joint range and flexibility</li></ul></div>'+
-    '<button class="btn block" data-lead>Book a free assessment</button>'+
-    '<p class="lead-fine" style="margin-top:12px">Free, at home. Your report fills in after.</p>';
+     '<p class="qneed-p">A quiz shows the signs. Measuring them needs an in-person check:</p>'+
+     '<ul><li>'+LOCK+'Real muscle strength and grip</li><li>'+LOCK+'Balance and walking pattern</li><li>'+LOCK+'Vitals and blood pressure</li><li>'+LOCK+'Joint range and flexibility</li></ul>'+
+     '<p class="qneed-p" style="margin-top:12px">Your full report is on its way to WhatsApp. To finish it, a specialist checks the rest in person.</p></div>'+
+    '<button class="btn block" data-lead>Book a free session</button>'+
+    '<p class="lead-fine" style="margin-top:12px">Free, worth &#8377;1,200 &middot; Your report fills in after.</p>';
  }
  return '<div class="quiz">'+topbar+body+'</div>';
 }
@@ -3884,7 +3923,11 @@ document.addEventListener('click',function(e){
  if(e.target.id==='qSearchGo'){var qs=document.getElementById('qsearch'),sv=qs?qs.value.trim():'';if(sv){qAns[qStep]=sv;qStep++;render();}return;}
  if(e.target.closest('[data-qnext]')){var ot=(qOther[qStep]||'').trim();if(ot){var aa=qAns[qStep]||[];if(aa.indexOf(ot)<0)aa.push(ot);qAns[qStep]=aa;qOther[qStep]='';}qStep++;render();return;}
  if(e.target.closest('[data-qback]')){if(qStep>0)qStep--;render();return;}
- if(e.target.id==='qsend'){var n=document.getElementById('qn').value.trim(),p=document.getElementById('qp').value.trim();if(n&&p){qName=n;qPhone=p;console.log('Quiz lead',qAns,n,p);qStep++;render();}return;}
+ if(e.target.id==='qsend'){var n=document.getElementById('qn').value.trim(),p=document.getElementById('qp').value.trim();if(n&&p){qName=n;qPhone=p;
+   try{localStorage.setItem('ka_quiz_lead',JSON.stringify({name:n,phone:p,answers:qAns,ts:Date.now()}));}catch(e){}
+   console.log('[quiz] lead saved before result:',{name:n,phone:p});
+   console.log('[quiz] WhatsApp report to send (needs WhatsApp Business API):',quizWaMessage());
+   qStep++;render();}return;}
 });
 
 /* keep gate inputs in state so re-render does not wipe them */
@@ -3925,7 +3968,7 @@ function openReel(idx){
      '<span class="reel-chip">'+t.metric.k+' <s>'+t.metric.before+'</s> &rarr; <b>'+t.metric.after+'</b> <em>'+t.metric.delta+'</em></span></div>'+
    '<button class="reel-tap" aria-label="Play or pause"></button>'+
    '<div class="reel-end"><span class="reel-end-k">'+t.metric.k+' '+t.metric.delta+'</span><h3>That is the kind of change we work toward.</h3>'+
-     '<button class="btn light xl block" data-lead>Book a free trial</button>'+
+     '<button class="btn light xl block" data-lead>Book a free session</button>'+
      '<button class="btn ghost block" data-go="/how-we-work">See how we work</button>'+
      '<div class="reel-end-nav"><button class="reel-back">&larr; Back</button><button class="reel-next">Next story &rarr;</button></div>'+
      '<button class="reel-replay">Replay story</button></div>'+
@@ -3956,24 +3999,48 @@ function openReel(idx){
    optional upgrade with a clean escape hatch. Mirrors the reel overlay. */
 var leadEl=null, leadStep=0, leadSkipped=false, leadD;
 function leadReset(){leadStep=0; leadSkipped=false;
- leadD={name:'',phone:'',city:'',mode:'',email:'',guests:[],pincode:'',address:'',day:'',slot:''};}
+ leadD={name:'',phone:'',city:'',mode:'',email:'',guests:[],pincode:'',address:'',locality:'',day:'',period:'',slot:''};}
 function leadEsc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
 function firstName(n){return (n||'').trim().split(/\s+/)[0]||'there';}
 function leadChips(arr,sel){return arr.map(function(v){return '<button type="button" class="lead-chip'+(sel===v?' on':'')+'" data-ldval="'+v+'">'+v+'</button>';}).join('');}
-function leadOpt(attr,key,sel,off,title,desc){return '<button type="button" class="lead-opt'+(sel===key?' on':'')+(off?' off':'')+'"'+(off?' disabled':'')+' '+attr+'="'+key+'"><span class="lead-opt-t">'+title+'</span><span class="lead-opt-d">'+desc+'</span></button>';}
-function leadTime(){return '<p class="lead-q">Which day?</p><div class="lead-chips" data-ldgroup="day">'+leadChips(['Today','Tomorrow','This week'],leadD.day)+'</div>'+
-  '<p class="lead-q">Time of day?</p><div class="lead-chips" data-ldgroup="slot">'+leadChips(['Morning','Afternoon','Evening'],leadD.slot)+'</div>';}
+function leadOpt(attr,key,sel,off,title,desc){return '<button type="button" class="lead-opt'+(sel===key?' on':'')+(off?' off':'')+'"'+(off?' disabled':'')+' '+attr+'="'+key+'"><span class="lead-opt-t">'+title+'</span>'+(desc?'<span class="lead-opt-d">'+desc+'</span>':'')+'</button>';}
+var LEAD_DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+var LEAD_MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+var LEAD_PERIODS=[['Morning','8 \u2013 11 am'],['Evening','4 \u2013 7 pm'],['Night','7 \u2013 9 pm']];
+var LEAD_SLOTS={'Morning':['8:00 am','9:00 am','10:00 am','11:00 am'],'Evening':['4:00 pm','5:00 pm','6:00 pm','7:00 pm'],'Night':['7:00 pm','7:30 pm','8:00 pm','8:30 pm']};
+function leadDayList(){var out=[],n=new Date();for(var i=1;i<=7;i++){out.push(new Date(n.getFullYear(),n.getMonth(),n.getDate()+i));}return out;}
+function leadDayKey(d){return LEAD_DOW[d.getDay()]+' '+d.getDate()+' '+LEAD_MON[d.getMonth()];}
+// deterministic per day+period+slot, so availability stays stable across re-renders
+function slotTaken(seed,pi,si){return ((seed*13+pi*7+si*5)%17)<5;}
+function leadTime(){
+ var dayRow=leadDayList().map(function(d){var k=leadDayKey(d),on=leadD.day===k;
+   return '<button type="button" class="lead-day'+(on?' on':'')+'" data-ldval="'+k+'"><span class="ld-dow">'+LEAD_DOW[d.getDay()]+'</span><span class="ld-dom">'+d.getDate()+'</span><span class="ld-mon">'+LEAD_MON[d.getMonth()]+'</span></button>';}).join('');
+ var html='<p class="lead-q">Pick a day</p><div class="lead-days" data-ldgroup="day">'+dayRow+'</div>';
+ if(leadD.day){
+   html+='<p class="lead-q">Time of day</p><div class="lead-chips" data-ldgroup="period">'+LEAD_PERIODS.map(function(pp){var on=leadD.period===pp[0];
+     return '<button type="button" class="lead-chip lead-period'+(on?' on':'')+'" data-ldval="'+pp[0]+'"><b>'+pp[0]+'</b><span>'+pp[1]+'</span></button>';}).join('')+'</div>';
+ }
+ if(leadD.day&&leadD.period){
+   var seed=parseInt(leadD.day.split(' ')[1],10)||1, pi=['Morning','Evening','Night'].indexOf(leadD.period), avail=0;
+   var chips=(LEAD_SLOTS[leadD.period]||[]).map(function(t,si){var taken=slotTaken(seed,pi,si); if(!taken)avail++;
+     return taken?'<button type="button" class="lead-chip off" disabled>'+t+'</button>'
+       :'<button type="button" class="lead-chip'+(leadD.slot===t?' on':'')+'" data-ldval="'+t+'">'+t+'</button>';}).join('');
+   html+='<p class="lead-q">Available times <span style="color:var(--faint)">on '+leadD.day+'</span></p><div class="lead-chips" data-ldgroup="slot">'+chips+'</div>'+
+     (avail?'':'<p class="lead-slot-note">These are full. Try another time of day or another date.</p>');
+ }
+ return html;
+}
 function bankLead(){var rec={name:leadD.name,phone:leadD.phone,ts:Date.now()};
   try{localStorage.setItem('ka_lead',JSON.stringify(rec));}catch(e){}
   console.log('[lead] step 1 banked (reachable from here on):',rec);}
 /* pull live field values into state so a re-render never wipes typed input */
 function readLeadInputs(){
- var m={ldName:'name',ldPhone:'phone',ldEmail:'email',ldPin:'pincode',ldAddr:'address'};
+ var m={ldName:'name',ldPhone:'phone',ldEmail:'email',ldPin:'pincode',ldAddr:'address',ldLocality:'locality'};
  for(var id in m){var el=document.getElementById(id); if(el)leadD[m[id]]=el.value;}
  leadD.guests=leadD.guests.map(function(g,i){var el=document.getElementById('ldGuest'+i); return el?el.value:g;});
 }
 function onlineReady(){return leadD.email.indexOf('@')>0&&leadD.day&&leadD.slot;}
-function offlineReady(){return leadD.pincode.trim()&&leadD.address.trim()&&leadD.day&&leadD.slot;}
+function offlineReady(){return leadD.pincode.trim()&&leadD.address.trim()&&leadD.locality.trim()&&leadD.day&&leadD.slot;}
 function leadNext(){
  var mid=leadSkipped?'We call you to lock a time that works'
    :leadD.mode==='Online'?'Your video consult link arrives'
@@ -3991,12 +4058,12 @@ function renderLead(){
   c='<button class="lead-x" aria-label="Close">&times;</button>'+
     '<div class="lead-strip"><img src="physio-scene.png" alt=""><img src="training-scene.png" alt=""><img src="doctor-scene.png" alt=""></div>'+
     '<div class="lead-body">'+
-     '<h3>Book your <em>Free At-Home Health Assessment</em> with our team of experts.</h3>'+
+     '<h3>Book your <em>free session</em> with our team of experts.</h3>'+
      '<p class="lead-sub">Personalised guidance from physiotherapists, fitness and nutrition specialists.</p>'+
      '<div class="lead-field"><label for="ldName">Your good name*</label><input id="ldName" value="'+leadEsc(leadD.name)+'" placeholder="e.g. Anita Sharma"></div>'+
      '<div class="lead-field"><label for="ldPhone">Your WhatsApp number*</label><input id="ldPhone" inputmode="tel" value="'+leadEsc(leadD.phone)+'" placeholder="+91 99748 17300"></div>'+
-     '<button class="btn block" id="ldNext"'+(ok?'':' disabled')+'>Claim my free assessment</button>'+
-     '<p class="lead-fine">Takes 20 seconds. We reach out on WhatsApp.</p>'+
+     '<button class="btn block" id="ldNext"'+(ok?'':' disabled')+'>Book a free session</button>'+
+     '<p class="lead-fine lead-anchor">'+BOOK_ANCHOR+'</p>'+
     '</div>';
  } else if(leadStep===1){
   var outside=leadD.city==='Outside';
@@ -4005,8 +4072,8 @@ function renderLead(){
      '<h3>Let us tailor your assessment.</h3>'+
      '<p class="lead-q" style="margin-top:14px">Where are you based?</p>'+
      '<div class="lead-opts row">'+
-       leadOpt('data-ldcity','Bangalore',leadD.city,false,'In a service city','Visit or online')+
-       leadOpt('data-ldcity','Outside',leadD.city,false,'Outside','Online only')+
+       leadOpt('data-ldcity','Bangalore',leadD.city,false,'Bangalore')+
+       leadOpt('data-ldcity','Outside',leadD.city,false,'Other city')+
      '</div>'+
      '<p class="lead-q">How would you like it?</p>'+
      '<div class="lead-opts row">'+
@@ -4031,8 +4098,10 @@ function renderLead(){
   } else {
    c=head+'<div class="lead-body lead-pad">'+
      '<h3>Where should we visit?</h3>'+
+     '<button type="button" class="lead-add lead-maps" id="ldMaps"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10Z"/><circle cx="12" cy="11" r="2.3"/></svg>Pick the location on Google Maps</button>'+
+     '<div class="lead-field"><label for="ldAddr">Flat, building, and street*</label><input id="ldAddr" value="'+leadEsc(leadD.address)+'" placeholder="Flat 4B, Sunrise Apartments, 12th Main"></div>'+
+     '<div class="lead-field"><label for="ldLocality">Locality and area*</label><input id="ldLocality" value="'+leadEsc(leadD.locality)+'" placeholder="Indiranagar"></div>'+
      '<div class="lead-field"><label for="ldPin">Pin code*</label><input id="ldPin" inputmode="numeric" value="'+leadEsc(leadD.pincode)+'" placeholder="560038"></div>'+
-     '<div class="lead-field"><label for="ldAddr">Address*</label><input id="ldAddr" value="'+leadEsc(leadD.address)+'" placeholder="Flat, building, area"></div>'+
      leadTime()+
      '<button class="btn block" id="ldBook"'+(offlineReady()?'':' disabled')+'>Confirm booking</button>'+
      '<button class="lead-skip" id="ldSkip">Skip, just call me to schedule</button>'+
@@ -4041,16 +4110,17 @@ function renderLead(){
  } else {
   var m;
   if(leadSkipped) m={h:'You are all set, '+leadEsc(firstName(leadD.name))+'.',p:'Nothing more to do right now. We have your number and we take it from here.'};
-  else if(leadD.mode==='Online') m={h:'Your online consult is set.',p:'A '+lc(leadD.slot)+' video link ('+lc(leadD.day)+') goes to '+leadEsc(leadD.email)+(leadD.guests.filter(Boolean).length?' and your guests':'')+'.'};
-  else m={h:'Your home visit is booked.',p:'A care team member arrives '+lc(leadD.day)+', '+lc(leadD.slot)+', at '+leadEsc(leadD.pincode)+'.'};
-  var CLOCK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
+  else if(leadD.mode==='Online') m={h:'Your online consult is set.',p:'A video link for '+leadEsc(leadD.day)+' at '+leadEsc(leadD.slot)+' goes to '+leadEsc(leadD.email)+(leadD.guests.filter(Boolean).length?' and your guests':'')+'.'};
+  else m={h:'Your home visit is booked.',p:'A care team member arrives '+leadEsc(leadD.day)+' at '+leadEsc(leadD.slot)+', at '+leadEsc(leadD.pincode)+'.'};
+  var appDesc=leadSkipped?'See your care team, your session day and time, and every update, in one place.'
+    :leadD.mode==='Online'?'See your care team, your session day and time, and your video link, in one place.'
+    :'See your care team, the day and time of your visit, and who is coming to you, in one place.';
   c='<button class="lead-x" aria-label="Close">&times;</button>'+
     '<div class="lead-confirm"><div class="lead-ic">'+CHECK()+'</div><h3>'+m.h+'</h3><p>'+m.p+'</p>'+
-    '<div class="lead-assure">'+CLOCK+'Our team will reach out within 2 hours</div>'+
     leadNext()+
     '<div class="lead-app"><span class="lead-app-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></span>'+
-      '<span class="lead-app-tx"><b>Get the Kinetic Age app</b><span>Track your plan, get updates, and message your team in one place.</span></span>'+
-      '<a class="lead-app-get" href="#" target="_blank" rel="noreferrer">Get app</a></div>'+
+      '<span class="lead-app-tx"><b>Download the app to track your free session</b><span>'+appDesc+'</span></span>'+
+      '<a class="lead-app-get" href="#" target="_blank" rel="noreferrer">Download</a></div>'+
     '<button class="btn block" id="ldDone">Done</button></div>';
  }
  var card=document.createElement('div'); card.className='lead-card'; card.innerHTML=c;
@@ -4064,12 +4134,13 @@ function openLead(){if(leadEl)return; leadReset();
   if(e.target.closest('.lead-x')){closeLead();return;}
   if(e.target.closest('.lead-back')){readLeadInputs(); leadStep--; renderLead(); return;}
   var ch=e.target.closest('[data-ldval]');
-  if(ch){readLeadInputs(); leadD[ch.closest('[data-ldgroup]').getAttribute('data-ldgroup')]=ch.getAttribute('data-ldval'); renderLead(); return;}
+  if(ch){readLeadInputs(); var grp=ch.closest('[data-ldgroup]').getAttribute('data-ldgroup'); leadD[grp]=ch.getAttribute('data-ldval'); if(grp==='day'){leadD.period='';leadD.slot='';}else if(grp==='period'){leadD.slot='';} renderLead(); return;}
   var cty=e.target.closest('[data-ldcity]'); if(cty){leadD.city=cty.getAttribute('data-ldcity'); if(leadD.city==='Outside'&&leadD.mode==='Offline')leadD.mode=''; renderLead(); return;}
   var md=e.target.closest('[data-ldmode]'); if(md){if(md.disabled)return; leadD.mode=md.getAttribute('data-ldmode'); renderLead(); return;}
   if(e.target.closest('#ldContinue')){if(leadD.city&&leadD.mode){leadStep=2; renderLead();} return;}
   if(e.target.closest('#ldNext')){bankLead(); leadStep=1; renderLead(); return;}
   if(e.target.closest('#ldAddGuest')){readLeadInputs(); if(leadD.guests.length<2)leadD.guests.push(''); renderLead(); return;}
+  if(e.target.closest('#ldMaps')){window.open('https://www.google.com/maps','_blank','noopener'); return;}
   if(e.target.closest('#ldBook')){readLeadInputs();
    if(!(leadD.mode==='Online'?onlineReady():offlineReady()))return;
    console.log('[lead] step 2 booking:',{city:leadD.city,mode:leadD.mode,email:leadD.email,guests:leadD.guests.filter(Boolean),pincode:leadD.pincode,address:leadD.address,day:leadD.day,slot:leadD.slot});
@@ -4086,7 +4157,8 @@ function openLead(){if(leadEl)return; leadReset();
   if(id.indexOf('ldGuest')===0)leadD.guests[+id.slice(7)]=e.target.value;
   if(id==='ldName'||id==='ldPhone'){var b=document.getElementById('ldNext'); if(b)b.disabled=!(leadD.name.trim()&&leadD.phone.trim());}
   if(id==='ldEmail'){var be=document.getElementById('ldBook'); if(be)be.disabled=!onlineReady();}
-  if(id==='ldPin'||id==='ldAddr'){var bo=document.getElementById('ldBook'); if(bo)bo.disabled=!offlineReady();}
+  if(id==='ldLocality')leadD.locality=e.target.value;
+  if(id==='ldPin'||id==='ldAddr'||id==='ldLocality'){var bo=document.getElementById('ldBook'); if(bo)bo.disabled=!offlineReady();}
  });
  document.body.appendChild(el);
  document.documentElement.style.overflow='hidden';
