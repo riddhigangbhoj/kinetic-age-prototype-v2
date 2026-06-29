@@ -3011,7 +3011,6 @@ var COND_POPULAR=[
 ];
 function vConditions(){
  return heroBand('g-field','','Your condition is where we start.<span class="it">We treat the whole of it.</span>','We treat every symptom, and how they connect, so nothing about your health is handled on its own.')+
- '<section class="sec cta-block" style="padding-top:20px">'+bookFrame(false)+'</section>'+
  '<section class="sec" style="padding-top:18px">'+
    '<p class="cond-orquiz" style="margin-top:0;margin-bottom:12px">Search your condition, or browse below.</p>'+
    '<div class="cond-search"><svg class="cs-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.4-3.4"/></svg>'+
@@ -3342,7 +3341,7 @@ function vService(slug){
        '<div class="kahome"><span class="kahome-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.4 12 4l9 7.4"/><path d="M5 9.8V19a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.8"/><path d="M9.5 20v-5.2h5V20"/></svg></span><div class="kahome-bd"><span class="kahome-lbl">Care at home</span><p class="kahome-tx">'+p.about.home+'</p></div></div>'+
      '</section>'
    : '<section class="sec"><h2 class="h2">What '+n+' is.</h2><p class="p muted">[PLACEHOLDER] What '+n+' covers, who it helps, and what it looks like delivered at home. Specific, with clinical sign-off.</p></section>'+photo)+
- '<section class="sec"><h2 class="h2">'+(p.treatsHeading||('Conditions '+n+' helps.'))+'</h2><div class="pillar-links">'+(p.treats||p.conditions.map(function(s){var cc=condBy(s);return [cc?cc.name:s,s];})).map(function(x){return link('/conditions/'+x[1],x[0])}).join('')+'</div>'+(SVC_APP[p.slug]?appNote(SVC_APP[p.slug]):'')+'</section>'+
+ '<section class="sec"><h2 class="h2">'+(p.treatsHeading||('Conditions '+n+' helps.'))+'</h2><div class="pillar-links">'+(p.treats||p.conditions.map(function(s){var cc=condBy(s);return [cc?cc.name:s,s];})).map(function(x){return link('/conditions/'+x[1],x[0])}).join('')+'</div>'+'<div style="margin-top:16px">'+link('/conditions','See more conditions')+'</div>'+(SVC_APP[p.slug]?appNote(SVC_APP[p.slug]):'')+'</section>'+
  '<section class="sec"><h2 class="h2">'+p.name+' goes further when your whole health is cared for.</h2>'+(p.synergy
    ? '<p class="p">'+p.synergy.intro+'</p><div class="syn">'+p.synergy.items.map(function(it){return '<div class="syn-item '+it.lane+'"><div class="syn-lbl">'+it.label+'</div><p class="syn-tx">'+it.text+'</p>'+link(it.to,it.link)+'</div>';}).join('')+'</div>'
    : '<p class="p muted">[PLACEHOLDER] How '+n+' combines with the other pillars for real results, in plain words, with clinical sign-off.</p><div class="pillar-links">'+PILLARS.filter(function(x){return x.slug!==p.slug}).map(function(x){return link('/services/'+x.slug,x.name)}).join('')+'</div>')+'</section>'+
